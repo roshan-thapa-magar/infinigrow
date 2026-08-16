@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Menu, TrendingUp } from "lucide-react"
+import { ArrowRight, Menu } from "lucide-react"
+import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -31,7 +32,7 @@ export function Header() {
         const handleScroll = () => {
             const currentScrollY = window.scrollY
 
-            // Always show header near the top of the page
+            // Always show header near the top
             if (currentScrollY < 80) {
                 setIsHidden(false)
                 lastScrollY.current = currentScrollY
@@ -44,23 +45,30 @@ export function Header() {
             lastScrollY.current = currentScrollY
         }
 
-        window.addEventListener("scroll", handleScroll, { passive: true })
-        return () => window.removeEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll, {
+            passive: true,
+        })
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
     }, [])
 
     return (
         <header
             className={`sticky top-0 z-50 h-16 w-full border-b bg-background/80 backdrop-blur-xl transition-transform duration-300 ${
-                isHidden ? "-translate-y-full" : "translate-y-0"
+                isHidden
+                    ? "-translate-y-full"
+                    : "translate-y-0"
             }`}
         >
-            <div className="container mx-auto max-w-7xl h-full px-4 md:px-8">
+            <div className="container mx-auto h-full max-w-7xl px-4 md:px-8">
                 <div className="flex h-full items-center justify-between">
 
-                    {/* LEFT SIDE */}
-                    <div className="flex items-center gap-3">
+                    {/* ================= LEFT SIDE ================= */}
+                    <div className="flex items-center">
 
-                        {/* Mobile Menu */}
+                        {/* ================= MOBILE MENU ================= */}
                         <div className="md:hidden">
                             <Sheet>
                                 <SheetTrigger
@@ -75,15 +83,35 @@ export function Header() {
                                     className="w-[280px] sm:w-[320px]"
                                 >
                                     <SheetHeader>
-                                        <SheetTitle className="flex items-center gap-2 text-left">
-                                            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-                                                <TrendingUp className="h-5 w-5 text-primary-foreground" />
+                                        <SheetTitle className="flex items-center gap-3 text-left">
+
+                                            {/* Mobile Logo */}
+                                            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+                                                <Image
+                                                    src="/images/logo3.png"
+                                                    alt="InfiniGrow Technologies"
+                                                    width={48}
+                                                    height={48}
+                                                    className="h-10 w-10 object-contain"
+                                                    quality={100}
+                                                    sizes="40px"
+                                                />
                                             </div>
 
-                                            <span>InfiniGrow</span>
+                                            {/* Mobile Brand */}
+                                            <span className="text-[19px] font-extrabold tracking-[-0.04em]">
+                                                <span className="text-foreground">
+                                                    Infini
+                                                </span>
+                                                <span className="text-emerald-500">
+                                                    Grow
+                                                </span>
+                                            </span>
+
                                         </SheetTitle>
                                     </SheetHeader>
 
+                                    {/* Mobile Navigation */}
                                     <nav className="mt-8 flex flex-col gap-2">
                                         {navItems.map((item) => (
                                             <Link
@@ -96,6 +124,7 @@ export function Header() {
                                         ))}
                                     </nav>
 
+                                    {/* Mobile CTA */}
                                     <div className="mt-8 border-t pt-6">
                                         <Button className="w-full">
                                             Get Started
@@ -106,22 +135,38 @@ export function Header() {
                             </Sheet>
                         </div>
 
-                        {/* Logo */}
+                        {/* ================= MAIN LOGO ================= */}
                         <Link
                             href="/"
-                            className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
+                            className="group flex items-center gap-0 transition-opacity hover:opacity-90"
                         >
-                            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary shadow-sm">
-                                <TrendingUp className="h-5 w-5 text-primary-foreground" />
+                            {/* Logo Image */}
+                            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+                                <Image
+                                    src="/images/logo3.png"
+                                    alt="InfiniGrow Technologies"
+                                    width={48}
+                                    height={48}
+                                    className="h-10 w-10 object-contain"
+                                    quality={100}
+                                    priority
+                                    sizes="40px"
+                                />
                             </div>
 
-                            <span className="text-lg font-bold tracking-tight">
-                                InfiniGrow
+                            {/* Brand Name */}
+                            <span className="text-[19px] font-extrabold tracking-[-0.04em]">
+                                <span className="text-foreground">
+                                    Infini
+                                </span>
+                                <span className="text-emerald-500 transition-colors group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                                    Grow
+                                </span>
                             </span>
                         </Link>
 
-                        {/* Desktop Navigation */}
-                        <nav className="hidden items-center gap-1 md:flex">
+                        {/* ================= DESKTOP NAVIGATION ================= */}
+                        <nav className="hidden items-center gap-1 md:flex pl-4">
                             {navItems.map((item) => (
                                 <Link
                                     key={item.name}
@@ -134,10 +179,13 @@ export function Header() {
                         </nav>
                     </div>
 
-                    {/* RIGHT SIDE */}
+                    {/* ================= RIGHT SIDE ================= */}
                     <div className="flex items-center gap-2">
+
+                        {/* Theme Toggle */}
                         <ThemeToggle />
 
+                        {/* Get Started */}
                         <Button
                             size="sm"
                             className="hidden sm:inline-flex"
@@ -145,8 +193,8 @@ export function Header() {
                             Get Started
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </header>
