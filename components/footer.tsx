@@ -13,6 +13,7 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import Image from "next/image"
 
 const footerLinks = {
     Company: [
@@ -52,11 +53,32 @@ export function Footer() {
                             className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-80"
                         >
                             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-sm">
-                                <Infinity className="h-5 w-5 text-primary-foreground" />
+                                <Image
+                                    src="/images/logo5.png"
+                                    alt="InfiniGrow Technologies"
+                                    width={40}
+                                    height={40}
+                                    className="h-10 w-10 object-contain rounded-md"
+                                    priority
+                                    sizes="40px"
+                                />
                             </div>
 
-                            <span className="text-xl font-bold tracking-tight">
-                                InfiniGrow
+                            <span className="text-[19px] font-extrabold tracking-[-0.04em]">
+                                <span className="text-foreground">
+                                    Infini
+                                </span>
+
+                                <span
+                                    className="
+                      text-emerald-500
+                      transition-colors
+                      group-hover:text-emerald-600
+                      dark:group-hover:text-emerald-400
+                    "
+                                >
+                                    Grow
+                                </span>
                             </span>
                         </Link>
 

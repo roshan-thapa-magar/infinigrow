@@ -95,10 +95,9 @@ export function Header() {
           duration-300
           ease-out
           supports-[backdrop-filter]:bg-background/75
-          ${
-            showHeader
-              ? "translate-y-0"
-              : "-translate-y-full"
+          ${showHeader
+            ? "translate-y-0"
+            : "-translate-y-full"
           }
         `}
       >
@@ -264,11 +263,12 @@ export function Header() {
               <ThemeToggle />
 
               <Button
-                size="sm"
+                size="lg"
                 className="hidden sm:inline-flex"
               >
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/contact">
+                  Contact Us
+                </Link>
               </Button>
             </div>
 
