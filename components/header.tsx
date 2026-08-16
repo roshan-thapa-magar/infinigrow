@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Menu, TrendingUp } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -21,9 +22,39 @@ const navItems = [
 ]
 
 export function Header() {
+    const [isHidden, setIsHidden] = useState(false)
+    const lastScrollY = useRef(0)
+
+    useEffect(() => {
+        lastScrollY.current = window.scrollY
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+
+            // Always show header near the top of the page
+            if (currentScrollY < 80) {
+                setIsHidden(false)
+                lastScrollY.current = currentScrollY
+                return
+            }
+
+            const scrolledDown = currentScrollY > lastScrollY.current
+
+            setIsHidden(scrolledDown)
+            lastScrollY.current = currentScrollY
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true })
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
     return (
-        <header className="sticky top-0 z-50 h-16 w-full border-b bg-background/80 backdrop-blur-xl">
-            <div className="container mx-auto h-full px-4 md:px-8">
+        <header
+            className={`sticky top-0 z-50 h-16 w-full border-b bg-background/80 backdrop-blur-xl transition-transform duration-300 ${
+                isHidden ? "-translate-y-full" : "translate-y-0"
+            }`}
+        >
+            <div className="container mx-auto max-w-7xl h-full px-4 md:px-8">
                 <div className="flex h-full items-center justify-between">
 
                     {/* LEFT SIDE */}
