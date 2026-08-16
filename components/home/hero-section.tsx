@@ -5,10 +5,12 @@ import Image from "next/image"
 
 export default function HeroSection() {
   return (
-    <section className="min-h-[calc(100vh-4rem)]">
-      <div className="container mx-auto max-w-7xl px-4 md:px-8 grid min-h-[calc(100vh-4rem)] items-center gap-12 md:grid-cols-2 lg:gap-16">
+    <section className="relative overflow-hidden">
+      <div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl grid-cols-1 items-center gap-12 px-4 md:min-h-[calc(100dvh-4rem)] md:grid-cols-2 md:px-8 lg:gap-16">
+
         {/* ================= LEFT COLUMN ================= */}
-        <div className="flex flex-col justify-center space-y-8 py-12 lg:py-0">
+        <div className="flex flex-col justify-center space-y-8 py-12 md:py-16 lg:py-0">
+
           {/* Badge */}
           <Badge
             className="
@@ -38,7 +40,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Description */}
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl text-justify">
+          <p className="max-w-xl text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
             We build modern software, AI-powered solutions, web applications,
             and digital products that help businesses innovate, automate,
             and scale with confidence.
@@ -65,11 +67,12 @@ export default function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid max-w-xl grid-cols-3 gap-4 border-t pt-8 sm:gap-6">
+          <div className="grid max-w-xl grid-cols-3 gap-3 border-t pt-8 sm:gap-6">
             <div>
               <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                 50+
               </p>
+
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
                 Projects Delivered
               </p>
@@ -79,6 +82,7 @@ export default function HeroSection() {
               <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                 20+
               </p>
+
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
                 Technologies
               </p>
@@ -88,6 +92,7 @@ export default function HeroSection() {
               <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                 99%
               </p>
+
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
                 Client Satisfaction
               </p>
@@ -96,19 +101,14 @@ export default function HeroSection() {
         </div>
 
         {/* ================= RIGHT COLUMN ================= */}
-        <div className="relative h-full min-h-[calc(100vh-4rem)] hidden md:block">
+        <div className="relative hidden h-[calc(100svh-4rem)] min-h-[600px] md:block md:h-[calc(100dvh-4rem)]">
+
           {/* Emerald Glow */}
           <div className="absolute inset-y-20 right-0 -z-10 w-3/4 rounded-full bg-emerald-500/10 blur-3xl" />
 
-          {/* Image Shape */}
+          {/* Image */}
           <div
-            className="
-              relative
-              h-full
-              min-h-[calc(100vh-4rem)]
-              overflow-hidden
-              bg-black
-            "
+            className="relative h-full w-full overflow-hidden bg-black"
             style={{
               clipPath:
                 "polygon(18% 0%, 100% 0%, 100% 100%, 18% 100%, 0% 50%)",
@@ -120,10 +120,10 @@ export default function HeroSection() {
               fill
               priority
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 767px) 100vw, 50vw"
             />
 
-            {/* Image Overlay */}
+            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
           </div>
         </div>
