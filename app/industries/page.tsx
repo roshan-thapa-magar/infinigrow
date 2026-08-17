@@ -157,7 +157,7 @@ export default function IndustriesPage() {
         }}
         secondaryButton={{
           label: "View Our Projects",
-          href: "/projects",
+          href: "/projects#projects",
         }}
       />
 

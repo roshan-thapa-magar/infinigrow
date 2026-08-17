@@ -197,7 +197,7 @@ export default function ValuesSection() {
             "
           >
             <Link
-              href="/services"
+              href="#"
               className="flex items-center gap-2"
             >
               Explore Our Services

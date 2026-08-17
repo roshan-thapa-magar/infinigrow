@@ -17,6 +17,7 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+
 import {
   Card,
   CardContent,
@@ -30,7 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-import { HeroSection } from "@/components/hero-section"
+import { HeroSection } from "@/components/project/hero-section"
 
 /* =========================================================
    FILTERS
@@ -197,7 +198,6 @@ const projects: Project[] = [
       "Arcjet",
       "Tailwind CSS",
     ],
-    
   },
 
   {
@@ -315,8 +315,34 @@ function statusStyle(status: ProjectStatus) {
 ========================================================= */
 
 export default function ProjectsPage() {
-  const [category, setCategory] = useState<string>("All")
-  const [status, setStatus] = useState<string>("All")
+  const [category, setCategory] = useState("All")
+  const [status, setStatus] = useState("All")
+
+  /* =======================================================
+     SCROLL TO PROJECTS
+  ======================================================= */
+
+  const scrollToProjects = () => {
+    const projectsSection =
+      document.getElementById("projects")
+
+    if (!projectsSection) return
+
+    const headerOffset = 80
+
+    const elementPosition =
+      projectsSection.getBoundingClientRect().top
+
+    const offsetPosition =
+      elementPosition +
+      window.scrollY -
+      headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    })
+  }
 
   /* =======================================================
      FILTER PROJECTS
@@ -347,6 +373,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="bg-background">
+
       {/* ===================================================
           HERO
       =================================================== */}
@@ -368,8 +395,8 @@ export default function ProjectsPage() {
           ),
         }}
         secondaryButton={{
-          label: "Explore Services",
-          href: "/services",
+          label: "View Projects",
+          onClick: scrollToProjects,
         }}
       />
 
@@ -379,7 +406,9 @@ export default function ProjectsPage() {
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
+
           <div className="max-w-3xl">
+
             <Badge
               variant="outline"
               className="border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
@@ -397,21 +426,26 @@ export default function ProjectsPage() {
               APIs, cloud infrastructure, and AI-powered
               products.
             </p>
+
           </div>
+
         </div>
       </section>
 
       {/* ===================================================
-          PROJECT SECTION
+          PROJECTS
       =================================================== */}
 
-      <section className="bg-muted/30 py-20 md:py-28">
+      <section
+        id="projects"
+        className="scroll-mt-24 bg-muted/30 py-20 md:py-28"
+      >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          {/* =================================================
-              SECTION HEADER
-          ================================================= */}
+
+          {/* HEADER */}
 
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                 Portfolio
@@ -428,18 +462,20 @@ export default function ProjectsPage() {
               </span>{" "}
               projects
             </p>
+
           </div>
 
-          {/* =================================================
-              FILTER BAR
-          ================================================= */}
+          {/* FILTERS */}
 
           <Card className="mt-8 border-0 shadow-sm">
             <CardContent className="p-4 md:p-5">
+
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                {/* CATEGORY FILTER */}
+
+                {/* CATEGORY */}
 
                 <div className="flex flex-1 flex-wrap gap-2">
+
                   {categories.map((item) => {
                     const active =
                       category === item
@@ -467,11 +503,13 @@ export default function ProjectsPage() {
                       </Button>
                     )
                   })}
+
                 </div>
 
-                {/* STATUS FILTER */}
+                {/* STATUS */}
 
                 <div className="flex items-center gap-2">
+
                   <span className="hidden text-sm text-muted-foreground sm:block">
                     Status:
                   </span>
@@ -499,32 +537,32 @@ export default function ProjectsPage() {
                       ))}
                     </SelectContent>
                   </Select>
+
                 </div>
+
               </div>
+
             </CardContent>
           </Card>
 
-          {/* =================================================
-              PROJECT GRID
-
-              MOBILE  → 1
-              TABLET  → 2
-              LARGE   → 3
-          ================================================= */}
+          {/* PROJECT GRID */}
 
           {filteredProjects.length > 0 ? (
+
             <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
               {filteredProjects.map(
                 (project, index) => (
+
                   <Card
                     key={project.title}
                     className="group relative overflow-hidden border bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    {/* =================================================
-                        IMAGE
-                    ================================================= */}
+
+                    {/* IMAGE */}
 
                     <div className="relative aspect-[16/9] overflow-hidden">
+
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -533,18 +571,13 @@ export default function ProjectsPage() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
 
-                      {/* IMAGE OVERLAY */}
-
                       <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20" />
 
-                      {/* PROJECT NUMBER */}
+                      {/* NUMBER */}
 
                       <div className="absolute left-5 top-5">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-xs font-bold shadow-sm backdrop-blur">
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
+                          {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
 
@@ -559,34 +592,28 @@ export default function ProjectsPage() {
                           {project.status}
                         </Badge>
                       </div>
+
                     </div>
 
-                    {/* =================================================
-                        CONTENT
-                    ================================================= */}
+                    {/* CONTENT */}
 
                     <CardContent className="p-6">
-                      {/* CATEGORY */}
 
                       <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+
                         <CategoryIcon
-                          category={
-                            project.category
-                          }
+                          category={project.category}
                         />
 
                         <span>
                           {project.category}
                         </span>
-                      </div>
 
-                      {/* TITLE */}
+                      </div>
 
                       <h3 className="mt-3 text-2xl font-bold tracking-tight">
                         {project.title}
                       </h3>
-
-                      {/* DESCRIPTION */}
 
                       <p className="mt-3 line-clamp-3 text-sm leading-7 text-muted-foreground">
                         {project.description}
@@ -595,45 +622,37 @@ export default function ProjectsPage() {
                       {/* TECHNOLOGIES */}
 
                       <div className="mt-5 flex min-h-[52px] flex-wrap content-start gap-2">
+
                         {project.technologies
                           .slice(0, 5)
-                          .map(
-                            (technology) => (
-                              <Badge
-                                key={
-                                  technology
-                                }
-                                variant="secondary"
-                                className="font-normal"
-                              >
-                                {technology}
-                              </Badge>
-                            )
-                          )}
+                          .map((technology) => (
+                            <Badge
+                              key={technology}
+                              variant="secondary"
+                              className="font-normal"
+                            >
+                              {technology}
+                            </Badge>
+                          ))}
 
-                        {project.technologies
-                          .length > 5 && (
+                        {project.technologies.length > 5 && (
                           <Badge variant="secondary">
                             +
-                            {project.technologies
-                              .length - 5}
+                            {project.technologies.length - 5}
                           </Badge>
                         )}
+
                       </div>
+
                     </CardContent>
 
-                    {/* =================================================
-                        FULL CARD HOVER OVERLAY
+                    {/* HOSTED PROJECT LINK */}
 
-                        The overlay covers the entire Card,
-                        so the icon is centered in the
-                        complete project card.
-                    ================================================= */}
-
-                    {project.status ===
-                      "Hosted" &&
+                    {project.status === "Hosted" &&
                       project.url && (
+
                         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition-all duration-300 group-hover:bg-black/25 group-hover:opacity-100 group-hover:backdrop-blur-[2px]">
+
                           <Button
                             
                             size="icon"
@@ -641,28 +660,33 @@ export default function ProjectsPage() {
                             aria-label={`View ${project.title}`}
                           >
                             <Link
-                              href={
-                                project.url
-                              }
+                              href={project.url}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
                               <ExternalLink className="h-6 w-6" />
                             </Link>
                           </Button>
+
                         </div>
+
                       )}
+
                   </Card>
+
                 )
               )}
+
             </div>
+
           ) : (
-            /* =================================================
-               EMPTY STATE
-            ================================================= */
+
+            /* EMPTY STATE */
 
             <Card className="mt-10">
+
               <CardContent className="flex flex-col items-center justify-center py-24 text-center">
+
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-muted">
                   <Code2 className="h-6 w-6 text-muted-foreground" />
                 </div>
@@ -685,9 +709,13 @@ export default function ProjectsPage() {
                 >
                   Clear Filters
                 </Button>
+
               </CardContent>
+
             </Card>
+
           )}
+
         </div>
       </section>
 
@@ -696,9 +724,13 @@ export default function ProjectsPage() {
       =================================================== */}
 
       <section className="border-t bg-emerald-600 text-white dark:bg-emerald-500">
+
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-20">
+
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+
             <div className="max-w-2xl">
+
               <p className="text-sm font-semibold uppercase tracking-wider text-white/70">
                 Start Your Project
               </p>
@@ -711,13 +743,14 @@ export default function ProjectsPage() {
                 Let's turn your idea into a reliable,
                 scalable digital product.
               </p>
+
             </div>
 
             <Button
-              
               size="lg"
               variant="secondary"
               className="shrink-0"
+              
             >
               <Link
                 href="/contact"
@@ -727,9 +760,13 @@ export default function ProjectsPage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
+
           </div>
+
         </div>
+
       </section>
+
     </main>
   )
 }

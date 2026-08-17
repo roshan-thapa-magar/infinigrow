@@ -138,7 +138,7 @@ export default function ServicePage({
                   size="lg"
                   variant="outline"
                 >
-                  <Link href="/services">
+                  <Link href="#">
                     Explore Services
                   </Link>
                 </Button>
