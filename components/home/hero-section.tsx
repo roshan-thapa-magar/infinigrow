@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Sparkles, Zap } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function HeroSection() {
   return (
@@ -52,7 +53,9 @@ export default function HeroSection() {
               size="lg"
               className="bg-primary text-primary-foreground shadow-lg shadow-emerald-500/20 hover:bg-primary/90"
             >
-              Start a Project
+              <Link href="/contact">
+                 Start a Project
+              </Link>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 

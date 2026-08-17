@@ -1,12 +1,24 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Menu } from "lucide-react"
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+import {
+  ArrowRight,
+  BrainCircuit,
+  ChevronDown,
+  Cloud,
+  Code2,
+  Globe,
+  Menu,
+  Server,
+  Smartphone,
+} from "lucide-react"
+import { usePathname } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+
 import {
   Sheet,
   SheetContent,
@@ -15,17 +27,119 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
+/* =========================================================
+   MAIN NAVIGATION
+
+   Home is intentionally removed because the logo links
+   to the home page.
+
+   About Us is placed at the end.
+========================================================= */
+
 const navItems = [
-  { name: "Product", href: "#product" },
-  { name: "Solutions", href: "#solutions" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Resources", href: "#resources" },
+  {
+    name: "Services",
+    href: "/services",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "Industries",
+    href: "/industries",
+  },
+  {
+    name: "Resources",
+    href: "/resources",
+  },
+  {
+    name: "About Us",
+    href: "/about",
+  },
+]
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+const serviceItems = [
+  {
+    name: "Web Development",
+    href: "/services/web-development",
+    description:
+      "Modern websites and scalable web applications built for performance.",
+    icon: Globe,
+  },
+  {
+    name: "Mobile Development",
+    href: "/services/mobile-development",
+    description:
+      "Native and cross-platform mobile apps for iOS and Android.",
+    icon: Smartphone,
+  },
+  {
+    name: "AI & Machine Learning",
+    href: "/services/ai-development",
+    description:
+      "AI-powered Projects, automation, intelligent apps, and integrations.",
+    icon: BrainCircuit,
+  },
+  {
+    name: "Software Development",
+    href: "/services/software-development",
+    description:
+      "Custom software designed around your business and operational needs.",
+    icon: Code2,
+  },
+  {
+    name: "API & Backend Development",
+    href: "/services/api-development",
+    description:
+      "Secure REST APIs, backend systems, integrations, and data services.",
+    icon: Server,
+  },
+  {
+    name: "Cloud & DevOps",
+    href: "/services/cloud-devops",
+    description:
+      "Reliable cloud infrastructure, deployment, scalability, and automation.",
+    icon: Cloud,
+  },
 ]
 
 export function Header() {
+  const pathname = usePathname()
+
+  /* =========================================================
+     STATES
+  ========================================================= */
+
   const [showHeader, setShowHeader] = useState(true)
+
+  const [mobileMenuOpen, setMobileMenuOpen] =
+    useState(false)
+
+  const [mobileServicesOpen, setMobileServicesOpen] =
+    useState(false)
+
+  const [desktopServicesOpen, setDesktopServicesOpen] =
+    useState(false)
+
+  /* =========================================================
+     REFS
+  ========================================================= */
+
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
+
+  const servicesCloseTimer = useRef<
+    ReturnType<typeof setTimeout> | undefined
+  >(undefined)
+
+  /* =========================================================
+     HEADER SCROLL BEHAVIOR
+  ========================================================= */
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +153,10 @@ export function Header() {
           document.documentElement.scrollTop ||
           0
 
-        // Always show header at the top
+        /* -----------------------------------------------
+           Always show header at top
+        ------------------------------------------------ */
+
         if (currentScrollY <= 20) {
           setShowHeader(true)
           lastScrollY.current = currentScrollY
@@ -47,39 +164,125 @@ export function Header() {
           return
         }
 
-        // Scrolling down
-        if (currentScrollY > lastScrollY.current + 5) {
+        /* -----------------------------------------------
+           Scrolling down
+        ------------------------------------------------ */
+
+        if (
+          currentScrollY >
+          lastScrollY.current + 5
+        ) {
           setShowHeader(false)
+          setDesktopServicesOpen(false)
         }
 
-        // Scrolling up
-        if (currentScrollY < lastScrollY.current - 5) {
+        /* -----------------------------------------------
+           Scrolling up
+        ------------------------------------------------ */
+
+        if (
+          currentScrollY <
+          lastScrollY.current - 5
+        ) {
           setShowHeader(true)
         }
 
         lastScrollY.current = currentScrollY
+
         ticking.current = false
       })
     }
 
-    // Set initial position
     lastScrollY.current =
       window.scrollY ||
       document.documentElement.scrollTop ||
       0
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    })
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true,
+      }
+    )
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      )
     }
   }, [])
 
+  /* =========================================================
+     CLEANUP
+  ========================================================= */
+
+  useEffect(() => {
+    return () => {
+      if (servicesCloseTimer.current) {
+        clearTimeout(
+          servicesCloseTimer.current
+        )
+      }
+    }
+  }, [])
+
+  /* =========================================================
+     ACTIVE ROUTE
+  ========================================================= */
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/"
+    }
+
+    return (
+      pathname === href ||
+      pathname.startsWith(`${href}/`)
+    )
+  }
+
+  const servicesActive =
+    pathname === "/services" ||
+    pathname.startsWith("/services/")
+
+  /* =========================================================
+     DESKTOP SERVICES MENU
+  ========================================================= */
+
+  const openServicesMenu = () => {
+    if (servicesCloseTimer.current) {
+      clearTimeout(
+        servicesCloseTimer.current
+      )
+    }
+
+    setDesktopServicesOpen(true)
+  }
+
+  const closeServicesMenu = () => {
+    servicesCloseTimer.current =
+      setTimeout(() => {
+        setDesktopServicesOpen(false)
+      }, 120)
+  }
+
+  /* =========================================================
+     MOBILE MENU
+  ========================================================= */
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false)
+    setMobileServicesOpen(false)
+  }
+
   return (
     <>
-      {/* ================= HEADER ================= */}
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
       <header
         className={`
           fixed
@@ -89,7 +292,7 @@ export function Header() {
           h-16
           w-full
           border-b
-          bg-background/90
+          bg-background/95
           backdrop-blur-xl
           transition-transform
           duration-300
@@ -102,14 +305,32 @@ export function Header() {
         `}
       >
         <div className="mx-auto h-full max-w-7xl px-4 md:px-8">
+
           <div className="flex h-full items-center justify-between">
 
-            {/* ================= LEFT ================= */}
+            {/* =================================================
+                LEFT SIDE
+            ================================================= */}
+
             <div className="flex min-w-0 items-center">
 
-              {/* MOBILE MENU */}
-              <div className="md:hidden">
-                <Sheet>
+              {/* =================================================
+                  MOBILE MENU
+              ================================================= */}
+
+              <div className="mr-2 md:hidden">
+
+                <Sheet
+                  open={mobileMenuOpen}
+                  onOpenChange={(open) => {
+                    setMobileMenuOpen(open)
+
+                    if (!open) {
+                      setMobileServicesOpen(false)
+                    }
+                  }}
+                >
+
                   <SheetTrigger
                     aria-label="Open menu"
                     className="
@@ -131,22 +352,61 @@ export function Header() {
 
                   <SheetContent
                     side="left"
-                    className="w-[280px] sm:w-[320px]"
+                    className="
+                      w-[290px]
+                      sm:w-[330px]
+                    "
                   >
-                    <SheetHeader>
-                      <SheetTitle className="flex items-center gap-3 text-left">
 
-                        <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+                    {/* =========================================
+                        MOBILE LOGO
+                    ========================================= */}
+
+                    <SheetHeader>
+
+                      <SheetTitle
+                        className="
+                          flex
+                          items-center
+                          gap-3
+                          text-left
+                        "
+                      >
+
+                        <div
+                          className="
+                            relative
+                            flex
+                            h-10
+                            w-10
+                            shrink-0
+                            items-center
+                            justify-center
+                          "
+                        >
+
                           <Image
                             src="/images/logo3.png"
                             alt="InfiniGrow Technologies"
                             width={40}
                             height={40}
-                            className="h-10 w-10 object-contain"
+                            className="
+                              h-10
+                              w-10
+                              object-contain
+                            "
                           />
+
                         </div>
 
-                        <span className="text-[19px] font-extrabold tracking-[-0.04em]">
+                        <span
+                          className="
+                            text-[19px]
+                            font-extrabold
+                            tracking-[-0.04em]
+                          "
+                        >
+
                           <span className="text-foreground">
                             Infini
                           </span>
@@ -154,44 +414,246 @@ export function Header() {
                           <span className="text-emerald-500">
                             Grow
                           </span>
+
                         </span>
 
                       </SheetTitle>
+
                     </SheetHeader>
 
-                    <nav className="mt-8 flex flex-col gap-2">
-                      {navItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="
+                    {/* =========================================
+                        MOBILE NAVIGATION
+                    ========================================= */}
+
+                    <nav className="mt-8 flex flex-col gap-1">
+
+                      {/* =======================================
+                          SERVICES
+                      ======================================= */}
+
+                      <div>
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setMobileServicesOpen(
+                              (value) => !value
+                            )
+                          }
+                          className={`
+                            flex
+                            w-full
+                            items-center
+                            justify-between
                             rounded-lg
                             px-4
                             py-3
                             text-sm
                             font-medium
-                            text-muted-foreground
                             transition-colors
-                            hover:bg-muted
-                            hover:text-foreground
-                          "
+                            ${servicesActive
+                              ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                            }
+                          `}
                         >
-                          {item.name}
-                        </Link>
-                      ))}
+
+                          <span>
+                            Services
+                          </span>
+
+                          <ChevronDown
+                            className={`
+                              h-4
+                              w-4
+                              transition-transform
+                              duration-200
+                              ${mobileServicesOpen
+                                ? "rotate-180"
+                                : ""
+                              }
+                            `}
+                          />
+
+                        </button>
+
+                        {/* MOBILE SERVICES */}
+
+                        <div
+                          className={`
+                            grid
+                            overflow-hidden
+                            transition-all
+                            duration-200
+                            ${mobileServicesOpen
+                              ? "grid-rows-[1fr] opacity-100"
+                              : "grid-rows-[0fr] opacity-0"
+                            }
+                          `}
+                        >
+
+                          <div className="min-h-0">
+
+                            <div
+                              className="
+                                ml-3
+                                mt-1
+                                border-l
+                                pl-2
+                              "
+                            >
+
+                              {serviceItems.map(
+                                (service) => {
+
+                                  const active =
+                                    isActive(
+                                      service.href
+                                    )
+
+                                  return (
+                                    <Link
+                                      key={
+                                        service.name
+                                      }
+                                      href={
+                                        service.href
+                                      }
+                                      onClick={
+                                        closeMobileMenu
+                                      }
+                                      className={`
+                                        flex
+                                        items-center
+                                        rounded-md
+                                        px-4
+                                        py-2.5
+                                        text-sm
+                                        font-medium
+                                        transition-colors
+                                        ${active
+                                          ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                          : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                                        }
+                                      `}
+                                    >
+                                      {
+                                        service.name
+                                      }
+                                    </Link>
+                                  )
+                                }
+                              )}
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      {/* =======================================
+                          OTHER NAVIGATION
+                      ======================================= */}
+
+                      {navItems
+                        .filter(
+                          (item) =>
+                            item.name !==
+                            "Services"
+                        )
+                        .map((item) => {
+
+                          const active =
+                            isActive(
+                              item.href
+                            )
+
+                          return (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={
+                                closeMobileMenu
+                              }
+                              className={`
+                                flex
+                                items-center
+                                rounded-lg
+                                px-4
+                                py-3
+                                text-sm
+                                font-medium
+                                transition-colors
+                                ${active
+                                  ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                                }
+                              `}
+                            >
+                              {item.name}
+                            </Link>
+                          )
+                        })}
+
                     </nav>
 
-                    <div className="mt-8 border-t pt-6">
-                      <Button className="w-full">
-                        Get Started
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                    {/* =========================================
+                        MOBILE CONTACT
+                    ========================================= */}
+
+                    <div
+                      className="
+                        mt-8
+                        border-t
+                        pt-6
+                      "
+                    >
+
+                      <Link
+                        href="/contact"
+                        onClick={
+                          closeMobileMenu
+                        }
+                        className="
+                          flex
+                          w-full
+                          items-center
+                          justify-center
+                          gap-2
+                          rounded-md
+                          bg-emerald-600
+                          px-4
+                          py-2.5
+                          text-sm
+                          font-medium
+                          text-white
+                          transition-colors
+                          hover:bg-emerald-700
+                          dark:bg-emerald-500
+                          dark:hover:bg-emerald-600
+                        "
+                      >
+
+                        Contact Us
+
+                        <ArrowRight className="h-4 w-4" />
+
+                      </Link>
+
                     </div>
+
                   </SheetContent>
+
                 </Sheet>
+
               </div>
 
-              {/* LOGO */}
+              {/* =================================================
+                  LOGO
+              ================================================= */}
+
               <Link
                 href="/"
                 className="
@@ -204,19 +666,43 @@ export function Header() {
                   hover:opacity-90
                 "
               >
-                <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+
+                <div
+                  className="
+                    relative
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                  "
+                >
+
                   <Image
                     src="/images/logo3.png"
                     alt="InfiniGrow Technologies"
                     width={40}
                     height={40}
-                    className="h-10 w-10 object-contain"
+                    className="
+                      h-10
+                      w-10
+                      object-contain
+                    "
                     priority
                     sizes="40px"
                   />
+
                 </div>
 
-                <span className="text-[19px] font-extrabold tracking-[-0.04em]">
+                <span
+                  className="
+                    text-[19px]
+                    font-extrabold
+                    tracking-[-0.04em]
+                  "
+                >
+
                   <span className="text-foreground">
                     Infini
                   </span>
@@ -231,53 +717,563 @@ export function Header() {
                   >
                     Grow
                   </span>
+
                 </span>
+
               </Link>
 
-              {/* DESKTOP NAV */}
-              <nav className="ml-4 hidden items-center gap-1 md:flex">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="
-                      rounded-lg
+              {/* =================================================
+                  DESKTOP NAVIGATION
+              ================================================= */}
+
+              <nav
+                className="
+                  ml-4
+                  hidden
+                  h-16
+                  items-center
+                  gap-0
+                  md:flex
+                "
+              >
+
+                {/* =================================================
+                    SERVICES
+                ================================================= */}
+
+                <div
+                  className="
+                    relative
+                    h-16
+                  "
+                  onMouseEnter={
+                    openServicesMenu
+                  }
+                  onMouseLeave={
+                    closeServicesMenu
+                  }
+                >
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      desktopServicesOpen
+                        ? setDesktopServicesOpen(
+                          false
+                        )
+                        : openServicesMenu()
+                    }
+                    className={`
+                      relative
+                      flex
+                      h-16
+                      items-center
+                      gap-1.5
+                      rounded-none
                       px-4
-                      py-2
                       text-sm
                       font-medium
-                      text-muted-foreground
                       transition-colors
-                      hover:bg-muted
-                      hover:text-foreground
-                    "
+                      duration-200
+                      ${servicesActive
+                        ? "text-emerald-600 dark:text-emerald-400"
+                        : "text-muted-foreground hover:text-foreground"
+                      }
+                    `}
                   >
-                    {item.name}
-                  </Link>
-                ))}
+
+                    Services
+
+                    <ChevronDown
+                      className={`
+                        h-3.5
+                        w-3.5
+                        transition-transform
+                        duration-200
+                        ${desktopServicesOpen
+                          ? "rotate-180"
+                          : ""
+                        }
+                      `}
+                    />
+
+                    {/* ACTIVE BORDER */}
+
+                    <span
+                      className={`
+                        absolute
+                        bottom-0
+                        left-1/2
+                        h-[3px]
+                        -translate-x-1/2
+                        rounded-t-full
+                        bg-emerald-500
+                        transition-all
+                        duration-300
+                        ${servicesActive
+                          ? "w-16 opacity-100"
+                          : "w-0 opacity-0"
+                        }
+                      `}
+                    />
+
+                  </button>
+
+                </div>
+
+                {/* =================================================
+                    Projects
+                ================================================= */}
+
+                <Link
+                  href="/projects"
+                  className={`
+                    relative
+                    flex
+                    h-16
+                    items-center
+                    rounded-none
+                    px-4
+                    text-sm
+                    font-medium
+                    transition-colors
+                    duration-200
+                    ${isActive("/projects")
+                      ? "text-emerald-600 dark:text-emerald-400"
+                      : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
+                >
+
+                  Projects
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-1/2
+                      h-[3px]
+                      -translate-x-1/2
+                      rounded-t-full
+                      bg-emerald-500
+                      transition-all
+                      duration-300
+                      ${isActive("/projects")
+                        ? "w-16 opacity-100"
+                        : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+
+                </Link>
+
+                {/* =================================================
+                    Industries
+                ================================================= */}
+
+                <Link
+                  href="/industries"
+                  className={`
+                    relative
+                    flex
+                    h-16
+                    items-center
+                    rounded-none
+                    px-4
+                    text-sm
+                    font-medium
+                    transition-colors
+                    duration-200
+                    ${isActive("/industries")
+                      ? "text-emerald-600 dark:text-emerald-400"
+                      : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
+                >
+
+                  Industries
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-1/2
+                      h-[3px]
+                      -translate-x-1/2
+                      rounded-t-full
+                      bg-emerald-500
+                      transition-all
+                      duration-300
+                      ${isActive("/industries")
+                        ? "w-16 opacity-100"
+                        : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+
+                </Link>
+
+                {/* =================================================
+                    RESOURCES
+                ================================================= */}
+
+                <Link
+                  href="/resources"
+                  className={`
+                    relative
+                    flex
+                    h-16
+                    items-center
+                    rounded-none
+                    px-4
+                    text-sm
+                    font-medium
+                    transition-colors
+                    duration-200
+                    ${isActive("/resources")
+                      ? "text-emerald-600 dark:text-emerald-400"
+                      : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
+                >
+
+                  Resources
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-1/2
+                      h-[3px]
+                      -translate-x-1/2
+                      rounded-t-full
+                      bg-emerald-500
+                      transition-all
+                      duration-300
+                      ${isActive("/resources")
+                        ? "w-16 opacity-100"
+                        : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+
+                </Link>
+
+                {/* =================================================
+                    ABOUT US — LAST
+                ================================================= */}
+
+                <Link
+                  href="/about"
+                  className={`
+                    relative
+                    flex
+                    h-16
+                    items-center
+                    rounded-none
+                    px-4
+                    text-sm
+                    font-medium
+                    transition-colors
+                    duration-200
+                    ${isActive("/about")
+                      ? "text-emerald-600 dark:text-emerald-400"
+                      : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
+                >
+
+                  About Us
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-1/2
+                      h-[3px]
+                      -translate-x-1/2
+                      rounded-t-full
+                      bg-emerald-500
+                      transition-all
+                      duration-300
+                      ${isActive("/about")
+                        ? "w-16 opacity-100"
+                        : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+
+                </Link>
+
               </nav>
+
             </div>
 
-            {/* ================= RIGHT ================= */}
-            <div className="flex shrink-0 items-center gap-2">
+            {/* =================================================
+                RIGHT SIDE
+            ================================================= */}
+
+            <div
+              className="
+                flex
+                shrink-0
+                items-center
+                gap-2
+              "
+            >
+
               <ThemeToggle />
 
               <Button
                 size="lg"
-                className="hidden sm:inline-flex"
+                className="
+                  hidden
+                  bg-emerald-600
+                  text-white
+                  hover:bg-emerald-700
+                  sm:inline-flex
+                  dark:bg-emerald-500
+                  dark:hover:bg-emerald-600
+                "
               >
-                <Link href="/contact">
+
+                <Link
+                  href="/contact"
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                  "
+                >
+
                   Contact Us
+
+                  <ArrowRight className="h-4 w-4" />
+
                 </Link>
+
               </Button>
+
             </div>
 
           </div>
+
         </div>
       </header>
 
-      {/* ================= HEADER SPACE ================= */}
-      <div className="h-16 w-full" aria-hidden="true" />
+      {/* =====================================================
+          FULL WIDTH DESKTOP SERVICES MEGA MENU
+      ===================================================== */}
+
+      <div
+        className={`
+          fixed
+          left-0
+          right-0
+          top-16
+          z-[9998]
+          hidden
+          w-full
+          transition-all
+          duration-200
+          md:block
+          ${desktopServicesOpen
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-2 opacity-0"
+          }
+        `}
+        onMouseEnter={
+          openServicesMenu
+        }
+        onMouseLeave={
+          closeServicesMenu
+        }
+      >
+
+        <div
+          className="
+            w-full
+            border-b
+            bg-background
+            shadow-xl
+          "
+        >
+
+          <div
+            className="
+              mx-auto
+              max-w-7xl
+              px-4
+              py-7
+              md:px-8
+            "
+          >
+
+            {/* SERVICE GRID */}
+
+            <div
+              className="
+                grid
+                grid-cols-3
+                gap-x-8
+                gap-y-3
+              "
+            >
+
+              {serviceItems.map(
+                (service) => {
+
+                  const Icon =
+                    service.icon
+
+                  const active =
+                    isActive(
+                      service.href
+                    )
+
+                  return (
+                    <Link
+                      key={
+                        service.name
+                      }
+                      href={
+                        service.href
+                      }
+                      onClick={() =>
+                        setDesktopServicesOpen(
+                          false
+                        )
+                      }
+                      className={`
+                        group
+                        rounded-xl
+                        px-4
+                        py-5
+                        transition-all
+                        duration-200
+                        ${active
+                          ? "bg-emerald-500/5"
+                          : "hover:bg-muted/70"
+                        }
+                      `}
+                    >
+
+                      <div
+                        className="
+                          flex
+                          items-start
+                          gap-4
+                        "
+                      >
+
+                        {/* ICON */}
+
+                        <div
+                          className={`
+                            flex
+                            h-10
+                            w-10
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-lg
+                            transition-all
+                            duration-200
+                            ${active
+                              ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                              : "bg-muted text-foreground group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
+                            }
+                          `}
+                        >
+
+                          <Icon className="h-5 w-5" />
+
+                        </div>
+
+                        {/* CONTENT */}
+
+                        <div className="min-w-0">
+
+                          <div
+                            className="
+                              flex
+                              items-center
+                              gap-2
+                            "
+                          >
+
+                            <h3
+                              className={`
+                                text-sm
+                                font-semibold
+                                tracking-tight
+                                ${active
+                                  ? "text-emerald-600 dark:text-emerald-400"
+                                  : "text-foreground"
+                                }
+                              `}
+                            >
+                              {
+                                service.name
+                              }
+                            </h3>
+
+                            <ArrowRight
+                              className="
+                                h-4
+                                w-4
+                                shrink-0
+                                -translate-x-1
+                                text-emerald-500
+                                opacity-0
+                                transition-all
+                                duration-200
+                                group-hover:translate-x-0
+                                group-hover:opacity-100
+                              "
+                            />
+
+                          </div>
+
+                          <p
+                            className="
+                              mt-2
+                              max-w-md
+                              text-sm
+                              leading-5
+                              text-muted-foreground
+                            "
+                          >
+                            {
+                              service.description
+                            }
+                          </p>
+
+                        </div>
+
+                      </div>
+
+                    </Link>
+                  )
+                }
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* =====================================================
+          HEADER SPACE
+      ===================================================== */}
+
+      <div
+        className="h-16 w-full"
+        aria-hidden="true"
+      />
     </>
   )
 }
