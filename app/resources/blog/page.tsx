@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { HeroSection } from "@/components/hero-section"
+import { BlogImage } from "./blog-image"
 
 /* =========================================================
    CATEGORIES
@@ -103,8 +104,7 @@ const posts: BlogPost[] = [
   },
 
   {
-    title:
-      "React Native vs Native App Development",
+    title: "React Native vs Native App Development",
     slug: "react-native-vs-native-app-development",
     category: "Mobile Development",
     description:
@@ -115,8 +115,7 @@ const posts: BlogPost[] = [
   },
 
   {
-    title:
-      "How AI Can Automate Repetitive Business Workflows",
+    title: "How AI Can Automate Repetitive Business Workflows",
     slug: "how-ai-can-automate-business-workflows",
     category: "AI",
     description:
@@ -127,8 +126,7 @@ const posts: BlogPost[] = [
   },
 
   {
-    title:
-      "How Much Does It Cost to Build Custom Software?",
+    title: "How Much Does It Cost to Build Custom Software?",
     slug: "how-much-does-custom-software-cost",
     category: "Business",
     description:
@@ -139,8 +137,7 @@ const posts: BlogPost[] = [
   },
 
   {
-    title:
-      "API Development: Why Modern Applications Need APIs",
+    title: "API Development: Why Modern Applications Need APIs",
     slug: "why-modern-applications-need-apis",
     category: "Software Development",
     description:
@@ -155,11 +152,7 @@ const posts: BlogPost[] = [
    CATEGORY ICON
 ========================================================= */
 
-function CategoryIcon({
-  category,
-}: {
-  category: string
-}) {
+function CategoryIcon({ category }: { category: string }) {
   const className = "h-4 w-4"
 
   switch (category) {
@@ -200,8 +193,7 @@ export default function BlogPage() {
 
     return posts.filter((post) => {
       const categoryMatch =
-        category === "All" ||
-        post.category === category
+        category === "All" || post.category === category
 
       const searchMatch =
         !query ||
@@ -217,9 +209,7 @@ export default function BlogPage() {
      FEATURED
   ======================================================= */
 
-  const featuredPost = posts.find(
-    (post) => post.featured
-  )
+  const featuredPost = posts.find((post) => post.featured)
 
   return (
     <main className="bg-background">
@@ -239,9 +229,7 @@ export default function BlogPage() {
         primaryButton={{
           label: "Explore Articles",
           href: "#articles",
-          icon: (
-            <ArrowRight className="h-4 w-4" />
-          ),
+          icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{
           label: "Let's Talk",
@@ -268,16 +256,14 @@ export default function BlogPage() {
             >
               {/* IMAGE */}
 
-              <div className="relative aspect-[16/10] overflow-hidden bg-muted lg:aspect-auto">
-                <img
+              <div className="relative">
+                <BlogImage
                   src={featuredPost.image}
                   alt={featuredPost.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  aspect="aspect-[16/10] lg:h-full lg:aspect-auto"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-                <div className="absolute left-5 top-5">
+                <div className="absolute left-5 top-5 z-20">
                   <Badge className="border-0 bg-background/90 text-foreground backdrop-blur">
                     Featured
                   </Badge>
@@ -288,10 +274,7 @@ export default function BlogPage() {
 
               <div className="flex flex-col justify-center p-7 md:p-10">
                 <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                  <CategoryIcon
-                    category={featuredPost.category}
-                  />
-
+                  <CategoryIcon category={featuredPost.category} />
                   {featuredPost.category}
                 </div>
 
@@ -329,10 +312,7 @@ export default function BlogPage() {
           ARTICLES
       =================================================== */}
 
-      <section
-        id="articles"
-        className="bg-muted/30 py-20 md:py-28"
-      >
+      <section id="articles" className="bg-muted/30 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           {/* HEADER */}
 
@@ -369,14 +349,8 @@ export default function BlogPage() {
                     key={item}
                     type="button"
                     size="sm"
-                    variant={
-                      active
-                        ? "default"
-                        : "outline"
-                    }
-                    onClick={() =>
-                      setCategory(item)
-                    }
+                    variant={active ? "default" : "outline"}
+                    onClick={() => setCategory(item)}
                     className={
                       active
                         ? "bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
@@ -396,9 +370,7 @@ export default function BlogPage() {
 
               <Input
                 value={search}
-                onChange={(event) =>
-                  setSearch(event.target.value)
-                }
+                onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search articles..."
                 className="pl-9"
               />
@@ -423,16 +395,14 @@ export default function BlogPage() {
                 >
                   {/* IMAGE */}
 
-                  <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                    <img
+                  <div className="relative">
+                    <BlogImage
                       src={post.image}
                       alt={post.title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      aspect="aspect-[16/9]"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                    <div className="absolute left-4 top-4">
+                    <div className="absolute left-4 top-4 z-20">
                       <Badge className="border-0 bg-background/90 text-foreground backdrop-blur">
                         {post.category}
                       </Badge>
@@ -485,8 +455,8 @@ export default function BlogPage() {
               </h3>
 
               <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
-                Try searching for another keyword or
-                selecting a different category.
+                Try searching for another keyword or selecting a different
+                category.
               </p>
 
               <Button
@@ -522,20 +492,15 @@ export default function BlogPage() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
-            If you are planning a project and need help
-            choosing the right technology or approach,
-            our team is ready to help.
+            If you are planning a project and need help choosing the right
+            technology or approach, our team is ready to help.
           </p>
 
           <Button
-            
             size="lg"
             className="mt-8 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
           >
-            <Link
-              href="/contact"
-              className="flex items-center gap-2"
-            >
+            <Link href="/contact" className="flex items-center gap-2">
               Let's Talk
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -560,21 +525,13 @@ export default function BlogPage() {
               </h2>
 
               <p className="mt-4 max-w-xl leading-7 text-white/80">
-                Let's turn your idea into a reliable,
-                scalable digital product.
+                Let's turn your idea into a reliable, scalable digital
+                product.
               </p>
             </div>
 
-            <Button
-              
-              size="lg"
-              variant="secondary"
-              className="shrink-0"
-            >
-              <Link
-                href="/contact"
-                className="flex items-center gap-2"
-              >
+            <Button size="lg" variant="secondary" className="shrink-0">
+              <Link href="/contact" className="flex items-center gap-2">
                 Let's Build
                 <ArrowRight className="h-4 w-4" />
               </Link>
