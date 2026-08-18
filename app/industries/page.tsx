@@ -427,19 +427,26 @@ export default function IndustriesPage() {
               "AI Development",
               "UI/UX Design",
               "Technology Consulting",
-            ].map((service) => (
-              <Link
-                key={service}
-                href="/services"
-                className="group flex items-center justify-between rounded-xl border bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500/40 hover:shadow-md"
-              >
-                <span className="text-sm font-medium">
-                  {service}
-                </span>
+            ].map((service) => {
+              const slug = service
+                .toLowerCase()
+                .replace(/&/g, "and")
+                .replace(/[/\s]+/g, "-")
 
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400" />
-              </Link>
-            ))}
+              return (
+                <Link
+                  key={service}
+                  href={`/services/${slug}`}
+                  className="group flex items-center justify-between rounded-xl border bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500/40 hover:shadow-md"
+                >
+                  <span className="text-sm font-medium">
+                    {service}
+                  </span>
+
+                  <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400" />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -468,7 +475,7 @@ export default function IndustriesPage() {
             </div>
 
             <Button
-              
+
               size="lg"
               variant="secondary"
               className="shrink-0"

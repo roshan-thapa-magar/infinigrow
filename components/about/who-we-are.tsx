@@ -194,7 +194,7 @@ export default function WhoWeAre() {
                 className="group"
               >
                 <Link
-                  href="/services"
+                  href="#"
                   className="flex items-center gap-2"
                 >
                   Explore Our Services
