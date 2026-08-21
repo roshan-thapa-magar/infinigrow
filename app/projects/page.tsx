@@ -13,6 +13,7 @@ import {
   Cloud,
   Bot,
   Database,
+  Briefcase,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -31,7 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-import { HeroSection } from "@/components/project/hero-section"
+import { HeroSection } from "@/components/hero-section"
 
 /* =========================================================
    FILTERS
@@ -388,15 +389,14 @@ export default function ProjectsPage() {
         image="/images/projects/image.png"
         imageAlt="InfiniGrow projects"
         primaryButton={{
-          label: "Start Your Project",
-          href: "/contact",
-          icon: (
-            <ArrowRight className="h-4 w-4" />
-          ),
+          label: "Our Services",
+          href: "/services",
+          icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{
-          label: "View Projects",
-          onClick: scrollToProjects,
+          label: "Contact Us",
+          href: "/contact",
+          icon: <Briefcase className="h-4 w-4" />,
         }}
       />
 

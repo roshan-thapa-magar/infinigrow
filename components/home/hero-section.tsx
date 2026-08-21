@@ -64,7 +64,9 @@ export default function HeroSection() {
               variant="outline"
               className="border-2 hover:bg-muted"
             >
-              Explore Services
+              <Link href="/services">
+                 Explore Services
+              </Link>
               <Zap className="ml-2 h-4 w-4" />
             </Button>
           </div>

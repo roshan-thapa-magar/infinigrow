@@ -19,6 +19,7 @@ import {
   Menu,
   Server,
   Smartphone,
+  Languages,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -31,6 +32,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { LanguageSwitcher } from "./LanguageSwitcher"
 
 /* =========================================================
    MAIN NAVIGATION
@@ -55,10 +57,6 @@ const navItems = [
     href: "/industries",
   },
   {
-    name: "Resources",
-    href: "/resources",
-  },
-  {
     name: "About Us",
     href: "/about",
   },
@@ -71,80 +69,45 @@ const navItems = [
 const serviceItems = [
   {
     name: "Web Development",
-    href: "/web-development",
+    href: "/services/web-development",
     description:
       "Modern websites and scalable web applications built for performance.",
     icon: Globe,
   },
   {
     name: "Mobile Development",
-    href: "/mobile-development",
+    href: "/services/mobile-development",
     description:
       "Native and cross-platform mobile apps for iOS and Android.",
     icon: Smartphone,
   },
   {
     name: "AI & Machine Learning",
-    href: "/ai-development",
+    href: "/services/ai-development",
     description:
       "AI-powered projects, automation, intelligent apps, and integrations.",
     icon: BrainCircuit,
   },
   {
     name: "Software Development",
-    href: "/software-development",
+    href: "/services/software-development",
     description:
       "Custom software designed around your business and operational needs.",
     icon: Code2,
   },
   {
     name: "API & Backend Development",
-    href: "/api-development",
+    href: "/services/api-development",
     description:
       "Secure REST APIs, backend systems, integrations, and data services.",
     icon: Server,
   },
   {
     name: "Cloud & DevOps",
-    href: "/cloud-devops",
+    href: "/services/cloud-devops",
     description:
       "Reliable cloud infrastructure, deployment, scalability, and automation.",
     icon: Cloud,
-  },
-]
-
-/* =========================================================
-   RESOURCES
-========================================================= */
-
-const resourceItems = [
-  {
-    name: "Blog",
-    href: "/blog",
-    description:
-      "Technology insights, development trends, practical ideas, and industry knowledge.",
-    icon: BookOpen,
-  },
-  {
-    name: "Guides",
-    href: "/guides",
-    description:
-      "Practical guides for web, mobile, AI, APIs, cloud, and software development.",
-    icon: Lightbulb,
-  },
-  {
-    name: "Case Studies",
-    href: "/case-studies",
-    description:
-      "Explore real projects, solutions, challenges, and technology approaches.",
-    icon: FileText,
-  },
-  {
-    name: "FAQs",
-    href: "/faqs",
-    description:
-      "Answers to common questions about technology, development, and working with us.",
-    icon: HelpCircle,
   },
 ]
 
@@ -160,6 +123,7 @@ export function Header() {
   ========================================================= */
 
   const [showHeader, setShowHeader] = useState(true)
+  const [language, setLanguage] = useState<"en" | "ja">("en")
 
   const [mobileMenuOpen, setMobileMenuOpen] =
     useState(false)
@@ -167,13 +131,7 @@ export function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] =
     useState(false)
 
-  const [mobileResourcesOpen, setMobileResourcesOpen] =
-    useState(false)
-
   const [desktopServicesOpen, setDesktopServicesOpen] =
-    useState(false)
-
-  const [desktopResourcesOpen, setDesktopResourcesOpen] =
     useState(false)
 
   /* =========================================================
@@ -184,10 +142,6 @@ export function Header() {
   const ticking = useRef(false)
 
   const servicesCloseTimer = useRef<
-    ReturnType<typeof setTimeout> | undefined
-  >(undefined)
-
-  const resourcesCloseTimer = useRef<
     ReturnType<typeof setTimeout> | undefined
   >(undefined)
 
@@ -232,8 +186,6 @@ export function Header() {
           setShowHeader(false)
 
           setDesktopServicesOpen(false)
-
-          setDesktopResourcesOpen(false)
         }
 
         /* -----------------------------------------------
@@ -285,12 +237,6 @@ export function Header() {
           servicesCloseTimer.current
         )
       }
-
-      if (resourcesCloseTimer.current) {
-        clearTimeout(
-          resourcesCloseTimer.current
-        )
-      }
     }
   }, [])
 
@@ -313,9 +259,13 @@ export function Header() {
     pathname === "/services" ||
     pathname.startsWith("/services/")
 
-  const resourcesActive =
-    pathname === "/resources" ||
-    pathname.startsWith("/resources/")
+  /* =========================================================
+     LANGUAGE TOGGLE
+  ========================================================= */
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "ja" : "en"))
+  }
 
   /* =========================================================
      DESKTOP SERVICES MENU
@@ -328,14 +278,6 @@ export function Header() {
       )
     }
 
-    if (resourcesCloseTimer.current) {
-      clearTimeout(
-        resourcesCloseTimer.current
-      )
-    }
-
-    setDesktopResourcesOpen(false)
-
     setDesktopServicesOpen(true)
   }
 
@@ -347,35 +289,6 @@ export function Header() {
   }
 
   /* =========================================================
-     DESKTOP RESOURCES MENU
-  ========================================================= */
-
-  const openResourcesMenu = () => {
-    if (resourcesCloseTimer.current) {
-      clearTimeout(
-        resourcesCloseTimer.current
-      )
-    }
-
-    if (servicesCloseTimer.current) {
-      clearTimeout(
-        servicesCloseTimer.current
-      )
-    }
-
-    setDesktopServicesOpen(false)
-
-    setDesktopResourcesOpen(true)
-  }
-
-  const closeResourcesMenu = () => {
-    resourcesCloseTimer.current =
-      setTimeout(() => {
-        setDesktopResourcesOpen(false)
-      }, 120)
-  }
-
-  /* =========================================================
      MOBILE MENU
   ========================================================= */
 
@@ -383,8 +296,6 @@ export function Header() {
     setMobileMenuOpen(false)
 
     setMobileServicesOpen(false)
-
-    setMobileResourcesOpen(false)
   }
 
   return (
@@ -436,8 +347,6 @@ export function Header() {
 
                     if (!open) {
                       setMobileServicesOpen(false)
-
-                      setMobileResourcesOpen(false)
                     }
                   }}
                 >
@@ -701,125 +610,6 @@ export function Header() {
                       </Link>
 
                       {/* =======================================
-                          RESOURCES
-                      ======================================= */}
-
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setMobileResourcesOpen(
-                              (value) => !value
-                            )
-                          }
-                          className={`
-                            flex
-                            w-full
-                            items-center
-                            justify-between
-                            rounded-lg
-                            px-4
-                            py-3
-                            text-sm
-                            font-medium
-                            transition-colors
-                            ${
-                              resourcesActive
-                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                            }
-                          `}
-                        >
-                          <span>
-                            Resources
-                          </span>
-
-                          <ChevronDown
-                            className={`
-                              h-4
-                              w-4
-                              transition-transform
-                              duration-200
-                              ${
-                                mobileResourcesOpen
-                                  ? "rotate-180"
-                                  : ""
-                              }
-                            `}
-                          />
-                        </button>
-
-                        {/* MOBILE RESOURCES */}
-
-                        <div
-                          className={`
-                            grid
-                            overflow-hidden
-                            transition-all
-                            duration-200
-                            ${
-                              mobileResourcesOpen
-                                ? "grid-rows-[1fr] opacity-100"
-                                : "grid-rows-[0fr] opacity-0"
-                            }
-                          `}
-                        >
-                          <div className="min-h-0">
-                            <div
-                              className="
-                                ml-3
-                                mt-1
-                                border-l
-                                pl-2
-                              "
-                            >
-                              {resourceItems.map(
-                                (resource) => {
-                                  const active =
-                                    isActive(
-                                      resource.href
-                                    )
-
-                                  return (
-                                    <Link
-                                      key={
-                                        resource.name
-                                      }
-                                      href={
-                                        resource.href
-                                      }
-                                      onClick={
-                                        closeMobileMenu
-                                      }
-                                      className={`
-                                        flex
-                                        items-center
-                                        rounded-md
-                                        px-4
-                                        py-2.5
-                                        text-sm
-                                        font-medium
-                                        transition-colors
-                                        ${
-                                          active
-                                            ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                                        }
-                                      `}
-                                    >
-                                      {
-                                        resource.name
-                                      }
-                                    </Link>
-                                  )
-                                }
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* =======================================
                           ABOUT US
                       ======================================= */}
 
@@ -844,47 +634,33 @@ export function Header() {
                       >
                         About Us
                       </Link>
-                    </nav>
 
-                    {/* =========================================
-                        MOBILE CONTACT
-                    ========================================= */}
+                      {/* =======================================
+                          CONTACT US (Mobile)
+                      ======================================= */}
 
-                    <div
-                      className="
-                        mt-8
-                        border-t
-                        pt-6
-                        px-4
-                      "
-                    >
                       <Link
                         href="/contact"
                         onClick={closeMobileMenu}
-                        className="
+                        className={`
                           flex
-                          w-full
                           items-center
-                          justify-center
-                          gap-2
-                          rounded-md
-                          bg-emerald-600
+                          rounded-lg
                           px-4
-                          py-2.5
+                          py-3
                           text-sm
                           font-medium
-                          text-white
                           transition-colors
-                          hover:bg-emerald-700
-                          dark:bg-emerald-500
-                          dark:hover:bg-emerald-600
-                        "
+                          ${
+                            isActive("/contact")
+                              ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                          }
+                        `}
                       >
                         Contact Us
-
-                        <ArrowRight className="h-4 w-4" />
                       </Link>
-                    </div>
+                    </nav>
                   </SheetContent>
                 </Sheet>
               </div>
@@ -1144,87 +920,6 @@ export function Header() {
                 </Link>
 
                 {/* =================================================
-                    RESOURCES
-                ================================================= */}
-
-                <div
-                  className="
-                    relative
-                    h-16
-                  "
-                  onMouseEnter={
-                    openResourcesMenu
-                  }
-                  onMouseLeave={
-                    closeResourcesMenu
-                  }
-                >
-                  <button
-                    type="button"
-                    onClick={() =>
-                      desktopResourcesOpen
-                        ? setDesktopResourcesOpen(
-                            false
-                          )
-                        : openResourcesMenu()
-                    }
-                    className={`
-                      relative
-                      flex
-                      h-16
-                      items-center
-                      gap-1.5
-                      rounded-none
-                      px-4
-                      text-sm
-                      font-medium
-                      transition-colors
-                      duration-200
-                      ${
-                        resourcesActive
-                          ? "text-emerald-600 dark:text-emerald-400"
-                          : "text-muted-foreground hover:text-foreground"
-                      }
-                    `}
-                  >
-                    Resources
-
-                    <ChevronDown
-                      className={`
-                        h-3.5
-                        w-3.5
-                        transition-transform
-                        duration-200
-                        ${
-                          desktopResourcesOpen
-                            ? "rotate-180"
-                            : ""
-                        }
-                      `}
-                    />
-
-                    <span
-                      className={`
-                        absolute
-                        bottom-0
-                        left-1/2
-                        h-[3px]
-                        -translate-x-1/2
-                        rounded-t-full
-                        bg-emerald-500
-                        transition-all
-                        duration-300
-                        ${
-                          resourcesActive
-                            ? "w-16 opacity-100"
-                            : "w-0 opacity-0"
-                        }
-                      `}
-                    />
-                  </button>
-                </div>
-
-                {/* =================================================
                     ABOUT US
                 ================================================= */}
 
@@ -1269,6 +964,52 @@ export function Header() {
                     `}
                   />
                 </Link>
+
+                {/* =================================================
+                    CONTACT US (Desktop Nav)
+                ================================================= */}
+
+                <Link
+                  href="/contact"
+                  className={`
+                    relative
+                    flex
+                    h-16
+                    items-center
+                    rounded-none
+                    px-4
+                    text-sm
+                    font-medium
+                    transition-colors
+                    duration-200
+                    ${
+                      isActive("/contact")
+                        ? "text-emerald-600 dark:text-emerald-400"
+                        : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
+                >
+                  Contact Us
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-1/2
+                      h-[3px]
+                      -translate-x-1/2
+                      rounded-t-full
+                      bg-emerald-500
+                      transition-all
+                      duration-300
+                      ${
+                        isActive("/contact")
+                          ? "w-16 opacity-100"
+                          : "w-0 opacity-0"
+                      }
+                    `}
+                  />
+                </Link>
               </nav>
             </div>
 
@@ -1285,33 +1026,9 @@ export function Header() {
               "
             >
               <ThemeToggle />
+              <LanguageSwitcher/>
+              
 
-              <Button
-                size="lg"
-                className="
-                  hidden
-                  bg-emerald-600
-                  text-white
-                  hover:bg-emerald-700
-                  sm:inline-flex
-                  dark:bg-emerald-500
-                  dark:hover:bg-emerald-600
-                "
-                
-              >
-                <Link
-                  href="/contact"
-                  className="
-                    flex
-                    items-center
-                    gap-2
-                  "
-                >
-                  Contact Us
-
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
@@ -1488,192 +1205,6 @@ export function Header() {
                           >
                             {
                               service.description
-                            }
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                }
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* =====================================================
-          FULL WIDTH DESKTOP RESOURCES MEGA MENU
-      ===================================================== */}
-
-      <div
-        className={`
-          fixed
-          left-0
-          right-0
-          top-16
-          z-[9998]
-          hidden
-          w-full
-          transition-all
-          duration-200
-          md:block
-          ${
-            desktopResourcesOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-2 opacity-0"
-          }
-        `}
-        onMouseEnter={
-          openResourcesMenu
-        }
-        onMouseLeave={
-          closeResourcesMenu
-        }
-      >
-        <div
-          className="
-            w-full
-            border-b
-            bg-background
-            shadow-xl
-          "
-        >
-          <div
-            className="
-              mx-auto
-              max-w-7xl
-              px-4
-              py-7
-              md:px-8
-            "
-          >
-            <div
-              className="
-                grid
-                grid-cols-4
-                gap-5
-              "
-            >
-              {resourceItems.map(
-                (resource) => {
-                  const Icon =
-                    resource.icon
-
-                  const active =
-                    isActive(
-                      resource.href
-                    )
-
-                  return (
-                    <Link
-                      key={
-                        resource.name
-                      }
-                      href={
-                        resource.href
-                      }
-                      onClick={() =>
-                        setDesktopResourcesOpen(
-                          false
-                        )
-                      }
-                      className={`
-                        group
-                        rounded-xl
-                        px-4
-                        py-5
-                        transition-all
-                        duration-200
-                        ${
-                          active
-                            ? "bg-emerald-500/5"
-                            : "hover:bg-muted/70"
-                        }
-                      `}
-                    >
-                      <div
-                        className="
-                          flex
-                          items-start
-                          gap-4
-                        "
-                      >
-                        {/* ICON */}
-
-                        <div
-                          className={`
-                            flex
-                            h-10
-                            w-10
-                            shrink-0
-                            items-center
-                            justify-center
-                            rounded-lg
-                            transition-all
-                            duration-200
-                            ${
-                              active
-                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                : "bg-muted text-foreground group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
-                            }
-                          `}
-                        >
-                          <Icon className="h-5 w-5" />
-                        </div>
-
-                        {/* CONTENT */}
-
-                        <div className="min-w-0">
-                          <div
-                            className="
-                              flex
-                              items-center
-                              gap-2
-                            "
-                          >
-                            <h3
-                              className={`
-                                text-sm
-                                font-semibold
-                                tracking-tight
-                                ${
-                                  active
-                                    ? "text-emerald-600 dark:text-emerald-400"
-                                    : "text-foreground"
-                                }
-                              `}
-                            >
-                              {
-                                resource.name
-                              }
-                            </h3>
-
-                            <ArrowRight
-                              className="
-                                h-4
-                                w-4
-                                shrink-0
-                                -translate-x-1
-                                text-emerald-500
-                                opacity-0
-                                transition-all
-                                duration-200
-                                group-hover:translate-x-0
-                                group-hover:opacity-100
-                              "
-                            />
-                          </div>
-
-                          <p
-                            className="
-                              mt-2
-                              text-sm
-                              leading-5
-                              text-muted-foreground
-                            "
-                          >
-                            {
-                              resource.description
                             }
                           </p>
                         </div>
