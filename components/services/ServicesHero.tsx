@@ -16,8 +16,8 @@ export default function ServicesPage() {
         image="/images/services/servicespage.jpg"
         imageAlt="InfiniGrow Technologies digital services"
         primaryButton={{
-          label: "Start a Project",
-          href: "/contact",
+          label: "Our Services",
+          href: "/services#services",
           icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{

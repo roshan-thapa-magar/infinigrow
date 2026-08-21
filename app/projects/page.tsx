@@ -389,8 +389,8 @@ export default function ProjectsPage() {
         image="/images/projects/image.png"
         imageAlt="InfiniGrow projects"
         primaryButton={{
-          label: "Our Services",
-          href: "/services",
+          label: "Our Projects",
+          href: "/projects#projects",
           icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{

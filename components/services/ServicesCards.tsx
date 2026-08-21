@@ -60,7 +60,7 @@ const services = [
 
 export default function ServicesCards() {
   return (
-    <section className="border-t py-20 md:py-28">
+    <section id="services" className="border-t py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
 
         {/* Header */}
