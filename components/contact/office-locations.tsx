@@ -11,39 +11,7 @@ export default function OfficeLocations() {
             country: "Nepal",
             location: "Kathmandu, Nepal",
             description:
-                "Our Kathmandu office is the central hub for our technology, product, and client collaboration teams.",
-            image: "/images/contact.png",
-        },
-        {
-            city: "Pokhara",
-            country: "Nepal",
-            location: "Pokhara, Nepal",
-            description:
-                "Our Pokhara team focuses on product development, creative technology, and delivering digital solutions.",
-            image: "/images/contact.png",
-        },
-        {
-            city: "Biratnagar",
-            country: "Nepal",
-            location: "Biratnagar, Nepal",
-            description:
-                "Our Biratnagar branch supports regional clients and contributes to our growing engineering team.",
-            image: "/images/contact.png",
-        },
-        {
-            city: "New Delhi",
-            country: "India",
-            location: "New Delhi, India",
-            description:
-                "Our India presence helps us collaborate with businesses, technology partners, and engineering talent.",
-            image: "/images/contact.png",
-        },
-        {
-            city: "Shanghai",
-            country: "China",
-            location: "Shanghai, China",
-            description:
-                "Our China branch connects our team with technology partners and emerging digital markets.",
+                "Our Kathmandu office is the central hub for technology, product development, and client collaboration.",
             image: "/images/contact.png",
         },
         {
@@ -51,7 +19,7 @@ export default function OfficeLocations() {
             country: "Japan",
             location: "Tokyo, Japan",
             description:
-                "Our Japan presence supports international partnerships and technology-driven business opportunities.",
+                "Our Tokyo office supports international partnerships and technology-driven business opportunities.",
             image: "/images/contact.png",
         },
     ]
@@ -84,13 +52,13 @@ export default function OfficeLocations() {
 
                     <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                         InfiniGrow Technologies brings together people,
-                        ideas, and technology across multiple locations.
+                        ideas, and technology across Nepal and Japan.
                         Connect with our team at one of our offices.
                     </p>
                 </div>
 
                 {/* OFFICE GRID */}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
                     {offices.map((office) => (
                         <Card
                             key={`${office.city}-${office.country}`}
@@ -111,9 +79,8 @@ export default function OfficeLocations() {
                                     alt={`${office.city} office`}
                                     fill
                                     sizes="
-                                        (max-width: 640px) 100vw,
-                                        (max-width: 1024px) 50vw,
-                                        33vw
+                                        (max-width: 768px) 100vw,
+                                        50vw
                                     "
                                     className="
                                         object-cover
@@ -164,7 +131,13 @@ export default function OfficeLocations() {
                                     "
                                 >
                                     View location
-                                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight
+                                        className="
+                                            ml-2 h-4 w-4
+                                            transition-transform
+                                            group-hover:translate-x-1
+                                        "
+                                    />
                                 </button>
                             </CardContent>
                         </Card>
