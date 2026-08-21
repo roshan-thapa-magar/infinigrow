@@ -1,28 +1,26 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 import {
   ArrowRight,
   BrainCircuit,
-  BookOpen,
   ChevronDown,
   Cloud,
   Code2,
-  FileText,
   Globe,
-  HelpCircle,
-  Lightbulb,
   Menu,
   Server,
   Smartphone,
-  Languages,
 } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import {
+  Link,
+  usePathname,
+} from "@/i18n/navigation"
+
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import {
@@ -32,35 +30,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+
 import { LanguageSwitcher } from "./LanguageSwitcher"
-
-/* =========================================================
-   MAIN NAVIGATION
-
-   Home is intentionally removed because the logo links
-   to the home page.
-
-   About Us is placed at the end.
-========================================================= */
-
-const navItems = [
-  {
-    name: "Services",
-    href: "/services",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    name: "Industries",
-    href: "/industries",
-  },
-  {
-    name: "About Us",
-    href: "/about",
-  },
-]
 
 /* =========================================================
    SERVICES
@@ -68,45 +39,33 @@ const navItems = [
 
 const serviceItems = [
   {
-    name: "Web Development",
+    key: "webDevelopment",
     href: "/services/web-development",
-    description:
-      "Modern websites and scalable web applications built for performance.",
     icon: Globe,
   },
   {
-    name: "Mobile Development",
+    key: "mobileDevelopment",
     href: "/services/mobile-development",
-    description:
-      "Native and cross-platform mobile apps for iOS and Android.",
     icon: Smartphone,
   },
   {
-    name: "AI & Machine Learning",
+    key: "aiDevelopment",
     href: "/services/ai-development",
-    description:
-      "AI-powered projects, automation, intelligent apps, and integrations.",
     icon: BrainCircuit,
   },
   {
-    name: "Software Development",
+    key: "softwareDevelopment",
     href: "/services/software-development",
-    description:
-      "Custom software designed around your business and operational needs.",
     icon: Code2,
   },
   {
-    name: "API & Backend Development",
+    key: "apiDevelopment",
     href: "/services/api-development",
-    description:
-      "Secure REST APIs, backend systems, integrations, and data services.",
     icon: Server,
   },
   {
-    name: "Cloud & DevOps",
+    key: "cloudDevops",
     href: "/services/cloud-devops",
-    description:
-      "Reliable cloud infrastructure, deployment, scalability, and automation.",
     icon: Cloud,
   },
 ]
@@ -116,6 +75,7 @@ const serviceItems = [
 ========================================================= */
 
 export function Header() {
+  const t = useTranslations("Header")
   const pathname = usePathname()
 
   /* =========================================================
@@ -123,7 +83,6 @@ export function Header() {
   ========================================================= */
 
   const [showHeader, setShowHeader] = useState(true)
-  const [language, setLanguage] = useState<"en" | "ja">("en")
 
   const [mobileMenuOpen, setMobileMenuOpen] =
     useState(false)
@@ -139,6 +98,7 @@ export function Header() {
   ========================================================= */
 
   const lastScrollY = useRef(0)
+
   const ticking = useRef(false)
 
   const servicesCloseTimer = useRef<
@@ -260,14 +220,6 @@ export function Header() {
     pathname.startsWith("/services/")
 
   /* =========================================================
-     LANGUAGE TOGGLE
-  ========================================================= */
-
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "ja" : "en"))
-  }
-
-  /* =========================================================
      DESKTOP SERVICES MENU
   ========================================================= */
 
@@ -297,6 +249,10 @@ export function Header() {
 
     setMobileServicesOpen(false)
   }
+
+  /* =========================================================
+     RENDER
+  ========================================================= */
 
   return (
     <>
@@ -351,7 +307,7 @@ export function Header() {
                   }}
                 >
                   <SheetTrigger
-                    aria-label="Open menu"
+                    aria-label={t("openMenu")}
                     className="
                       inline-flex
                       h-9
@@ -469,7 +425,7 @@ export function Header() {
                           `}
                         >
                           <span>
-                            Services
+                            {t("services")}
                           </span>
 
                           <ChevronDown
@@ -521,7 +477,7 @@ export function Header() {
                                   return (
                                     <Link
                                       key={
-                                        service.name
+                                        service.key
                                       }
                                       href={
                                         service.href
@@ -545,9 +501,9 @@ export function Header() {
                                         }
                                       `}
                                     >
-                                      {
-                                        service.name
-                                      }
+                                      {t(
+                                        `servicesItems.${service.key}.name`
+                                      )}
                                     </Link>
                                   )
                                 }
@@ -580,7 +536,7 @@ export function Header() {
                           }
                         `}
                       >
-                        Projects
+                        {t("projects")}
                       </Link>
 
                       {/* =======================================
@@ -606,11 +562,11 @@ export function Header() {
                           }
                         `}
                       >
-                        Industries
+                        {t("industries")}
                       </Link>
 
                       {/* =======================================
-                          ABOUT US
+                          ABOUT
                       ======================================= */}
 
                       <Link
@@ -632,11 +588,11 @@ export function Header() {
                           }
                         `}
                       >
-                        About Us
+                        {t("about")}
                       </Link>
 
                       {/* =======================================
-                          CONTACT US (Mobile)
+                          CONTACT
                       ======================================= */}
 
                       <Link
@@ -658,7 +614,7 @@ export function Header() {
                           }
                         `}
                       >
-                        Contact Us
+                        {t("contact")}
                       </Link>
                     </nav>
                   </SheetContent>
@@ -751,10 +707,7 @@ export function Header() {
                 ================================================= */}
 
                 <div
-                  className="
-                    relative
-                    h-16
-                  "
+                  className="relative h-16"
                   onMouseEnter={
                     openServicesMenu
                   }
@@ -790,7 +743,7 @@ export function Header() {
                       }
                     `}
                   >
-                    Services
+                    {t("services")}
 
                     <ChevronDown
                       className={`
@@ -851,7 +804,7 @@ export function Header() {
                     }
                   `}
                 >
-                  Projects
+                  {t("projects")}
 
                   <span
                     className={`
@@ -897,7 +850,7 @@ export function Header() {
                     }
                   `}
                 >
-                  Industries
+                  {t("industries")}
 
                   <span
                     className={`
@@ -920,7 +873,7 @@ export function Header() {
                 </Link>
 
                 {/* =================================================
-                    ABOUT US
+                    ABOUT
                 ================================================= */}
 
                 <Link
@@ -943,7 +896,7 @@ export function Header() {
                     }
                   `}
                 >
-                  About Us
+                  {t("about")}
 
                   <span
                     className={`
@@ -966,7 +919,7 @@ export function Header() {
                 </Link>
 
                 {/* =================================================
-                    CONTACT US (Desktop Nav)
+                    CONTACT
                 ================================================= */}
 
                 <Link
@@ -989,7 +942,7 @@ export function Header() {
                     }
                   `}
                 >
-                  Contact Us
+                  {t("contact")}
 
                   <span
                     className={`
@@ -1026,16 +979,15 @@ export function Header() {
               "
             >
               <ThemeToggle />
-              <LanguageSwitcher/>
-              
 
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
       </header>
 
       {/* =====================================================
-          FULL WIDTH DESKTOP SERVICES MEGA MENU
+          DESKTOP SERVICES MEGA MENU
       ===================================================== */}
 
       <div
@@ -1101,7 +1053,7 @@ export function Header() {
                   return (
                     <Link
                       key={
-                        service.name
+                        service.key
                       }
                       href={
                         service.href
@@ -1173,9 +1125,9 @@ export function Header() {
                                 }
                               `}
                             >
-                              {
-                                service.name
-                              }
+                              {t(
+                                `servicesItems.${service.key}.name`
+                              )}
                             </h3>
 
                             <ArrowRight
@@ -1203,9 +1155,9 @@ export function Header() {
                               text-muted-foreground
                             "
                           >
-                            {
-                              service.description
-                            }
+                            {t(
+                              `servicesItems.${service.key}.description`
+                            )}
                           </p>
                         </div>
                       </div>

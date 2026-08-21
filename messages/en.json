@@ -1,0 +1,47 @@
+{
+  "Header": {
+    "services": "Services",
+    "projects": "Projects",
+    "industries": "Industries",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "openMenu": "Open menu",
+
+    "servicesItems": {
+      "webDevelopment": {
+        "name": "Web Development",
+        "description": "Modern websites and scalable web applications built for performance."
+      },
+
+      "mobileDevelopment": {
+        "name": "Mobile Development",
+        "description": "Native and cross-platform mobile apps for iOS and Android."
+      },
+
+      "aiDevelopment": {
+        "name": "AI & Machine Learning",
+        "description": "AI-powered projects, automation, intelligent apps, and integrations."
+      },
+
+      "softwareDevelopment": {
+        "name": "Software Development",
+        "description": "Custom software designed around your business and operational needs."
+      },
+
+      "apiDevelopment": {
+        "name": "API & Backend Development",
+        "description": "Secure REST APIs, backend systems, integrations, and data services."
+      },
+
+      "cloudDevops": {
+        "name": "Cloud & DevOps",
+        "description": "Reliable cloud infrastructure, deployment, scalability, and automation."
+      }
+    }
+  },
+
+  "Metadata": {
+    "title": "InfiniGrow Technologies | Software, AI & Digital Solutions",
+    "description": "InfiniGrow Technologies builds modern software, AI-powered solutions, web applications, and digital products that help businesses innovate, automate, and grow faster."
+  }
+}

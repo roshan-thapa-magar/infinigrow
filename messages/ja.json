@@ -1,0 +1,47 @@
+{
+  "Header": {
+    "services": "サービス",
+    "projects": "プロジェクト",
+    "industries": "業界",
+    "about": "会社概要",
+    "contact": "お問い合わせ",
+    "openMenu": "メニューを開く",
+
+    "servicesItems": {
+      "webDevelopment": {
+        "name": "Web開発",
+        "description": "パフォーマンスを重視した最新のWebサイトとスケーラブルなWebアプリケーションを開発します。"
+      },
+
+      "mobileDevelopment": {
+        "name": "モバイル開発",
+        "description": "iOSとAndroid向けのネイティブおよびクロスプラットフォームアプリを開発します。"
+      },
+
+      "aiDevelopment": {
+        "name": "AI・機械学習",
+        "description": "AIを活用したプロジェクト、自動化、インテリジェントアプリケーション、システム連携を提供します。"
+      },
+
+      "softwareDevelopment": {
+        "name": "ソフトウェア開発",
+        "description": "お客様のビジネスや業務ニーズに合わせたカスタムソフトウェアを開発します。"
+      },
+
+      "apiDevelopment": {
+        "name": "API・バックエンド開発",
+        "description": "安全なREST API、バックエンドシステム、システム連携、データサービスを構築します。"
+      },
+
+      "cloudDevops": {
+        "name": "クラウド・DevOps",
+        "description": "信頼性の高いクラウドインフラ、デプロイ、スケーラビリティ、自動化を提供します。"
+      }
+    }
+  },
+
+  "Metadata": {
+    "title": "InfiniGrow Technologies | ソフトウェア・AI・デジタルソリューション",
+    "description": "InfiniGrow Technologiesは、最新のソフトウェア、AIを活用したソリューション、Webアプリケーション、デジタル製品を開発し、企業のイノベーション、業務自動化、成長を支援します。"
+  }
+}

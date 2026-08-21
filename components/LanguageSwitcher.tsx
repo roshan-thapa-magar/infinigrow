@@ -1,14 +1,38 @@
 "use client"
 
-import { useState } from "react"
+import { useLocale } from "next-intl"
+
 import { Button } from "@/components/ui/button"
 
+import {
+  usePathname,
+  useRouter,
+} from "@/i18n/navigation"
+
 export function LanguageSwitcher() {
-  const [language, setLanguage] = useState<"ja" | "en">("en")
+  const locale = useLocale()
+
+  const router = useRouter()
+
+  const pathname = usePathname()
+
+  const changeLanguage = (
+    newLocale: "en" | "ja"
+  ) => {
+    router.replace(pathname, {
+      locale: newLocale,
+    })
+  }
 
   return (
     <div
-      className="inline-flex items-center rounded-full border p-0.5"
+      className="
+        inline-flex
+        items-center
+        rounded-full
+        border
+        p-0.5
+      "
       role="group"
       aria-label="Language selector"
     >
@@ -16,13 +40,23 @@ export function LanguageSwitcher() {
         type="button"
         variant="ghost"
         size="sm"
-        onClick={() => setLanguage("ja")}
-        aria-pressed={language === "ja"}
-        className={`h-7 rounded-full px-2.5 text-xs ${
-          language === "ja"
-            ? "bg-muted text-foreground shadow-sm hover:bg-muted"
-            : "text-muted-foreground hover:bg-transparent"
-        }`}
+        onClick={() =>
+          changeLanguage("ja")
+        }
+        aria-pressed={
+          locale === "ja"
+        }
+        className={`
+          h-7
+          rounded-full
+          px-2.5
+          text-xs
+          ${
+            locale === "ja"
+              ? "bg-muted text-foreground shadow-sm hover:bg-muted"
+              : "text-muted-foreground hover:bg-transparent"
+          }
+        `}
       >
         日本語
       </Button>
@@ -31,13 +65,23 @@ export function LanguageSwitcher() {
         type="button"
         variant="ghost"
         size="sm"
-        onClick={() => setLanguage("en")}
-        aria-pressed={language === "en"}
-        className={`h-7 rounded-full px-2.5 text-xs ${
-          language === "en"
-            ? "bg-muted text-foreground shadow-sm hover:bg-muted"
-            : "text-muted-foreground hover:bg-transparent"
-        }`}
+        onClick={() =>
+          changeLanguage("en")
+        }
+        aria-pressed={
+          locale === "en"
+        }
+        className={`
+          h-7
+          rounded-full
+          px-2.5
+          text-xs
+          ${
+            locale === "en"
+              ? "bg-muted text-foreground shadow-sm hover:bg-muted"
+              : "text-muted-foreground hover:bg-transparent"
+          }
+        `}
       >
         EN
       </Button>
