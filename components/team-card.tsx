@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 interface TeamCardProps {
   name: string
@@ -8,6 +9,8 @@ interface TeamCardProps {
   image: string
   badge?: string
   about?: string
+  aboutLabel?: string
+  href?: string
   priority?: boolean
   className?: string
 }
@@ -24,6 +27,8 @@ export default function TeamCard({
   image,
   badge,
   about,
+  aboutLabel,
+  href,
   priority = false,
   className = "",
 }: TeamCardProps) {
@@ -286,7 +291,7 @@ export default function TeamCard({
                       text-primary
                     "
                   >
-                    About
+                    {aboutLabel}
                   </span>
 
                   <span className="h-px w-6 bg-primary/50" />
@@ -332,8 +337,11 @@ export default function TeamCard({
 
                 {/* Arrow */}
                 <div className="mt-7 flex justify-center">
-                  <div
-                    className="
+                  {href && (
+                    <Link
+                      href={href}
+                      target="_blank"
+                      className="
                       flex
                       h-10
                       w-10
@@ -349,9 +357,10 @@ export default function TeamCard({
                       group-hover:rotate-45
                       group-hover:bg-primary/20
                     "
-                  >
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

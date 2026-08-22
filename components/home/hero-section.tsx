@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Sparkles, Zap } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+    const t = useTranslations("Hero");
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl grid-cols-1 items-center gap-12 px-4 md:min-h-[calc(100dvh-4rem)] md:grid-cols-2 md:px-8 lg:gap-16">
@@ -29,22 +31,20 @@ export default function HeroSection() {
             "
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Modern Software & AI Solutions
+            {t("badge")}
           </Badge>
 
           {/* Heading */}
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            Build Smarter.
+            {t("title")}
             <span className="block bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
-              Grow Faster.
+              {t("titleHighlight")}
             </span>
           </h1>
 
           {/* Description */}
           <p className="max-w-xl text-justify text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-            We build modern software, AI-powered solutions, web applications,
-            and digital products that help businesses innovate, automate,
-            and scale with confidence.
+           {t("description")}
           </p>
 
           {/* CTA */}
@@ -54,7 +54,7 @@ export default function HeroSection() {
               className="bg-primary text-primary-foreground shadow-lg shadow-emerald-500/20 hover:bg-primary/90"
             >
               <Link href="/contact">
-                 Start a Project
+                 {t("startProject")}
               </Link>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -65,7 +65,7 @@ export default function HeroSection() {
               className="border-2 hover:bg-muted"
             >
               <Link href="/services">
-                 Explore Services
+                 {t("exploreServices")}
               </Link>
               <Zap className="ml-2 h-4 w-4" />
             </Button>
@@ -79,7 +79,7 @@ export default function HeroSection() {
               </p>
 
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Projects Delivered
+                {t("projectsDelivered")}
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export default function HeroSection() {
               </p>
 
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Technologies
+                {t("technologies")}
               </p>
             </div>
 
@@ -99,7 +99,7 @@ export default function HeroSection() {
               </p>
 
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Client Satisfaction
+                {t("clientSatisfaction")}
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function HeroSection() {
           >
             <Image
               src="/images/image.png"
-              alt="Software developer and business analyst working together"
+              alt={t("imageAlt")}
               fill
               priority
               className="object-cover object-center"

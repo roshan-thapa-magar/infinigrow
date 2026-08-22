@@ -6,33 +6,27 @@
     "about": "会社概要",
     "contact": "お問い合わせ",
     "openMenu": "メニューを開く",
-
     "servicesItems": {
       "webDevelopment": {
         "name": "Web開発",
         "description": "パフォーマンスを重視した最新のWebサイトとスケーラブルなWebアプリケーションを開発します。"
       },
-
       "mobileDevelopment": {
         "name": "モバイル開発",
         "description": "iOSとAndroid向けのネイティブおよびクロスプラットフォームアプリを開発します。"
       },
-
       "aiDevelopment": {
         "name": "AI・機械学習",
         "description": "AIを活用したプロジェクト、自動化、インテリジェントアプリケーション、システム連携を提供します。"
       },
-
       "softwareDevelopment": {
         "name": "ソフトウェア開発",
         "description": "お客様のビジネスや業務ニーズに合わせたカスタムソフトウェアを開発します。"
       },
-
       "apiDevelopment": {
         "name": "API・バックエンド開発",
         "description": "安全なREST API、バックエンドシステム、システム連携、データサービスを構築します。"
       },
-
       "cloudDevops": {
         "name": "クラウド・DevOps",
         "description": "信頼性の高いクラウドインフラ、デプロイ、スケーラビリティ、自動化を提供します。"
@@ -40,8 +34,84 @@
     }
   },
 
+
   "Metadata": {
     "title": "InfiniGrow Technologies | ソフトウェア・AI・デジタルソリューション",
     "description": "InfiniGrow Technologiesは、最新のソフトウェア、AIを活用したソリューション、Webアプリケーション、デジタル製品を開発し、企業のイノベーション、業務自動化、成長を支援します。"
+  },
+
+
+
+  "Hero": {
+    "badge": "最新のソフトウェアとAIソリューション",
+    "title": "よりスマートに、",
+    "titleHighlight": "より速く成長。",
+    "description": "私たちは、最新のソフトウェア、AIを活用したソリューション、Webアプリケーション、デジタル製品を開発し、企業のイノベーション、業務の自動化、そして自信を持った成長を支援します。",
+    "startProject": "プロジェクトを始める",
+    "exploreServices": "サービスを見る",
+    "projectsDelivered": "提供プロジェクト数",
+    "technologies": "テクノロジー",
+    "clientSatisfaction": "顧客満足度",
+    "imageAlt": "ソフトウェア開発者とビジネスアナリストが協力して作業している様子"
+  },
+
+
+  
+"Team": {
+    "title": "チーム紹介",
+    "description": "ソフトウェアとテクノロジーを支えるメンバー。",
+    "aboutLabel": "プロフィール",
+
+    "members": {
+      "khum": {
+        "id": "khum",
+        "name": "クム・バハドゥール・タパ・マガル",
+        "designation": "最高経営責任者（CEO）",
+        "badge": "CEO",
+        "image": "/images/Chairperson.png",
+        "href": "",
+        "about": "クム・バハドゥールは、イノベーション、持続的な成長、そして長期的なビジョンを重視しながら会社をリードしています。"
+      },
+
+      "sundar": {
+        "id": "sundar",
+        "name": "スンダル・タパ・マガル",
+        "designation": "ビジネスアナリスト",
+        "badge": "アナリスト",
+        "image": "/images/team/sundar.png",
+        "href": "",
+        "about": "スンダルは、ビジネスニーズの把握、業務プロセスの分析、そしてアイデアを明確な技術要件へ落とし込むことを専門としています。"
+      },
+
+      "roshan": {
+        "id": "roshan",
+        "name": "ロシャン・タパ・マガル",
+        "designation": "ソフトウェア開発者",
+        "badge": "開発者",
+        "image": "/images/team/roshan.png",
+        "href": "https://roshanthapamagar.vercel.app/",
+        "about": "ロシャンは、最新で信頼性が高く、スケーラブルなソフトウェアソリューションの開発に取り組むソフトウェア開発者です。"
+      },
+
+      "suman": {
+        "id": "suman",
+        "name": "スマン・パウデル",
+        "designation": "AIエンジニア",
+        "badge": "AI",
+        "image": "/images/team/suman.png",
+        "href": "",
+        "about": "スマンは、人工知能とインテリジェントなソフトウェアソリューションを中心に、自動化やデータ活用システムの開発に取り組んでいます。"
+      },
+
+      "samrose": {
+        "id": "samrose",
+        "name": "モハメド・サムローズ",
+        "designation": "フルスタックエンジニア",
+        "badge": "開発者",
+        "image": "/images/team/samrose.png",
+        "href": "https://mohammedsamrose.com.np/",
+        "about": "モハメドは、パフォーマンスとユーザー体験を重視しながら、スケーラブルなアプリケーションを構築するフルスタック開発を専門としています。"
+      }
+    }
   }
 }

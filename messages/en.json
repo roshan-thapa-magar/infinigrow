@@ -6,42 +6,138 @@
     "about": "About Us",
     "contact": "Contact Us",
     "openMenu": "Open menu",
-
     "servicesItems": {
       "webDevelopment": {
         "name": "Web Development",
         "description": "Modern websites and scalable web applications built for performance."
       },
-
       "mobileDevelopment": {
         "name": "Mobile Development",
         "description": "Native and cross-platform mobile apps for iOS and Android."
       },
-
       "aiDevelopment": {
         "name": "AI & Machine Learning",
         "description": "AI-powered projects, automation, intelligent apps, and integrations."
       },
-
       "softwareDevelopment": {
         "name": "Software Development",
         "description": "Custom software designed around your business and operational needs."
       },
-
       "apiDevelopment": {
         "name": "API & Backend Development",
         "description": "Secure REST APIs, backend systems, integrations, and data services."
       },
-
       "cloudDevops": {
         "name": "Cloud & DevOps",
         "description": "Reliable cloud infrastructure, deployment, scalability, and automation."
       }
     }
   },
-
   "Metadata": {
     "title": "InfiniGrow Technologies | Software, AI & Digital Solutions",
     "description": "InfiniGrow Technologies builds modern software, AI-powered solutions, web applications, and digital products that help businesses innovate, automate, and grow faster."
+  },
+  "Hero": {
+    "badge": "Modern Software & AI Solutions",
+    "title": "Build Smarter.",
+    "titleHighlight": "Grow Faster.",
+    "description": "We build modern software, AI-powered solutions, web applications, and digital products that help businesses innovate, automate, and scale with confidence.",
+    "startProject": "Start a Project",
+    "exploreServices": "Explore Services",
+    "projectsDelivered": "Projects Delivered",
+    "technologies": "Technologies",
+    "clientSatisfaction": "Client Satisfaction",
+    "imageAlt": "Software developer and business analyst working together"
+  },
+  "Team": {
+    "members": {
+      "khum": {
+        "name": "Khum Bahadur Thapa Magar",
+        "designation": "CEO",
+        "badge": "CEO",
+        "about": "Khum Bahadur leads the company with a focus on innovation, sustainable growth, and long-term vision."
+      },
+      "sundar": {
+        "name": "Sundar Thapa Magar",
+        "designation": "Business Analyst",
+        "badge": "Analyst",
+        "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
+      },
+      "roshan": {
+        "name": "Roshan Thapa Magar",
+        "designation": "Software Developer",
+        "badge": "Developer",
+        "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
+      },
+      "suman": {
+        "name": "Suman Paudel",
+        "designation": "AI Engineer",
+        "badge": "AI",
+        "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
+      },
+      "samrose": {
+        "name": "Mohammed Samrose",
+        "designation": "Full Stack Engineer",
+        "badge": "Developer",
+        "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
+      }
+    }
+  },
+"Team": {
+    "title": "Meet Our Team",
+    "description": "The people behind our software and technology.",
+    "aboutLabel": "About",
+
+    "members": {
+      "khum": {
+        "id": "khum",
+        "name": "Khum Bahadur Thapa Magar",
+        "designation": "CEO",
+        "badge": "CEO",
+        "image": "/images/Chairperson.png",
+        "href": "",
+        "about": "Khum Bahadur leads the company with a focus on innovation, sustainable growth, and long-term vision."
+      },
+
+      "sundar": {
+        "id": "sundar",
+        "name": "Sundar Thapa Magar",
+        "designation": "Business Analyst",
+        "badge": "Analyst",
+        "image": "/images/team/sundar.png",
+        "href": "",
+        "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
+      },
+
+      "roshan": {
+        "id": "roshan",
+        "name": "Roshan Thapa Magar",
+        "designation": "Software Developer",
+        "badge": "Developer",
+        "image": "/images/team/roshan.png",
+        "href": "https://roshanthapamagar.vercel.app/",
+        "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
+      },
+
+      "suman": {
+        "id": "suman",
+        "name": "Suman Paudel",
+        "designation": "AI Engineer",
+        "badge": "AI",
+        "image": "/images/team/suman.png",
+        "href": "",
+        "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
+      },
+
+      "samrose": {
+        "id": "samrose",
+        "name": "Mohammed Samrose",
+        "designation": "Full Stack Engineer",
+        "badge": "Developer",
+        "image": "/images/team/samrose.png",
+        "href": "https://mohammedsamrose.com.np/",
+        "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
+      }
+    }
   }
 }
