@@ -1,23 +1,34 @@
 import { CheckCircle2 } from "lucide-react"
-import { trustedCompanies } from "@/lib/site-data"
+import { useTranslations } from "next-intl"
+
+export const trustedCompanies: string[] = [
+  "TechNova",
+  "CloudWorks",
+  "DigitalEdge",
+  "NextGen",
+  "InnovateX",
+  "SmartCore",
+]
 
 export default function TrustedBySection() {
+  const t = useTranslations("TrustedBy")
+
   return (
     <section className="border-y bg-muted/20 py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
+
+        {/* Header */}
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted By Innovative Businesses
+            {t("badge")}
           </p>
 
           <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
-            Technology that businesses can rely on
+            {t("title")}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            We work with ambitious teams and businesses to build reliable
-            digital products, automate workflows, and turn ideas into
-            scalable solutions.
+            {t("description")}
           </p>
         </div>
 
@@ -59,20 +70,22 @@ export default function TrustedBySection() {
 
         {/* Trust Statement */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-            Reliable Solutions
+            {t("trustItems.reliable")}
           </div>
 
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-            Modern Technology
+            {t("trustItems.modern")}
           </div>
 
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-            Long-Term Support
+            {t("trustItems.support")}
           </div>
+
         </div>
       </div>
     </section>

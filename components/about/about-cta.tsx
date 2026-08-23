@@ -1,10 +1,26 @@
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react"
+"use client"
+
+import {
+  ArrowRight,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 export default function AboutCTA() {
+  const t = useTranslations("AboutCTA")
+
+  const services = [
+    t("services.web"),
+    t("services.mobile"),
+    t("services.ai"),
+    t("services.digital"),
+  ]
+
   return (
     <section className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -28,7 +44,7 @@ export default function AboutCTA() {
           "
         >
 
-          {/* ================= DECORATIVE BACKGROUND ================= */}
+          {/* DECORATIVE BACKGROUND */}
 
           <div
             className="
@@ -58,9 +74,11 @@ export default function AboutCTA() {
             "
           />
 
-          {/* ================= CONTENT ================= */}
+          {/* CONTENT */}
 
           <div className="relative z-10 mx-auto max-w-3xl text-center">
+
+            {/* BADGE */}
 
             <Badge
               variant="outline"
@@ -71,24 +89,26 @@ export default function AboutCTA() {
               "
             >
               <Sparkles className="mr-2 h-3.5 w-3.5" />
-              Let's Build Something
+              {t("badge")}
             </Badge>
 
+            {/* TITLE */}
+
             <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Have an idea?
+              {t("title")}
               <br />
               <span className="text-emerald-400">
-                Let's turn it into reality.
+                {t("titleHighlight")}
               </span>
             </h2>
 
+            {/* DESCRIPTION */}
+
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-background/70 dark:text-muted-foreground md:text-lg">
-              Whether you are starting a new project, improving an existing
-              product, or exploring how technology can help your business,
-              our team is ready to talk.
+              {t("description")}
             </p>
 
-            {/* ================= BUTTONS ================= */}
+            {/* BUTTONS */}
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
 
@@ -103,17 +123,17 @@ export default function AboutCTA() {
                   hover:bg-emerald-600
                   sm:w-auto
                 "
+                
               >
                 <Link
                   href="/contact"
                   className="flex items-center gap-2"
                 >
-                  Start a Conversation
+                  {t("primaryButton")}
 
                   <ArrowRight
                     className="
-                      h-4
-                      w-4
+                      h-4 w-4
                       transition-transform
                       duration-300
                       group-hover:translate-x-1
@@ -138,35 +158,36 @@ export default function AboutCTA() {
                   dark:hover:bg-muted
                   dark:hover:text-foreground
                 "
+                
               >
                 <Link
-                  href="#"
+                  href="/services"
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Explore Our Services
+
+                  {t("secondaryButton")}
                 </Link>
               </Button>
 
             </div>
 
-            {/* ================= SMALL TRUST LINE ================= */}
+            {/* SERVICES */}
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-background/50 dark:text-muted-foreground">
 
-              <span>Web Development</span>
+              {services.map((service, index) => (
+                <div
+                  key={service}
+                  className="flex items-center gap-x-6"
+                >
+                  <span>{service}</span>
 
-              <span className="h-1 w-1 rounded-full bg-emerald-400" />
-
-              <span>Mobile Development</span>
-
-              <span className="h-1 w-1 rounded-full bg-emerald-400" />
-
-              <span>AI Solutions</span>
-
-              <span className="h-1 w-1 rounded-full bg-emerald-400" />
-
-              <span>Digital Solutions</span>
+                  {index < services.length - 1 && (
+                    <span className="h-1 w-1 rounded-full bg-emerald-400" />
+                  )}
+                </div>
+              ))}
 
             </div>
 

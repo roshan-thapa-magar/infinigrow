@@ -2,11 +2,11 @@ import { ArrowRight, Briefcase } from "lucide-react"
 import { HeroSection } from "@/components/hero-section"
 import { useTranslations } from "next-intl"
 
-export default function ServicesPage() {
-  const t = useTranslations("ServicesPage")
+export default function ProjectHero() {
+  const t = useTranslations("ProjectHero")
 
   return (
-    <main className="relative overflow-hidden bg-background">
+    <div>
       <HeroSection
         badge={t("badge")}
         title={t("title")}
@@ -14,11 +14,11 @@ export default function ServicesPage() {
           t("description.0"),
           t("description.1"),
         ]}
-        image="/images/services/servicespage.jpg"
+        image="/images/projects/image.png"
         imageAlt={t("imageAlt")}
         primaryButton={{
           label: t("primaryButton"),
-          href: "/services#services",
+          href: "/projects#projects",
           icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{
@@ -27,6 +27,6 @@ export default function ServicesPage() {
           icon: <Briefcase className="h-4 w-4" />,
         }}
       />
-    </main>
+    </div>
   )
 }

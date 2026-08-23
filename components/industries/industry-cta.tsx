@@ -1,15 +1,18 @@
-import CTA from "@/components/cta"
+"use client"
+
 import { useTranslations } from "next-intl"
 
-export default function ServicesCTA() {
-  const t = useTranslations("ServicesCTA")
+import CTA from "@/components/cta"
+
+export default function IndustryCTA() {
+  const t = useTranslations("IndustryCTA")
 
   return (
     <CTA
       eyebrow={t("eyebrow")}
       title={t("title")}
       description={t("description")}
-      buttonText={t("buttonText")}
+      buttonText={t("button")}
       buttonHref="/contact"
     />
   )

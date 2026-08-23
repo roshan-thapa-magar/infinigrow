@@ -1,25 +1,31 @@
+"use client"
+
 import { ArrowRight, Briefcase } from "lucide-react"
+import { useTranslations } from "next-intl"
+
 import { HeroSection } from "@/components/hero-section"
 
 export default function AboutPage() {
+  const t = useTranslations("AboutHero")
+
   return (
     <main className="relative overflow-hidden bg-background">
       <HeroSection
-        badge="About InfiniGrow"
-        title="Building Digital Solutions That Help Businesses Grow"
+        badge={t("badge")}
+        title={t("title")}
         description={[
-          "InfiniGrow Technologies is a technology company focused on creating modern, reliable, and scalable digital solutions for businesses.",
-          "We combine thoughtful design, modern technologies, and practical business thinking to turn ideas into digital products that create real value.",
+          t("description.0"),
+          t("description.1"),
         ]}
         image="/images/about/aboutpage.jpg"
-        imageAlt="InfiniGrow Technologies team working together"
+        imageAlt={t("imageAlt")}
         primaryButton={{
-          label: "Our Services",
+          label: t("primaryButton"),
           href: "/services",
           icon: <ArrowRight className="h-4 w-4" />,
         }}
         secondaryButton={{
-          label: "Contact Us",
+          label: t("secondaryButton"),
           href: "/contact",
           icon: <Briefcase className="h-4 w-4" />,
         }}

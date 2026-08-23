@@ -49,6 +49,16 @@
     "clientSatisfaction": "Client Satisfaction",
     "imageAlt": "Software developer and business analyst working together"
   },
+  "TrustedBy": {
+    "badge": "Trusted By Innovative Businesses",
+    "title": "Technology that businesses can rely on",
+    "description": "We work with ambitious teams and businesses to build reliable digital products, automate workflows, and turn ideas into scalable solutions.",
+    "trustItems": {
+      "reliable": "Reliable Solutions",
+      "modern": "Modern Technology",
+      "support": "Long-Term Support"
+    }
+  },
   "Team": {
     "members": {
       "khum": {
@@ -83,11 +93,10 @@
       }
     }
   },
-"Team": {
+  "Team": {
     "title": "Meet Our Team",
     "description": "The people behind our software and technology.",
     "aboutLabel": "About",
-
     "members": {
       "khum": {
         "id": "khum",
@@ -98,7 +107,6 @@
         "href": "",
         "about": "Khum Bahadur leads the company with a focus on innovation, sustainable growth, and long-term vision."
       },
-
       "sundar": {
         "id": "sundar",
         "name": "Sundar Thapa Magar",
@@ -108,7 +116,6 @@
         "href": "",
         "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
       },
-
       "roshan": {
         "id": "roshan",
         "name": "Roshan Thapa Magar",
@@ -118,7 +125,6 @@
         "href": "https://roshanthapamagar.vercel.app/",
         "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
       },
-
       "suman": {
         "id": "suman",
         "name": "Suman Paudel",
@@ -128,7 +134,6 @@
         "href": "",
         "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
       },
-
       "samrose": {
         "id": "samrose",
         "name": "Mohammed Samrose",
@@ -139,5 +144,949 @@
         "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
       }
     }
+  },
+  "Services": {
+    "badge": "What We Do",
+    "title": "We Build Digital Solutions",
+    "titleHighlight": "That Move Businesses Forward",
+    "description": "From websites and software applications to AI-powered systems, we create modern technology that helps businesses automate, innovate, and grow.",
+    "explore": "Explore",
+    "imageDescription": "Modern technology built for your business.",
+    "items": {
+      "generativeAi": {
+        "name": "Generative AI",
+        "title": "Build Smarter With Generative AI",
+        "description": "We build intelligent AI solutions that help businesses automate workflows, generate content, analyze information, and create better digital experiences.",
+        "features": [
+          "AI-powered applications",
+          "Intelligent automation",
+          "AI assistants & chatbots"
+        ]
+      },
+      "webDevelopment": {
+        "name": "Web Development",
+        "title": "Modern Web Experiences That Convert",
+        "description": "We create fast, responsive, and scalable websites that combine modern design with powerful technology to deliver exceptional user experiences.",
+        "features": [
+          "Modern responsive websites",
+          "High-performance applications",
+          "SEO-friendly architecture"
+        ]
+      },
+      "softwareDevelopment": {
+        "name": "Software Development",
+        "title": "Custom Software Built Around Your Business",
+        "description": "We develop reliable and scalable software solutions designed around your business processes, requirements, and long-term goals.",
+        "features": [
+          "Custom business software",
+          "Scalable architecture",
+          "API & backend development"
+        ]
+      },
+      "mobileDevelopment": {
+        "name": "Mobile Development",
+        "title": "Powerful Mobile Applications",
+        "description": "We design and develop intuitive mobile applications that provide smooth experiences across modern mobile platforms.",
+        "features": [
+          "Cross-platform applications",
+          "Modern mobile UI",
+          "Secure API integration"
+        ]
+      },
+      "devopsCloud": {
+        "name": "DevOps & Cloud",
+        "title": "Reliable Infrastructure That Scales",
+        "description": "We help businesses build secure, scalable, and reliable cloud infrastructure with modern DevOps practices and automation.",
+        "features": [
+          "Cloud infrastructure",
+          "CI/CD automation",
+          "Deployment & monitoring"
+        ]
+      },
+      "aiData": {
+        "name": "AI & Data",
+        "title": "Turn Data Into Better Decisions",
+        "description": "We transform business data into useful insights with analytics, intelligent systems, and modern data technologies.",
+        "features": [
+          "Data analytics",
+          "Machine learning solutions",
+          "Business intelligence"
+        ]
+      }
+    }
+  },
+  "Testimonials": {
+    "badge": "Client Stories",
+    "title": "What Our Clients",
+    "titleHighlight": "Say About Us",
+    "description": "We work closely with our clients to turn ideas into reliable digital products and meaningful business solutions.",
+    "bottomDescription": "Building long-term relationships through technology.",
+    "trusted": "Trusted. Reliable. Innovative.",
+    "items": {
+      "raj-kumar": {
+        "quote": "InfiniGrow Technologies delivered a reliable and modern solution that helped us improve our digital operations.",
+        "name": "Raj Kumar",
+        "role": "Business Owner"
+      },
+      "john-doe": {
+        "quote": "The team understood our requirements clearly and delivered a solution that matched our business needs.",
+        "name": "John Doe",
+        "role": "Managing Director"
+      },
+      "suman-magar": {
+        "quote": "Working with InfiniGrow Technologies was a great experience. The team delivered a reliable and effective technology solution.",
+        "name": "Suman Magar",
+        "role": "Client"
+      },
+      "anil-sharma": {
+        "quote": "The team provided a professional and reliable solution that helped us achieve our goals.",
+        "name": "Anil Sharma",
+        "role": "Client"
+      }
+    }
+  },
+  "CompanyInfo": {
+    "badge": "Company Info",
+    "title": "InfiniGrow Technology",
+    "titleHighlight": "Building Technology That Makes a Difference",
+    "paragraph1": "InfiniGrow Technology is a modern software and technology company focused on creating reliable digital solutions for businesses of all sizes. We combine software development, artificial intelligence, cloud technologies, and modern design to build products that solve real-world problems.",
+    "paragraph2": "Our approach starts with understanding the needs of our clients. We work closely with businesses to understand their goals, challenges, and workflows before designing and developing the right solution. This allows us to create technology that is practical, scalable, and easy to use.",
+    "paragraph3": "From modern websites and custom software to AI-powered applications and cloud-based systems, InfiniGrow Technology helps organizations improve their digital capabilities. Our focus is not only on building technology, but also on creating solutions that deliver long-term value.",
+    "paragraph4": "We believe great technology is built through collaboration, continuous learning, and attention to detail. Our team works with a strong focus on quality, performance, security, and user experience throughout every stage of a project.",
+    "paragraph5": "As technology continues to evolve, our mission at InfiniGrow Technology is to help businesses adapt, innovate, and grow with confidence. We aim to build lasting relationships with our clients while delivering digital solutions that are ready for the future."
+  },
+  "ServicesPage": {
+    "badge": "Our Services",
+    "title": "Digital Solutions Built to Help Your Business Grow",
+    "description": [
+      "InfiniGrow Technologies provides modern digital solutions designed around your business goals, users, and technical requirements.",
+      "From web and mobile development to APIs, cloud solutions, and cybersecurity, we build reliable technology that supports long-term growth."
+    ],
+    "primaryButton": "Our Services",
+    "secondaryButton": "Contact Us",
+    "imageAlt": "InfiniGrow Technologies digital services"
+  },
+  "ServicesCards": {
+    "badge": "Our Services",
+    "title": "Digital solutions built for your business.",
+    "description": "From websites and mobile applications to APIs, cloud solutions, and security, we build technology that helps businesses grow.",
+    "explore": "Explore service",
+    "items": {
+      "webDevelopment": {
+        "title": "Web Development",
+        "description": "Fast, scalable, and modern websites and web applications built around your business."
+      },
+      "mobileDevelopment": {
+        "title": "Mobile Development",
+        "description": "User-friendly mobile applications designed for performance and seamless experiences."
+      },
+      "uiUxDesign": {
+        "title": "UI/UX Design",
+        "description": "Clean and intuitive digital experiences that make your products easier to use."
+      },
+      "apiDevelopment": {
+        "title": "API Development",
+        "description": "Secure and scalable APIs that connect your applications, services, and business systems."
+      },
+      "cloudSolutions": {
+        "title": "Cloud Solutions",
+        "description": "Reliable cloud infrastructure and deployment solutions built for scalability."
+      },
+      "cyberSecurity": {
+        "title": "Cyber Security",
+        "description": "Security-focused solutions to help protect applications, systems, and business data."
+      }
+    }
+  },
+  "ServicesCTA": {
+    "eyebrow": "Let's Work Together",
+    "title": "Have a project in mind?",
+    "description": "Tell us about your idea, and let's build a digital solution that helps your business grow.",
+    "buttonText": "Start a Project"
+  },
+  "ProjectHero": {
+    "badge": "Our Projects",
+    "title": "Digital products built for real businesses.",
+    "description": [
+      "Explore selected projects across web development, mobile applications, software systems, cloud infrastructure, APIs, and AI solutions.",
+      "Every project is built around specific business requirements with a focus on performance, usability, scalability, and long-term value."
+    ],
+    "imageAlt": "InfiniGrow projects",
+    "primaryButton": "Our Projects",
+    "secondaryButton": "Contact Us"
+  },
+  "ProjectIntro": {
+    "badge": "Selected Work",
+    "title": "Projects that turn ideas into products.",
+    "description": "We build websites, web applications, management systems, mobile applications, APIs, cloud infrastructure, and AI-powered products."
+  },
+  "Projects": {
+    "portfolio": "Portfolio",
+    "exploreTitle": "Explore our projects",
+    "projectsCount": "projects",
+    "statusLabel": "Status:",
+    "selectStatus": "Select status",
+    "viewProject": "View {project}",
+    "categories": {
+      "all": "All",
+      "webDevelopment": "Web Development",
+      "mobileDevelopment": "Mobile Development",
+      "softwareDevelopment": "Software Development",
+      "cloudDevops": "Cloud & DevOps",
+      "apiDevelopment": "API Development",
+      "aiDevelopment": "AI Development"
+    },
+    "statuses": {
+      "all": "All",
+      "hosted": "Hosted",
+      "inProgress": "In Progress",
+      "planning": "Planning"
+    },
+    "empty": {
+      "title": "No projects found",
+      "description": "No projects match the selected filters. Try another category or project status.",
+      "clearFilters": "Clear Filters"
+    },
+    "items": {
+      "cloudByKyirmu": {
+        "title": "Cloud By Kyirmu",
+        "description": "A centralized cafe management platform designed to simplify daily operations, business workflows, and management tasks."
+      },
+      "barberManagement": {
+        "title": "Barber Management System",
+        "description": "A digital management platform designed for barber businesses to organize services, customers, and daily operations."
+      },
+      "roshanThapaMagar": {
+        "title": "Roshan Thapa Magar",
+        "description": "A modern personal website designed to showcase professional information, skills, projects, and digital presence."
+      },
+      "diningManagement": {
+        "title": "Dining Management System",
+        "description": "DinX is a digital dining management platform created to organize dining-related operations and workflows."
+      },
+      "grabTheFund": {
+        "title": "GrabTheFund",
+        "description": "A funding discovery platform that brings grant opportunities together so users can spend more time applying and less time searching."
+      },
+      "courseManagement": {
+        "title": "Course Management System",
+        "description": "A comprehensive education management platform supporting course creation, enrollment, content management, and progress tracking."
+      },
+      "teamFlow": {
+        "title": "TeamFlow",
+        "description": "A collaborative platform designed to improve team communication, project management, and productivity."
+      },
+      "customerMobileApp": {
+        "title": "Customer Mobile App",
+        "description": "A mobile application focused on creating a simple, accessible, and convenient digital experience for customers."
+      },
+      "cloudInfrastructure": {
+        "title": "Cloud Infrastructure Platform",
+        "description": "A scalable cloud environment with automated deployment, monitoring, containerization, and production infrastructure."
+      },
+      "businessApi": {
+        "title": "Business API Platform",
+        "description": "A secure backend API platform designed to connect applications, databases, and external services."
+      },
+      "aiKnowledgeAssistant": {
+        "title": "AI Knowledge Assistant",
+        "description": "An AI-powered assistant designed to help organizations search, understand, and interact with their business knowledge."
+      }
+    }
+  },
+  "ProjectCTA": {
+    "eyebrow": "Start Your Project",
+    "title": "Have an idea worth building?",
+    "description": "Let's turn your idea into a reliable, scalable digital product.",
+    "button": "Talk to Our Team"
+  },
+  "IndustriesHero": {
+    "badge": "Industries",
+    "title": "Technology solutions built for your industry.",
+    "description": [
+      "We build digital products and software solutions around the unique challenges of different industries.",
+      "From business websites and management systems to mobile applications, cloud platforms, APIs, and AI solutions, we help organizations build technology that creates real value."
+    ],
+    "primaryButton": "Start Your Project",
+    "secondaryButton": "View Our Projects"
+  },
+  "IndustriesIntro": {
+    "badge": "Industry Expertise",
+    "title": "Technology that understands your business.",
+    "description": "Every industry has different workflows, customers, challenges, and requirements. We create technology solutions around those specific needs instead of taking a one-size-fits-all approach."
+  },
+  "Industries": {
+    "section": {
+      "eyebrow": "Industries We Serve",
+      "title": "Solutions for different business needs.",
+      "description": "Explore how we help organizations across different industries use technology to improve their products, services, and operations."
+    },
+    "items": {
+      "education": {
+        "title": "Education",
+        "description": "Digital platforms and management systems that help schools, colleges, training centers, and education businesses operate more efficiently.",
+        "solutions": [
+          "School Management Systems",
+          "Learning Platforms",
+          "Course Management",
+          "Student Portals",
+          "Online Admission Systems"
+        ]
+      },
+      "healthcare": {
+        "title": "Healthcare",
+        "description": "Reliable digital solutions designed to improve healthcare operations, patient experiences, and administrative workflows.",
+        "solutions": [
+          "Healthcare Management",
+          "Appointment Systems",
+          "Patient Portals",
+          "Healthcare Websites",
+          "Business Automation"
+        ]
+      },
+      "retail-ecommerce": {
+        "title": "Retail & E-commerce",
+        "description": "Modern e-commerce and retail solutions that help businesses sell online, manage operations, and provide better customer experiences.",
+        "solutions": [
+          "E-commerce Platforms",
+          "Online Stores",
+          "Inventory Systems",
+          "Order Management",
+          "Customer Platforms"
+        ]
+      },
+      "hospitality": {
+        "title": "Hospitality",
+        "description": "Technology solutions for hotels, restaurants, cafes, and hospitality businesses to simplify daily operations and improve customer service.",
+        "solutions": [
+          "Restaurant Management",
+          "Cafe Management",
+          "Hotel Websites",
+          "Booking Systems",
+          "Customer Management"
+        ]
+      },
+      "finance-business": {
+        "title": "Finance & Business",
+        "description": "Secure and scalable software solutions that help businesses manage information, automate workflows, and improve operational efficiency.",
+        "solutions": [
+          "Business Management",
+          "Internal Platforms",
+          "Data Management",
+          "Workflow Automation",
+          "Business Dashboards"
+        ]
+      },
+      "professional-services": {
+        "title": "Professional Services",
+        "description": "Digital products for consulting firms, agencies, service providers, and professional organizations that want to improve their digital presence.",
+        "solutions": [
+          "Corporate Websites",
+          "Client Portals",
+          "Business Applications",
+          "CRM Solutions",
+          "Workflow Automation"
+        ]
+      },
+      "startups-small-businesses": {
+        "title": "Startups & Small Businesses",
+        "description": "Flexible technology solutions that help startups and growing businesses turn ideas into reliable digital products.",
+        "solutions": [
+          "MVP Development",
+          "Web Applications",
+          "Mobile Applications",
+          "API Development",
+          "Cloud Solutions"
+        ]
+      }
+    },
+    "link": "Discuss your project"
+  },
+  "HowWeHelp": {
+    "badge": "Our Approach",
+    "title": "We start with your business, not the technology.",
+    "description": "Before choosing a technology or building a product, we first understand your business, users, workflows, and goals.",
+    "steps": {
+      "01": {
+        "title": "Understand",
+        "description": "We understand your business goals, users, workflows, and challenges."
+      },
+      "02": {
+        "title": "Design",
+        "description": "We design a practical digital solution around your requirements."
+      },
+      "03": {
+        "title": "Build",
+        "description": "Our team develops reliable, scalable, and maintainable software."
+      },
+      "04": {
+        "title": "Grow",
+        "description": "We help you improve and scale your digital product as your business grows."
+      }
+    }
+  },
+  "IndustriesServices": {
+    "eyebrow": "What We Build",
+    "title": "Technology services for your industry",
+    "description": "From your first idea to a production-ready platform, we provide the technology expertise needed to build and grow your product.",
+    "services": {
+      "web-development": "Web Development",
+      "mobile-development": "Mobile Development",
+      "software-development": "Software Development",
+      "api-development": "API Development",
+      "cloud-and-devops": "Cloud & DevOps",
+      "ai-development": "AI Development",
+      "ui-ux-design": "UI/UX Design",
+      "technology-consulting": "Technology Consulting"
+    }
+  },
+  "IndustryCTA": {
+    "eyebrow": "Build With Us",
+    "title": "Let's build something valuable for your industry.",
+    "description": "Tell us about your business, challenge, or idea and let's explore how technology can help.",
+    "button": "Start Your Project"
+  },
+  "AboutHero": {
+    "badge": "About InfiniGrow",
+    "title": "Building Digital Solutions That Help Businesses Grow",
+    "description": [
+      "InfiniGrow Technologies is a technology company focused on creating modern, reliable, and scalable digital solutions for businesses.",
+      "We combine thoughtful design, modern technologies, and practical business thinking to turn ideas into digital products that create real value."
+    ],
+    "imageAlt": "InfiniGrow Technologies team working together",
+    "primaryButton": "Our Services",
+    "secondaryButton": "Contact Us"
+  },
+  "WhoWeAre": {
+    "badge": "Who We Are",
+    "title": "Technology built around",
+    "titleHighlight": "people and progress.",
+    "description": {
+      "first": "InfiniGrow Technologies is a technology company focused on building modern digital solutions that help organizations solve real problems, improve their operations, and create better experiences for their customers.",
+      "second": "We bring together design, development, and technology strategy to transform ideas into reliable digital products that are built for today and ready for tomorrow."
+    },
+    "imageAlt": "InfiniGrow Technologies team working together",
+    "imageLabel": "InfiniGrow Technologies",
+    "imageTitle": "Turning ideas into meaningful digital experiences.",
+    "drivesUs": "What drives us",
+    "solutionTitle": "We don't just build software.",
+    "solutionTitleSecond": "We build solutions.",
+    "solutionDescription": "Every project starts with understanding the problem. We work closely with our clients to understand their goals, identify opportunities, and create technology that supports their long-term growth.",
+    "highlights": {
+      "ideasFirst": {
+        "title": "Ideas First",
+        "description": "We start by understanding your idea, goals, and challenges before choosing the right technology."
+      },
+      "modernTechnology": {
+        "title": "Modern Technology",
+        "description": "We use modern tools and development practices to create fast, scalable, and maintainable products."
+      },
+      "peopleFocused": {
+        "title": "People Focused",
+        "description": "We believe successful technology comes from strong collaboration between people and teams."
+      },
+      "resultsDriven": {
+        "title": "Results Driven",
+        "description": "Our goal is not simply to deliver a product, but to create something that delivers measurable value."
+      }
+    },
+    "cta": "Explore Our Services",
+    "stats": {
+      "digital": {
+        "title": "Digital",
+        "description": "Solutions & Products"
+      },
+      "modern": {
+        "title": "Modern",
+        "description": "Technology & Development"
+      },
+      "longTerm": {
+        "title": "Long-Term",
+        "description": "Client Partnerships"
+      }
+    }
+  },
+  "MissionVision": {
+    "badge": "Our Direction",
+    "title": "Purpose that drives our",
+    "titleHighlight": "progress.",
+    "description": "Our mission and vision guide the way we build products, work with our clients, and continuously improve as a technology company.",
+    "mission": {
+      "label": "Our Mission",
+      "title": "Turning technology into meaningful progress.",
+      "description": {
+        "first": "Our mission is to create reliable, scalable, and user-focused digital solutions that help businesses solve real problems and achieve their goals.",
+        "second": "We focus on understanding the needs behind every project and delivering technology that provides practical, long-term value."
+      },
+      "bottom": "Build with purpose"
+    },
+    "vision": {
+      "label": "Our Vision",
+      "title": "Becoming a trusted partner for digital growth.",
+      "description": {
+        "first": "Our vision is to become a trusted technology partner for businesses and organizations that want to use technology to create better products, services, and experiences.",
+        "second": "We aim to continuously learn, innovate, and build solutions that remain valuable as technology and business needs evolve."
+      },
+      "bottom": "Think beyond today"
+    },
+    "cta": "See How We Work"
+  },
+  "ValuesSection": {
+    "badge": "Our Values",
+    "title": "Principles that shape",
+    "titleHighlight": "everything we do.",
+    "description": "Our values influence how we build products, communicate with clients, solve problems, and work together. They help us stay focused on creating meaningful and lasting results.",
+    "values": {
+      "innovation": {
+        "title": "Innovation",
+        "description": "We continuously explore better ideas, modern technologies, and smarter approaches to solve complex problems."
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "We care about the details and build reliable, maintainable, and high-quality digital products."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "We believe in honest communication, clear expectations, and keeping our clients informed throughout every project."
+      },
+      "customerFocus": {
+        "title": "Customer Focus",
+        "description": "We listen carefully to our clients and create solutions around their real business needs and goals."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Great products come from strong teamwork. We work closely with clients and teams to turn ideas into reality."
+      },
+      "continuousGrowth": {
+        "title": "Continuous Growth",
+        "description": "We keep learning, improving, and adapting so our skills and solutions continue to move forward."
+      }
+    },
+    "commitment": {
+      "eyebrow": "Our Commitment",
+      "title": "Technology is better when it is built with purpose.",
+      "description": "These principles keep us focused on delivering technology that is useful, reliable, and valuable for the people and businesses we work with.",
+      "button": "Explore Our Services"
+    }
+  },
+   "WhyInfiniGrow": {
+    "badge": "Why InfiniGrow",
+    "title": "Technology that works for",
+    "titleHighlight": "your goals.",
+    "description": "Choosing a technology partner is about more than technical skills. It is about finding a team that understands your goals, communicates clearly, and stays focused on delivering meaningful results.",
+
+    "approach": {
+      "eyebrow": "Our Approach",
+      "title": "We build with purpose, not just technology.",
+      "description": {
+        "first": "Every project has a reason behind it. We take the time to understand that reason before deciding how technology should be used.",
+        "second": "From the first conversation to launch and beyond, we focus on creating solutions that are practical, useful, and ready to grow with your business."
+      },
+      "checklist": [
+        "Understand the problem",
+        "Define the right solution",
+        "Build with modern technology",
+        "Deliver measurable value"
+      ]
+    },
+
+    "reasons": {
+      "businessFocused": {
+        "title": "Business-Focused Solutions",
+        "description": "We start by understanding your business goals and challenges, then build technology around what actually matters."
+      },
+      "modernTechnology": {
+        "title": "Modern Technology",
+        "description": "We use modern development tools and proven technologies to create fast, scalable, and maintainable digital products."
+      },
+      "collaborativeApproach": {
+        "title": "Collaborative Approach",
+        "description": "We work closely with our clients throughout the project so ideas, feedback, and decisions remain aligned."
+      },
+      "reliableScalable": {
+        "title": "Reliable & Scalable",
+        "description": "Our solutions are designed with reliability, security, performance, and future growth in mind."
+      },
+      "transparentPartnership": {
+        "title": "Transparent Partnership",
+        "description": "Clear communication and honest collaboration help us build strong relationships and successful projects."
+      },
+      "builtForGrowth": {
+        "title": "Built for Growth",
+        "description": "We create flexible digital solutions that can evolve as your business, users, and requirements grow."
+      }
+    },
+
+    "cta": {
+      "eyebrow": "Let's Build Together",
+      "title": "Have a project in mind?",
+      "description": "Tell us about your idea and let's explore how technology can help turn it into reality.",
+      "button": "Start a Conversation"
+    }
+  },
+  "TechnologySection": {
+    "badge": "Technology",
+    "title": "The technology behind",
+    "titleHighlight": "what we build.",
+    "description": "We choose technologies based on the needs of each project, focusing on performance, maintainability, scalability, and long-term value rather than simply following trends.",
+
+    "groups": {
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Modern, responsive interfaces designed for performance, accessibility, and excellent user experiences.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "Tailwind CSS",
+          "ShadCn"
+        ]
+      },
+
+      "backend": {
+        "title": "Backend Development",
+        "description": "Secure and scalable backend systems, APIs, and application services built around your business requirements.",
+        "technologies": [
+          "Node.js",
+          "Express.js",
+          "Python",
+          "Django",
+          "FastAPI"
+        ]
+      },
+
+      "api": {
+        "title": "API Development",
+        "description": "Reliable APIs that connect web applications, mobile apps, third-party services, and business systems.",
+        "technologies": [
+          "REST API",
+          "RESTful Services",
+          "API Integration",
+          "Authentication",
+          "Webhooks"
+        ]
+      },
+
+      "mobile": {
+        "title": "Mobile Development",
+        "description": "Native and cross-platform mobile applications designed for performance, usability, and scalable product experiences.",
+        "technologies": [
+          "Swift",
+          "Kotlin",
+          "Flutter",
+          "React Native",
+          "iOS",
+          "Android"
+        ]
+      },
+
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Intelligent digital solutions that use AI to automate tasks, analyze information, and create smarter user experiences.",
+        "technologies": [
+          "AI Integration",
+          "Machine Learning",
+          "Generative AI",
+          "AI APIs",
+          "Python",
+          "Automation"
+        ]
+      },
+
+      "cms": {
+        "title": "CMS & WordPress",
+        "description": "Flexible websites and content platforms that make it easier for businesses to manage and grow their online presence.",
+        "technologies": [
+          "WordPress",
+          "PHP",
+          "WooCommerce",
+          "Custom Themes",
+          "Custom Plugins"
+        ]
+      },
+
+      "database": {
+        "title": "Database",
+        "description": "Reliable data storage and management solutions selected according to application requirements and scale.",
+        "technologies": [
+          "PostgreSQL",
+          "MongoDB",
+          "MySQL",
+          "Redis",
+          "Database Design"
+        ]
+      },
+
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Deployment and infrastructure solutions focused on reliability, automation, security, and scalability.",
+        "technologies": [
+          "AWS",
+          "Vercel",
+          "Docker",
+          "CI/CD",
+          "Cloud Services"
+        ]
+      },
+
+      "tools": {
+        "title": "Development Tools",
+        "description": "Modern development workflows that help teams collaborate efficiently and maintain high-quality software.",
+        "technologies": [
+          "Git",
+          "GitHub",
+          "VS Code",
+          "ESLint",
+          "Prettier"
+        ]
+      }
+    },
+
+    "bottom": {
+      "eyebrow": "Right Technology",
+      "title": "We choose technology around the problem.",
+      "description": "Every project is different. We select the right tools, architecture, and technologies based on the product, users, business requirements, and future growth.",
+      "button": "Explore Our Services"
+    }
+  },
+  "ProcessSection": {
+    "badge": "Our Process",
+    "title": "From idea to",
+    "titleHighlight": "reality.",
+    "description": "A clear and collaborative process helps us turn ideas into reliable digital products while keeping every project focused, transparent, and purposeful.",
+
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "description": "We learn about your business, users, goals, challenges, and project requirements."
+      },
+      "plan": {
+        "title": "Plan",
+        "description": "We define the right strategy, technology, architecture, features, and project roadmap."
+      },
+      "design": {
+        "title": "Design",
+        "description": "We create intuitive interfaces and experiences that align with your users and brand."
+      },
+      "develop": {
+        "title": "Develop",
+        "description": "Our team turns the approved ideas into reliable, scalable, and maintainable software."
+      },
+      "testRefine": {
+        "title": "Test & Refine",
+        "description": "We test functionality, performance, responsiveness, and usability before launch."
+      },
+      "launchSupport": {
+        "title": "Launch & Support",
+        "description": "We launch the product and continue providing improvements, maintenance, and support."
+      }
+    },
+
+    "highlights": {
+      "communication": {
+        "title": "Clear Communication",
+        "description": "We keep communication open and make sure everyone understands the project's progress and priorities."
+      },
+      "collaboration": {
+        "title": "Flexible Collaboration",
+        "description": "Your feedback remains part of the process so the final product stays aligned with your needs."
+      },
+      "support": {
+        "title": "Long-Term Support",
+        "description": "Our relationship doesn't have to end at launch. We can continue improving and supporting your digital product."
+      }
+    },
+
+    "button": "Start Your Project"
+  },
+  "AboutCTA": {
+    "badge": "Let's Build Something",
+    "title": "Have an idea?",
+    "titleHighlight": "Let's turn it into reality.",
+    "description": "Whether you are starting a new project, improving an existing product, or exploring how technology can help your business, our team is ready to talk.",
+    "primaryButton": "Start a Conversation",
+    "secondaryButton": "Explore Our Services",
+    "services": {
+      "web": "Web Development",
+      "mobile": "Mobile Development",
+      "ai": "AI Solutions",
+      "digital": "Digital Solutions"
+    }
+  },
+  "OfficeLocations": {
+    "badge": "Our Locations",
+    "title": "Find us around the world",
+    "description": "InfiniGrow Technologies brings together people, ideas, and technology across Nepal and Japan. Connect with our team at one of our offices.",
+
+    "offices": {
+      "kathmandu": {
+        "city": "Kathmandu",
+        "country": "Nepal",
+        "location": "Kathmandu, Nepal",
+        "description": "Our Kathmandu office is the central hub for technology, product development, and client collaboration.",
+        "viewLocation": "View location",
+        "alt": "Kathmandu office"
+      },
+      "tokyo": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "location": "Tokyo, Japan",
+        "description": "Our Tokyo office supports international partnerships and technology-driven business opportunities.",
+        "viewLocation": "View location",
+        "alt": "Tokyo office"
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Let's build together",
+    "description": "Have an idea, project, or challenge in mind? Tell us what you're working on and let's explore how we can create something meaningful together.",
+
+    "validation": {
+      "firstNameRequired": "First name is required.",
+      "lastNameRequired": "Last name is required.",
+      "emailRequired": "Email address is required.",
+      "workTypeRequired": "Please select how you want to work with us.",
+      "serviceRequired": "Please select a service.",
+      "projectRequired": "Please tell us about your project.",
+      "budgetRequired": "Please select your estimated budget."
+    },
+
+    "toast": {
+      "success": "Inquiry submitted successfully!",
+      "successDescription": "Thank you for contacting us. Our team will get back to you soon.",
+      "error": "Something went wrong.",
+      "errorDescription": "Unable to submit your inquiry. Please try again.",
+      "submitError": "Failed to submit your inquiry."
+    }
+  },
+  "contactForm": {
+    "form": {
+      "eyebrow": "START A CONVERSATION",
+      "title": "Tell us about your project",
+      "description": "Answer a few quick questions so we can better understand your goals and connect you with the right people.",
+
+      "fields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address"
+      },
+
+      "placeholders": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@example.com",
+        "project": "Tell us what you're building, what problem you're trying to solve, and how we can help..."
+      },
+
+      "workType": {
+        "title": "How do you want to work with us?",
+        "description": "Choose the option that best describes your needs.",
+        "options": {
+          "newProject": "Start a new project",
+          "existingProduct": "Improve an existing product",
+          "consultation": "Technology consultation",
+          "partnership": "Long-term partnership"
+        }
+      },
+
+      "service": {
+        "title": "What service do you require?",
+        "description": "Select the service closest to your project requirements.",
+        "options": {
+          "webDevelopment": "Web Development",
+          "mobileDevelopment": "Mobile App Development",
+          "uiUx": "UI / UX Design",
+          "softwareDevelopment": "Software Development",
+          "cloudDevops": "Cloud & DevOps",
+          "cyberSecurity": "Cyber Security"
+        }
+      },
+
+      "project": {
+        "title": "Tell us something about your project",
+        "description": "Give us a brief overview of your idea, goals, timeline, or anything else we should know."
+      },
+
+      "budget": {
+        "title": "What is your estimated project budget?",
+        "description": "An approximate range helps us understand the project scope.",
+        "options": {
+          "under5k": "Under $5K",
+          "5k20k": "$5K – $20K",
+          "20kPlus": "$20K+"
+        }
+      },
+
+      "submit": {
+        "sending": "Sending...",
+        "send": "Send Inquiry",
+        "agreement": "By submitting this form, you agree that our team may contact you regarding your inquiry."
+      }
+    }
+  },
+  "contactSidebar": {
+    "imageAlt": "InfiniGrow Technologies",
+
+    "phone": {
+      "title": "Let's talk",
+      "subtitle": "Have a quick conversation",
+      "availability": "We're available Monday through Friday during US working hours."
+    },
+
+    "job": {
+      "title": "Looking for a job?",
+      "subtitle": "Join our growing team",
+      "description": "Explore opportunities to work with our team. We're always interested in meeting talented and motivated people.",
+      "button": "View Openings"
+    },
+
+    "fellowship": {
+      "title": "Get a fellowship",
+      "subtitle": "Learn and grow with us",
+      "description": "Discover our fellowship opportunities and find a way to learn, contribute, and grow with our team.",
+      "button": "Become a Fellow"
+    }
+  },
+  "footer": {
+    "description": "We build modern software, AI-powered solutions, and digital products that help businesses innovate, automate, and grow.",
+
+    "sections": {
+      "company": "Company",
+      "services": "Services",
+      "resources": "Resources"
+    },
+
+    "links": {
+      "about": "About",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact",
+
+      "webDevelopment": "Web Development",
+      "aiSolutions": "AI Solutions",
+      "mobileApps": "Mobile Apps",
+      "cloudSolutions": "Cloud Solutions",
+
+      "blog": "Blog",
+      "documentation": "Documentation",
+      "faqs": "FAQs",
+      "support": "Support"
+    },
+
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+
+    "copyright": "InfiniGrow. All rights reserved.",
+
+    "social": {
+      "github": "GitHub",
+      "x": "X",
+      "linkedin": "LinkedIn"
+    }
   }
+  
 }

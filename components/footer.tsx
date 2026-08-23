@@ -7,47 +7,93 @@ import {
     FaLinkedinIn,
     FaXTwitter,
 } from "react-icons/fa6"
-
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import Image from "next/image"
-
-const footerLinks = {
-    Company: [
-        { name: "About", href: "#about" },
-        { name: "Services", href: "#services" },
-        { name: "Projects", href: "#projects" },
-        { name: "Contact", href: "#contact" },
-    ],
-    Services: [
-        { name: "Web Development", href: "#web-development" },
-        { name: "AI Solutions", href: "#ai-solutions" },
-        { name: "Mobile Apps", href: "#mobile-apps" },
-        { name: "Cloud Solutions", href: "#cloud-solutions" },
-    ],
-    Resources: [
-        { name: "Blog", href: "#blog" },
-        { name: "Documentation", href: "#documentation" },
-        { name: "FAQs", href: "#faq" },
-        { name: "Support", href: "#support" },
-    ],
-}
+import { useTranslations } from "next-intl"
 
 export function Footer() {
+    const t = useTranslations("footer")
+
+    const footerLinks = [
+        {
+            title: t("sections.company"),
+            links: [
+                {
+                    name: t("links.about"),
+                    href: "about",
+                },
+                {
+                    name: t("links.services"),
+                    href: "services",
+                },
+                {
+                    name: t("links.projects"),
+                    href: "projects",
+                },
+                {
+                    name: t("links.contact"),
+                    href: "contact",
+                },
+            ],
+        },
+        {
+            title: t("sections.services"),
+            links: [
+                {
+                    name: t("links.webDevelopment"),
+                    href: "services/web-development",
+                },
+                {
+                    name: t("links.aiSolutions"),
+                    href: "services/ai-development",
+                },
+                {
+                    name: t("links.mobileApps"),
+                    href: "services/mobile-development",
+                },
+                {
+                    name: t("links.cloudSolutions"),
+                    href: "services/cloud-devops",
+                },
+            ],
+        },
+        {
+            title: t("sections.resources"),
+            links: [
+                {
+                    name: t("links.blog"),
+                    href: "#blog",
+                },
+                {
+                    name: t("links.documentation"),
+                    href: "#documentation",
+                },
+                {
+                    name: t("links.faqs"),
+                    href: "#faq",
+                },
+                {
+                    name: t("links.support"),
+                    href: "#support",
+                },
+            ],
+        },
+    ]
+
     return (
         <footer className="border-t bg-background">
             <div className="container mx-auto px-4 md:px-8">
 
-                {/* ========================================
-                    DESKTOP FOOTER
-                ========================================= */}
-                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-10 py-12 lg:py-16">
+                {/* DESKTOP */}
+                <div className="hidden gap-10 py-12 md:grid md:grid-cols-2 lg:grid-cols-5 lg:py-16">
 
-                    {/* Brand */}
+                    {/* BRAND */}
                     <div className="lg:col-span-2">
+
                         <Link
                             href="/"
                             className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-80"
@@ -58,7 +104,7 @@ export function Footer() {
                                     alt="InfiniGrow Technologies"
                                     width={40}
                                     height={40}
-                                    className="h-10 w-10 object-contain rounded-md"
+                                    className="h-10 w-10 rounded-md object-contain"
                                     priority
                                     sizes="40px"
                                 />
@@ -69,37 +115,28 @@ export function Footer() {
                                     Infini
                                 </span>
 
-                                <span
-                                    className="
-                      text-emerald-500
-                      transition-colors
-                      group-hover:text-emerald-600
-                      dark:group-hover:text-emerald-400
-                    "
-                                >
+                                <span className="text-emerald-500">
                                     Grow
                                 </span>
                             </span>
                         </Link>
 
                         <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-                            We build modern software, AI-powered solutions,
-                            and digital products that help businesses
-                            innovate, automate, and grow.
+                            {t("description")}
                         </p>
 
-                        <SocialLinks />
+                        <SocialLinks t={t} />
                     </div>
 
-                    {/* Desktop Link Columns */}
-                    {Object.entries(footerLinks).map(([title, links]) => (
-                        <div key={title}>
+                    {/* LINKS */}
+                    {footerLinks.map((section) => (
+                        <div key={section.title}>
                             <h3 className="text-sm font-semibold">
-                                {title}
+                                {section.title}
                             </h3>
 
                             <ul className="mt-4 space-y-3">
-                                {links.map((link) => (
+                                {section.links.map((link) => (
                                     <li key={link.name}>
                                         <Link
                                             href={link.href}
@@ -114,12 +151,9 @@ export function Footer() {
                     ))}
                 </div>
 
-                {/* ========================================
-                    MOBILE FOOTER
-                ========================================= */}
+                {/* MOBILE */}
                 <div className="py-10 md:hidden">
 
-                    {/* Brand */}
                     <Link
                         href="/"
                         className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-80"
@@ -134,85 +168,65 @@ export function Footer() {
                     </Link>
 
                     <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-                        We build modern software, AI-powered solutions,
-                        and digital products that help businesses
-                        innovate, automate, and grow.
+                        {t("description")}
                     </p>
 
-                    {/* Social Links */}
-                    <SocialLinks />
+                    <SocialLinks t={t} />
 
-                    {/* Mobile Navigation */}
                     <div className="mt-8">
+                        {footerLinks.map((section) => (
+                            <Collapsible
+                                key={section.title}
+                                className="border-b"
+                            >
+                                <CollapsibleTrigger className="group flex w-full items-center justify-between py-4 text-left text-sm font-semibold hover:no-underline">
+                                    <span>{section.title}</span>
 
-                        {Object.entries(footerLinks).map(
-                            ([title, links]) => (
-                                <Collapsible
-                                    key={title}
-                                    className="border-b"
-                                >
+                                    <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                                </CollapsibleTrigger>
 
-                                    {/* Section Heading */}
-                                    <CollapsibleTrigger
-                                        className="group flex w-full items-center justify-between py-4 text-left text-sm font-semibold hover:no-underline"
-                                    >
-                                        <span>{title}</span>
-
-                                        <ChevronDown
-                                            className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180"
-                                        />
-                                    </CollapsibleTrigger>
-
-                                    {/* Section Content */}
-                                    <CollapsibleContent>
-                                        <ul className="space-y-3 pb-5">
-                                            {links.map((link) => (
-                                                <li key={link.name}>
-                                                    <Link
-                                                        href={link.href}
-                                                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                                                    >
-                                                        {link.name}
-                                                    </Link>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CollapsibleContent>
-
-                                </Collapsible>
-                            )
-                        )}
-
+                                <CollapsibleContent>
+                                    <ul className="space-y-3 pb-5">
+                                        {section.links.map((link) => (
+                                            <li key={link.name}>
+                                                <Link
+                                                    href={link.href}
+                                                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CollapsibleContent>
+                            </Collapsible>
+                        ))}
                     </div>
                 </div>
 
-                {/* ========================================
-                    BOTTOM FOOTER
-                ========================================= */}
+                {/* BOTTOM */}
                 <div className="flex flex-col gap-4 border-t py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
 
-                    {/* Copyright */}
                     <p>
-                        © {new Date().getFullYear()} InfiniGrow. All rights reserved.
+                        © {new Date().getFullYear()}{" "}
+                        {t("copyright")}
                     </p>
 
-                    {/* Legal */}
                     <div className="flex flex-wrap gap-x-6 gap-y-2">
                         <Link
                             href="#privacy"
                             className="transition-colors hover:text-foreground"
                         >
-                            Privacy Policy
+                            {t("legal.privacy")}
                         </Link>
 
                         <Link
                             href="#terms"
                             className="transition-colors hover:text-foreground"
                         >
-                            Terms of Service
+                            {t("legal.terms")}
                         </Link>
                     </div>
-
                 </div>
 
             </div>
@@ -220,36 +234,33 @@ export function Footer() {
     )
 }
 
-/* ========================================
-   SOCIAL LINKS
-========================================= */
-
-function SocialLinks() {
+function SocialLinks({
+    t,
+}: {
+    t: ReturnType<typeof useTranslations<"footer">>
+}) {
     return (
         <div className="mt-6 flex items-center gap-2">
 
-            {/* GitHub */}
             <Link
                 href="#"
-                aria-label="GitHub"
+                aria-label={t("social.github")}
                 className="flex h-9 w-9 items-center justify-center rounded-lg border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
             >
                 <FaGithub className="h-4 w-4" />
             </Link>
 
-            {/* X / Twitter */}
             <Link
                 href="#"
-                aria-label="X"
+                aria-label={t("social.x")}
                 className="flex h-9 w-9 items-center justify-center rounded-lg border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
             >
                 <FaXTwitter className="h-4 w-4" />
             </Link>
 
-            {/* LinkedIn */}
             <Link
                 href="#"
-                aria-label="LinkedIn"
+                aria-label={t("social.linkedin")}
                 className="flex h-9 w-9 items-center justify-center rounded-lg border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
             >
                 <FaLinkedinIn className="h-4 w-4" />
