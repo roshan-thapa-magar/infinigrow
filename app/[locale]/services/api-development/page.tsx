@@ -6,199 +6,209 @@ import {
   Globe,
   Layers,
   Rocket,
-  Search,
   Server,
   ShieldCheck,
   Sparkles,
   Zap,
 } from "lucide-react"
 
+import { useTranslations } from "next-intl"
+
 import ServicePage from "@/components/services/service-page"
 
-const apiDevelopmentData = {
-  hero: {
-    badge: "API Development",
+export default function ApiDevelopmentPage() {
+  const t = useTranslations("services.apiDevelopment")
 
-    title: (
-      <>
-        Powerful APIs built for{" "}
-        <span className="text-emerald-500">
-          connected applications.
-        </span>
-      </>
-    ),
+  const apiDevelopmentData = {
+    hero: {
+      badge: t("hero.badge"),
 
-    description:
-      "We design and develop secure, scalable, and well-structured APIs that connect web applications, mobile apps, software systems, databases, and third-party services.",
+      title: (
+        <>
+          {t("hero.titleBefore")}{" "}
+          <span className="text-emerald-500">
+            {t("hero.titleHighlight")}
+          </span>
+        </>
+      ),
 
-    primaryButton: "Start Your API Project",
+      description: t("hero.description"),
 
-    features: [
+      primaryButton: t("hero.primaryButton"),
+
+      features: [
+        {
+          icon: Code2,
+          title: t("hero.features.modern.title"),
+          description: t(
+            "hero.features.modern.description"
+          ),
+        },
+        {
+          icon: ShieldCheck,
+          title: t("hero.features.secure.title"),
+          description: t(
+            "hero.features.secure.description"
+          ),
+        },
+        {
+          icon: Layers,
+          title: t("hero.features.scale.title"),
+          description: t(
+            "hero.features.scale.description"
+          ),
+        },
+      ],
+    },
+
+    capabilities: t.raw("capabilities") as string[],
+
+    middleSection: {
+      badge: t("middleSection.badge"),
+
+      title: (
+        <>
+          {t("middleSection.titleBefore")}
+          <br />
+          {t("middleSection.titleAfter")}
+        </>
+      ),
+
+      description: t("middleSection.description"),
+
+      items: [
+        {
+          icon: Server,
+          title: t("middleSection.items.rest.title"),
+          description: t(
+            "middleSection.items.rest.description"
+          ),
+        },
+        {
+          icon: Database,
+          title: t("middleSection.items.database.title"),
+          description: t(
+            "middleSection.items.database.description"
+          ),
+        },
+        {
+          icon: Globe,
+          title: t(
+            "middleSection.items.thirdParty.title"
+          ),
+          description: t(
+            "middleSection.items.thirdParty.description"
+          ),
+        },
+        {
+          icon: Sparkles,
+          title: t(
+            "middleSection.items.automation.title"
+          ),
+          description: t(
+            "middleSection.items.automation.description"
+          ),
+        },
+      ],
+    },
+
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "Python",
+      "FastAPI",
+      "Django",
+      "REST",
+      "GraphQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "OpenAPI",
+    ],
+
+    benefits: [
       {
-        icon: Code2,
-        title: "Modern APIs",
-        description:
-          "Well-structured APIs designed for reliable communication between applications and services.",
+        icon: Zap,
+        title: t("benefits.performance.title"),
+        description: t(
+          "benefits.performance.description"
+        ),
       },
       {
         icon: ShieldCheck,
-        title: "Secure by Design",
-        description:
-          "Authentication, authorization, validation, and security-conscious API architecture.",
+        title: t("benefits.security.title"),
+        description: t(
+          "benefits.security.description"
+        ),
       },
       {
         icon: Layers,
-        title: "Built to Scale",
-        description:
-          "API architecture designed to support growing users, requests, integrations, and data.",
+        title: t("benefits.scalable.title"),
+        description: t(
+          "benefits.scalable.description"
+        ),
+      },
+      {
+        icon: Rocket,
+        title: t("benefits.integration.title"),
+        description: t(
+          "benefits.integration.description"
+        ),
       },
     ],
-  },
 
-  capabilities: [
-    "REST API development",
-    "GraphQL API development",
-    "Web APIs",
-    "Mobile app APIs",
-    "Third-party API integration",
-    "Payment API integration",
-    "Authentication APIs",
-    "Database APIs",
-    "Business automation APIs",
-    "API documentation",
-  ],
-
-  middleSection: {
-    badge: "API Development Capabilities",
-
-    title: (
-      <>
-        APIs that connect your
-        <br />
-        digital ecosystem.
-      </>
-    ),
-
-    description:
-      "We build APIs that allow your applications and services to communicate reliably while keeping security, performance, scalability, and maintainability in mind.",
-
-    items: [
+    process: [
       {
-        icon: Server,
-        title: "REST API Development",
-        description:
-          "Reliable REST APIs for web applications, mobile applications, business systems, dashboards, and third-party integrations.",
+        number: t("process.requirements.number"),
+        title: t("process.requirements.title"),
+        description: t(
+          "process.requirements.description"
+        ),
       },
       {
-        icon: Database,
-        title: "Data & Database APIs",
-        description:
-          "Secure APIs that connect applications with databases and provide controlled access to business data.",
+        number: t("process.architecture.number"),
+        title: t("process.architecture.title"),
+        description: t(
+          "process.architecture.description"
+        ),
       },
       {
-        icon: Globe,
-        title: "Third-Party Integrations",
-        description:
-          "Connect your applications with payment gateways, communication platforms, maps, analytics, cloud services, and other external systems.",
+        number: t("process.development.number"),
+        title: t("process.development.title"),
+        description: t(
+          "process.development.description"
+        ),
       },
       {
-        icon: Sparkles,
-        title: "API Automation",
-        description:
-          "Use APIs to automate business workflows, synchronize systems, exchange data, and connect different services.",
+        number: t("process.testing.number"),
+        title: t("process.testing.title"),
+        description: t(
+          "process.testing.description"
+        ),
+      },
+      {
+        number: t("process.deployment.number"),
+        title: t("process.deployment.title"),
+        description: t(
+          "process.deployment.description"
+        ),
+      },
+      {
+        number: t("process.support.number"),
+        title: t("process.support.title"),
+        description: t(
+          "process.support.description"
+        ),
       },
     ],
-  },
 
-  technologies: [
-    "Node.js",
-    "Express.js",
-    "NestJS",
-    "Python",
-    "FastAPI",
-    "Django",
-    "REST",
-    "GraphQL",
-    "PostgreSQL",
-    "MongoDB",
-    "Redis",
-    "OpenAPI",
-  ],
+    cta: {
+      eyebrow: t("cta.eyebrow"),
+      title: t("cta.title"),
+      description: t("cta.description"),
+    },
+  }
 
-  benefits: [
-    {
-      icon: Zap,
-      title: "High Performance",
-      description:
-        "Efficient API architecture designed for fast response times and reliable application communication.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Secure APIs",
-      description:
-        "Authentication, authorization, validation, rate limiting, and security-conscious development practices.",
-    },
-    {
-      icon: Layers,
-      title: "Scalable Architecture",
-      description:
-        "API systems designed to support increasing traffic, users, data, and integrations.",
-    },
-    {
-      icon: Rocket,
-      title: "Integration Ready",
-      description:
-        "Well-structured APIs that make it easier to connect web, mobile, software, and third-party services.",
-    },
-  ],
-
-  process: [
-    {
-      number: "01",
-      title: "Requirements",
-      description:
-        "We understand your applications, users, data, integrations, business workflows, and API requirements.",
-    },
-    {
-      number: "02",
-      title: "API Architecture",
-      description:
-        "We design endpoints, data models, authentication, permissions, error handling, and overall API architecture.",
-    },
-    {
-      number: "03",
-      title: "Development",
-      description:
-        "Our developers build secure and maintainable APIs using technologies suited to your project requirements.",
-    },
-    {
-      number: "04",
-      title: "Testing",
-      description:
-        "We test endpoints, authentication, validation, performance, errors, integrations, and different usage scenarios.",
-    },
-    {
-      number: "05",
-      title: "Deployment",
-      description:
-        "We deploy your API to the appropriate production infrastructure and configure the required environment.",
-    },
-    {
-      number: "06",
-      title: "Monitoring & Support",
-      description:
-        "We provide monitoring, maintenance, performance improvements, security updates, and ongoing API support.",
-    },
-  ],
-
-  cta: {
-    eyebrow: "Start Your API Project",
-    title: "Need APIs that connect everything?",
-    description:
-      "Let's build secure, scalable APIs that power your web, mobile, and software applications.",
-  },
-}
-
-export default function ApiDevelopmentPage() {
   return <ServicePage {...apiDevelopmentData} />
 }

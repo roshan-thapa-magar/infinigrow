@@ -2,206 +2,208 @@
 
 import {
   Cloud,
-  Code2,
-  Database,
   GitBranch,
-  Layers,
   Rocket,
   Server,
   ShieldCheck,
   Sparkles,
   Zap,
+  Layers,
 } from "lucide-react"
+
+import { useTranslations } from "next-intl"
 
 import ServicePage from "@/components/services/service-page"
 
-const cloudDevOpsData = {
-  hero: {
-    badge: "Cloud & DevOps",
+export default function CloudDevOpsPage() {
+  const t = useTranslations("services.cloudDevOps")
 
-    title: (
-      <>
-        Cloud infrastructure built for{" "}
-        <span className="text-emerald-500">
-          reliability and scale.
-        </span>
-      </>
-    ),
+  const cloudDevOpsData = {
+    hero: {
+      badge: t("hero.badge"),
 
-    description:
-      "We design, deploy, and manage modern cloud infrastructure and DevOps workflows that help businesses release software faster, improve reliability, and scale with confidence.",
+      title: (
+        <>
+          {t("hero.titleBefore")}{" "}
+          <span className="text-emerald-500">
+            {t("hero.titleHighlight")}
+          </span>
+        </>
+      ),
 
-    primaryButton: "Start Your Cloud Project",
-    image: {
-      src: "/images/devops-cloud.png",
-      alt: "Cloud & DeVops",
+      description: t("hero.description"),
+
+      primaryButton: t("hero.primaryButton"),
+
+      image: {
+        src: "/images/devops-cloud.png",
+        alt: t("hero.imageAlt"),
+      },
+
+      features: [
+        {
+          icon: Cloud,
+          title: t("hero.features.infrastructure.title"),
+          description: t(
+            "hero.features.infrastructure.description"
+          ),
+        },
+        {
+          icon: GitBranch,
+          title: t("hero.features.cicd.title"),
+          description: t(
+            "hero.features.cicd.description"
+          ),
+        },
+        {
+          icon: ShieldCheck,
+          title: t("hero.features.security.title"),
+          description: t(
+            "hero.features.security.description"
+          ),
+        },
+      ],
     },
-    features: [
+
+    capabilities: t.raw("capabilities") as string[],
+
+    middleSection: {
+      badge: t("middleSection.badge"),
+
+      title: (
+        <>
+          {t("middleSection.titleBefore")}
+          <br />
+          {t("middleSection.titleAfter")}
+        </>
+      ),
+
+      description: t("middleSection.description"),
+
+      items: [
+        {
+          icon: Cloud,
+          title: t(
+            "middleSection.items.infrastructure.title"
+          ),
+          description: t(
+            "middleSection.items.infrastructure.description"
+          ),
+        },
+        {
+          icon: GitBranch,
+          title: t(
+            "middleSection.items.cicd.title"
+          ),
+          description: t(
+            "middleSection.items.cicd.description"
+          ),
+        },
+        {
+          icon: Server,
+          title: t(
+            "middleSection.items.containers.title"
+          ),
+          description: t(
+            "middleSection.items.containers.description"
+          ),
+        },
+        {
+          icon: Sparkles,
+          title: t(
+            "middleSection.items.monitoring.title"
+          ),
+          description: t(
+            "middleSection.items.monitoring.description"
+          ),
+        },
+      ],
+    },
+
+    technologies: t.raw("technologies") as string[],
+
+    benefits: [
       {
-        icon: Cloud,
-        title: "Cloud Infrastructure",
-        description:
-          "Reliable and scalable infrastructure designed around your application requirements.",
+        icon: Zap,
+        title: t("benefits.deployments.title"),
+        description: t(
+          "benefits.deployments.description"
+        ),
       },
       {
-        icon: GitBranch,
-        title: "CI/CD Automation",
-        description:
-          "Automated development, testing, deployment, and release workflows.",
+        icon: Layers,
+        title: t("benefits.scalable.title"),
+        description: t(
+          "benefits.scalable.description"
+        ),
       },
       {
         icon: ShieldCheck,
-        title: "Secure & Reliable",
-        description:
-          "Infrastructure designed with security, monitoring, backups, and reliability in mind.",
+        title: t("benefits.security.title"),
+        description: t(
+          "benefits.security.description"
+        ),
+      },
+      {
+        icon: Rocket,
+        title: t("benefits.production.title"),
+        description: t(
+          "benefits.production.description"
+        ),
       },
     ],
-  },
 
-  capabilities: [
-    "Cloud infrastructure",
-    "Cloud migration",
-    "CI/CD pipelines",
-    "Infrastructure automation",
-    "Containerization",
-    "Kubernetes deployment",
-    "Server management",
-    "Application deployment",
-    "Monitoring & logging",
-    "Backup & disaster recovery",
-  ],
-
-  middleSection: {
-    badge: "Cloud & DevOps Capabilities",
-
-    title: (
-      <>
-        Infrastructure designed for
-        <br />
-        modern software teams.
-      </>
-    ),
-
-    description:
-      "We combine cloud platforms, automation, containers, CI/CD, monitoring, and infrastructure-as-code to create reliable development and production environments.",
-
-    items: [
+    process: [
       {
-        icon: Cloud,
-        title: "Cloud Infrastructure",
-        description:
-          "Design and deploy scalable cloud environments for applications, APIs, databases, storage, and other services.",
+        number: t("process.assessment.number"),
+        title: t("process.assessment.title"),
+        description: t(
+          "process.assessment.description"
+        ),
       },
       {
-        icon: GitBranch,
-        title: "CI/CD & Automation",
-        description:
-          "Automate testing, builds, deployments, releases, and development workflows to deliver software faster.",
+        number: t("process.architecture.number"),
+        title: t("process.architecture.title"),
+        description: t(
+          "process.architecture.description"
+        ),
       },
       {
-        icon: Server,
-        title: "Containers & Orchestration",
-        description:
-          "Containerize applications and manage scalable workloads using Docker and Kubernetes.",
+        number: t("process.implementation.number"),
+        title: t("process.implementation.title"),
+        description: t(
+          "process.implementation.description"
+        ),
       },
       {
-        icon: Sparkles,
-        title: "Monitoring & Optimization",
-        description:
-          "Monitor applications and infrastructure, identify issues, optimize resources, and improve system reliability.",
+        number: t("process.testing.number"),
+        title: t("process.testing.title"),
+        description: t(
+          "process.testing.description"
+        ),
+      },
+      {
+        number: t("process.deployment.number"),
+        title: t("process.deployment.title"),
+        description: t(
+          "process.deployment.description"
+        ),
+      },
+      {
+        number: t("process.support.number"),
+        title: t("process.support.title"),
+        description: t(
+          "process.support.description"
+        ),
       },
     ],
-  },
 
-  technologies: [
-    "AWS",
-    "Microsoft Azure",
-    "Google Cloud",
-    "Docker",
-    "Kubernetes",
-    "GitHub Actions",
-    "GitLab CI/CD",
-    "Terraform",
-    "Linux",
-    "Nginx",
-    "Prometheus",
-    "Grafana",
-  ],
+    cta: {
+      eyebrow: t("cta.eyebrow"),
+      title: t("cta.title"),
+      description: t("cta.description"),
+    },
+  }
 
-  benefits: [
-    {
-      icon: Zap,
-      title: "Faster Deployments",
-      description:
-        "Automated development and deployment workflows help teams release reliable software faster.",
-    },
-    {
-      icon: Layers,
-      title: "Scalable Infrastructure",
-      description:
-        "Cloud architecture designed to handle increasing users, traffic, workloads, and business requirements.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Security & Reliability",
-      description:
-        "Security-conscious infrastructure with monitoring, access controls, backups, and reliable deployment practices.",
-    },
-    {
-      icon: Rocket,
-      title: "Production Ready",
-      description:
-        "Infrastructure and deployment environments prepared for real-world applications and continuous growth.",
-    },
-  ],
-
-  process: [
-    {
-      number: "01",
-      title: "Assessment",
-      description:
-        "We understand your existing infrastructure, applications, workloads, business requirements, and technical goals.",
-    },
-    {
-      number: "02",
-      title: "Architecture",
-      description:
-        "We design the cloud infrastructure, deployment strategy, security model, networking, and scalability approach.",
-    },
-    {
-      number: "03",
-      title: "Implementation",
-      description:
-        "We configure cloud resources, containers, infrastructure automation, CI/CD pipelines, and deployment environments.",
-    },
-    {
-      number: "04",
-      title: "Testing",
-      description:
-        "We test deployments, infrastructure reliability, application performance, security, backups, and recovery processes.",
-    },
-    {
-      number: "05",
-      title: "Deployment",
-      description:
-        "We deploy your applications into production and establish reliable release and monitoring workflows.",
-    },
-    {
-      number: "06",
-      title: "Monitoring & Support",
-      description:
-        "We monitor infrastructure and applications while providing optimization, maintenance, troubleshooting, and ongoing improvements.",
-    },
-  ],
-
-  cta: {
-    eyebrow: "Start Your Cloud Project",
-    title: "Ready to modernize your infrastructure?",
-    description:
-      "Let's build a secure, automated, and scalable cloud environment for your applications.",
-  },
-}
-
-export default function CloudDevOpsPage() {
   return <ServicePage {...cloudDevOpsData} />
 }

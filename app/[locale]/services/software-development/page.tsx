@@ -12,195 +12,212 @@ import {
   Zap,
 } from "lucide-react"
 
+import { useTranslations } from "next-intl"
+
 import ServicePage from "@/components/services/service-page"
 
-const softwareDevelopmentData = {
-  hero: {
-    badge: "Software Development",
+export default function SoftwareDevelopmentPage() {
+  const t = useTranslations("services.softwareDevelopment")
 
-    title: (
-      <>
-        Custom software built for{" "}
-        <span className="text-emerald-500">
-          the way your business works.
-        </span>
-      </>
-    ),
+  const softwareDevelopmentData = {
+    hero: {
+      badge: t("hero.badge"),
 
-    description:
-      "We design and develop custom software solutions that automate processes, connect systems, improve productivity, and help businesses scale with confidence.",
+      title: (
+        <>
+          {t("hero.titleBefore")}{" "}
+          <span className="text-emerald-500">
+            {t("hero.titleHighlight")}
+          </span>
+        </>
+      ),
 
-    primaryButton: "Start Your Software Project",
-    image: {
-      src: "/images/software-development.png",
-      alt: "Software development",
+      description: t("hero.description"),
+
+      primaryButton: t("hero.primaryButton"),
+
+      image: {
+        src: "/images/software-development.png",
+        alt: t("hero.imageAlt"),
+      },
+
+      features: [
+        {
+          icon: Code2,
+          title: t("hero.features.custom.title"),
+          description: t(
+            "hero.features.custom.description"
+          ),
+        },
+        {
+          icon: Layers,
+          title: t("hero.features.scalable.title"),
+          description: t(
+            "hero.features.scalable.description"
+          ),
+        },
+        {
+          icon: Rocket,
+          title: t("hero.features.growth.title"),
+          description: t(
+            "hero.features.growth.description"
+          ),
+        },
+      ],
     },
-    features: [
+
+    capabilities: t.raw("capabilities") as string[],
+
+    middleSection: {
+      badge: t("middleSection.badge"),
+
+      title: (
+        <>
+          {t("middleSection.titleBefore")}
+          <br />
+          {t("middleSection.titleAfter")}
+        </>
+      ),
+
+      description: t("middleSection.description"),
+
+      items: [
+        {
+          icon: LayoutDashboard,
+          title: t(
+            "middleSection.items.business.title"
+          ),
+          description: t(
+            "middleSection.items.business.description"
+          ),
+        },
+        {
+          icon: Database,
+          title: t(
+            "middleSection.items.backend.title"
+          ),
+          description: t(
+            "middleSection.items.backend.description"
+          ),
+        },
+        {
+          icon: Globe,
+          title: t(
+            "middleSection.items.integration.title"
+          ),
+          description: t(
+            "middleSection.items.integration.description"
+          ),
+        },
+        {
+          icon: Sparkles,
+          title: t(
+            "middleSection.items.automation.title"
+          ),
+          description: t(
+            "middleSection.items.automation.description"
+          ),
+        },
+      ],
+    },
+
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "FastAPI",
+      "Django",
+      "Java",
+      "PostgreSQL",
+      "MongoDB",
+      "REST API",
+      "Docker",
+    ],
+
+    benefits: [
       {
-        icon: Code2,
-        title: "Custom Solutions",
-        description:
-          "Software designed around your business requirements and workflows.",
+        icon: Zap,
+        title: t("benefits.efficient.title"),
+        description: t(
+          "benefits.efficient.description"
+        ),
       },
       {
         icon: Layers,
-        title: "Scalable Architecture",
-        description:
-          "Systems designed to support new users, features, integrations, and growth.",
+        title: t("benefits.modular.title"),
+        description: t(
+          "benefits.modular.description"
+        ),
+      },
+      {
+        icon: ShieldCheck,
+        title: t("benefits.secure.title"),
+        description: t(
+          "benefits.secure.description"
+        ),
       },
       {
         icon: Rocket,
-        title: "Built for Growth",
-        description:
-          "Reliable software focused on long-term performance and maintainability.",
+        title: t("benefits.scale.title"),
+        description: t(
+          "benefits.scale.description"
+        ),
       },
     ],
-  },
 
-  capabilities: [
-    "Custom business software",
-    "Enterprise applications",
-    "SaaS applications",
-    "Business management systems",
-    "ERP software",
-    "CRM systems",
-    "Workflow automation",
-    "Internal business tools",
-    "Customer portals",
-    "Custom dashboards",
-  ],
-
-  middleSection: {
-    badge: "Software Capabilities",
-
-    title: (
-      <>
-        Software designed around
-        <br />
-        your business requirements.
-      </>
-    ),
-
-    description:
-      "From internal business systems to customer-facing platforms, we combine modern frontend, backend, database, API, and cloud technologies to create complete software solutions.",
-
-    items: [
+    process: [
       {
-        icon: LayoutDashboard,
-        title: "Business Applications",
-        description:
-          "Custom applications that help teams manage operations, customers, employees, products, and business workflows.",
+        number: t("process.discovery.number"),
+        title: t("process.discovery.title"),
+        description: t(
+          "process.discovery.description"
+        ),
       },
       {
-        icon: Database,
-        title: "Backend & Database Systems",
-        description:
-          "Reliable backend architecture, databases, authentication, APIs, business logic, and data management.",
+        number: t("process.planning.number"),
+        title: t("process.planning.title"),
+        description: t(
+          "process.planning.description"
+        ),
       },
       {
-        icon: Globe,
-        title: "Cloud & API Integration",
-        description:
-          "Connect your software with third-party services, payment systems, communication platforms, and cloud infrastructure.",
+        number: t("process.development.number"),
+        title: t("process.development.title"),
+        description: t(
+          "process.development.description"
+        ),
       },
       {
-        icon: Sparkles,
-        title: "Automation & AI",
-        description:
-          "Automate repetitive processes and integrate intelligent features to improve productivity and decision-making.",
+        number: t("process.testing.number"),
+        title: t("process.testing.title"),
+        description: t(
+          "process.testing.description"
+        ),
+      },
+      {
+        number: t("process.deployment.number"),
+        title: t("process.deployment.title"),
+        description: t(
+          "process.deployment.description"
+        ),
+      },
+      {
+        number: t("process.maintenance.number"),
+        title: t("process.maintenance.title"),
+        description: t(
+          "process.maintenance.description"
+        ),
       },
     ],
-  },
 
-  technologies: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Node.js",
-    "Python",
-    "FastAPI",
-    "Django",
-    "Java",
-    "PostgreSQL",
-    "MongoDB",
-    "REST API",
-    "Docker",
-  ],
+    cta: {
+      eyebrow: t("cta.eyebrow"),
+      title: t("cta.title"),
+      description: t("cta.description"),
+    },
+  }
 
-  benefits: [
-    {
-      icon: Zap,
-      title: "Efficient Systems",
-      description:
-        "Software designed to reduce repetitive work, improve workflows, and increase operational efficiency.",
-    },
-    {
-      icon: Layers,
-      title: "Modular Architecture",
-      description:
-        "Well-structured systems that make it easier to add features, integrations, and new business capabilities.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Secure Development",
-      description:
-        "Security-conscious development for authentication, authorization, APIs, databases, and business data.",
-    },
-    {
-      icon: Rocket,
-      title: "Ready to Scale",
-      description:
-        "Architecture designed to support increasing users, data, transactions, and business requirements.",
-    },
-  ],
-
-  process: [
-    {
-      number: "01",
-      title: "Discovery",
-      description:
-        "We understand your business processes, users, challenges, requirements, and software objectives.",
-    },
-    {
-      number: "02",
-      title: "Planning",
-      description:
-        "We define the software architecture, features, database structure, integrations, and development roadmap.",
-    },
-    {
-      number: "03",
-      title: "Development",
-      description:
-        "Our developers build the software using modern technologies and an architecture designed for long-term growth.",
-    },
-    {
-      number: "04",
-      title: "Testing",
-      description:
-        "We test functionality, performance, security, integrations, user workflows, and different usage scenarios.",
-    },
-    {
-      number: "05",
-      title: "Deployment",
-      description:
-        "We deploy your software to the appropriate production environment and prepare it for real users.",
-    },
-    {
-      number: "06",
-      title: "Maintenance",
-      description:
-        "We provide ongoing maintenance, improvements, monitoring, bug fixes, security updates, and new features.",
-    },
-  ],
-
-  cta: {
-    eyebrow: "Start Your Software Project",
-    title: "Have a software idea in mind?",
-    description:
-      "Let's build a reliable software solution that improves your business and grows with your requirements.",
-  },
-}
-
-export default function SoftwareDevelopmentPage() {
   return <ServicePage {...softwareDevelopmentData} />
 }

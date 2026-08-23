@@ -9,7 +9,7 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-
+import { useTranslations } from "next-intl"
 type ServiceFeature = {
   icon: React.ElementType
   title: string
@@ -80,6 +80,8 @@ export default function ServicePage({
   process,
   cta,
 }: ServicePageProps) {
+  const t = useTranslations("servicePage")
+
   return (
     <main className="bg-background">
 
@@ -139,7 +141,7 @@ export default function ServicePage({
                   variant="outline"
                 >
                   <Link href="#">
-                    Explore Services
+                    {t("exploreServices")}
                   </Link>
                 </Button>
 
@@ -188,10 +190,9 @@ export default function ServicePage({
                   key={feature.title}
                   className={`
                     px-6 py-7
-                    ${
-                      index < 2
-                        ? "border-b sm:border-b-0 sm:border-r"
-                        : ""
+                    ${index < 2
+                      ? "border-b sm:border-b-0 sm:border-r"
+                      : ""
                     }
                   `}
                 >
@@ -236,13 +237,13 @@ export default function ServicePage({
 
               <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
                 {middleSection.badge === "API Development Capabilities"
-                  ? "Digital products connected around your business."
-                  : "Digital products designed around your business."}
+                  ? t("apiDigitalProducts")
+                  : t("digitalProducts")}
               </h2>
 
               <p className="mt-5 max-w-lg leading-7 text-muted-foreground">
                 {capabilities.length > 0
-                  ? "Every project has different requirements. We build custom solutions around your users, business goals, technical requirements, and long-term growth."
+                  ? t("capabilitiesDescription")
                   : ""}
               </p>
 
@@ -345,16 +346,15 @@ export default function ServicePage({
               variant="outline"
               className="border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
             >
-              Technology Stack
+              {t("technologyStack")}
             </Badge>
 
             <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-              Technologies we work with.
+             {t("technologiesTitle")}
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              We choose technologies based on your project's requirements,
-              scalability, performance, and long-term maintainability.
+              {t("technologiesDescription")}
             </p>
 
           </div>
@@ -402,11 +402,11 @@ export default function ServicePage({
                 variant="outline"
                 className="border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
               >
-                Why InfiniGrow
+                 {t("whyInfiniGrow")}
               </Badge>
 
               <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-                Built for performance, usability, and growth.
+                 {t("whyTitle")}
               </h2>
 
             </div>
@@ -457,16 +457,15 @@ export default function ServicePage({
               variant="outline"
               className="border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
             >
-              Our Process
+              {t("process")}
             </Badge>
 
             <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-              From idea to launch.
+              {t("processTitle")}
             </h2>
 
             <p className="mt-5 text-muted-foreground">
-              A clear development process keeps projects organized,
-              transparent, and focused on your business goals.
+              {t("processDescription")}
             </p>
 
           </div>
@@ -534,7 +533,7 @@ export default function ServicePage({
                 href="/contact"
                 className="flex items-center"
               >
-                Talk to Our Team
+               {t("ctaButton")}
 
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

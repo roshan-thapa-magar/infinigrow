@@ -669,12 +669,11 @@
       "button": "Explore Our Services"
     }
   },
-   "WhyInfiniGrow": {
+  "WhyInfiniGrow": {
     "badge": "Why InfiniGrow",
     "title": "Technology that works for",
     "titleHighlight": "your goals.",
     "description": "Choosing a technology partner is about more than technical skills. It is about finding a team that understands your goals, communicates clearly, and stays focused on delivering meaningful results.",
-
     "approach": {
       "eyebrow": "Our Approach",
       "title": "We build with purpose, not just technology.",
@@ -689,7 +688,6 @@
         "Deliver measurable value"
       ]
     },
-
     "reasons": {
       "businessFocused": {
         "title": "Business-Focused Solutions",
@@ -716,7 +714,6 @@
         "description": "We create flexible digital solutions that can evolve as your business, users, and requirements grow."
       }
     },
-
     "cta": {
       "eyebrow": "Let's Build Together",
       "title": "Have a project in mind?",
@@ -729,7 +726,6 @@
     "title": "The technology behind",
     "titleHighlight": "what we build.",
     "description": "We choose technologies based on the needs of each project, focusing on performance, maintainability, scalability, and long-term value rather than simply following trends.",
-
     "groups": {
       "frontend": {
         "title": "Frontend Development",
@@ -743,7 +739,6 @@
           "ShadCn"
         ]
       },
-
       "backend": {
         "title": "Backend Development",
         "description": "Secure and scalable backend systems, APIs, and application services built around your business requirements.",
@@ -755,7 +750,6 @@
           "FastAPI"
         ]
       },
-
       "api": {
         "title": "API Development",
         "description": "Reliable APIs that connect web applications, mobile apps, third-party services, and business systems.",
@@ -767,7 +761,6 @@
           "Webhooks"
         ]
       },
-
       "mobile": {
         "title": "Mobile Development",
         "description": "Native and cross-platform mobile applications designed for performance, usability, and scalable product experiences.",
@@ -780,7 +773,6 @@
           "Android"
         ]
       },
-
       "ai": {
         "title": "AI & Machine Learning",
         "description": "Intelligent digital solutions that use AI to automate tasks, analyze information, and create smarter user experiences.",
@@ -793,7 +785,6 @@
           "Automation"
         ]
       },
-
       "cms": {
         "title": "CMS & WordPress",
         "description": "Flexible websites and content platforms that make it easier for businesses to manage and grow their online presence.",
@@ -805,7 +796,6 @@
           "Custom Plugins"
         ]
       },
-
       "database": {
         "title": "Database",
         "description": "Reliable data storage and management solutions selected according to application requirements and scale.",
@@ -817,7 +807,6 @@
           "Database Design"
         ]
       },
-
       "cloud": {
         "title": "Cloud & DevOps",
         "description": "Deployment and infrastructure solutions focused on reliability, automation, security, and scalability.",
@@ -829,7 +818,6 @@
           "Cloud Services"
         ]
       },
-
       "tools": {
         "title": "Development Tools",
         "description": "Modern development workflows that help teams collaborate efficiently and maintain high-quality software.",
@@ -842,7 +830,6 @@
         ]
       }
     },
-
     "bottom": {
       "eyebrow": "Right Technology",
       "title": "We choose technology around the problem.",
@@ -855,7 +842,6 @@
     "title": "From idea to",
     "titleHighlight": "reality.",
     "description": "A clear and collaborative process helps us turn ideas into reliable digital products while keeping every project focused, transparent, and purposeful.",
-
     "steps": {
       "discover": {
         "title": "Discover",
@@ -882,7 +868,6 @@
         "description": "We launch the product and continue providing improvements, maintenance, and support."
       }
     },
-
     "highlights": {
       "communication": {
         "title": "Clear Communication",
@@ -897,7 +882,6 @@
         "description": "Our relationship doesn't have to end at launch. We can continue improving and supporting your digital product."
       }
     },
-
     "button": "Start Your Project"
   },
   "AboutCTA": {
@@ -918,7 +902,6 @@
     "badge": "Our Locations",
     "title": "Find us around the world",
     "description": "InfiniGrow Technologies brings together people, ideas, and technology across Nepal and Japan. Connect with our team at one of our offices.",
-
     "offices": {
       "kathmandu": {
         "city": "Kathmandu",
@@ -942,7 +925,6 @@
     "badge": "Contact Us",
     "title": "Let's build together",
     "description": "Have an idea, project, or challenge in mind? Tell us what you're working on and let's explore how we can create something meaningful together.",
-
     "validation": {
       "firstNameRequired": "First name is required.",
       "lastNameRequired": "Last name is required.",
@@ -952,7 +934,6 @@
       "projectRequired": "Please tell us about your project.",
       "budgetRequired": "Please select your estimated budget."
     },
-
     "toast": {
       "success": "Inquiry submitted successfully!",
       "successDescription": "Thank you for contacting us. Our team will get back to you soon.",
@@ -966,20 +947,17 @@
       "eyebrow": "START A CONVERSATION",
       "title": "Tell us about your project",
       "description": "Answer a few quick questions so we can better understand your goals and connect you with the right people.",
-
       "fields": {
         "firstName": "First Name",
         "lastName": "Last Name",
         "email": "Email Address"
       },
-
       "placeholders": {
         "firstName": "John",
         "lastName": "Doe",
         "email": "john@example.com",
         "project": "Tell us what you're building, what problem you're trying to solve, and how we can help..."
       },
-
       "workType": {
         "title": "How do you want to work with us?",
         "description": "Choose the option that best describes your needs.",
@@ -990,7 +968,6 @@
           "partnership": "Long-term partnership"
         }
       },
-
       "service": {
         "title": "What service do you require?",
         "description": "Select the service closest to your project requirements.",
@@ -1003,12 +980,10 @@
           "cyberSecurity": "Cyber Security"
         }
       },
-
       "project": {
         "title": "Tell us something about your project",
         "description": "Give us a brief overview of your idea, goals, timeline, or anything else we should know."
       },
-
       "budget": {
         "title": "What is your estimated project budget?",
         "description": "An approximate range helps us understand the project scope.",
@@ -1018,7 +993,6 @@
           "20kPlus": "$20K+"
         }
       },
-
       "submit": {
         "sending": "Sending...",
         "send": "Send Inquiry",
@@ -1028,20 +1002,17 @@
   },
   "contactSidebar": {
     "imageAlt": "InfiniGrow Technologies",
-
     "phone": {
       "title": "Let's talk",
       "subtitle": "Have a quick conversation",
       "availability": "We're available Monday through Friday during US working hours."
     },
-
     "job": {
       "title": "Looking for a job?",
       "subtitle": "Join our growing team",
       "description": "Explore opportunities to work with our team. We're always interested in meeting talented and motivated people.",
       "button": "View Openings"
     },
-
     "fellowship": {
       "title": "Get a fellowship",
       "subtitle": "Learn and grow with us",
@@ -1051,42 +1022,1053 @@
   },
   "footer": {
     "description": "We build modern software, AI-powered solutions, and digital products that help businesses innovate, automate, and grow.",
-
     "sections": {
       "company": "Company",
       "services": "Services",
       "resources": "Resources"
     },
-
     "links": {
       "about": "About",
       "services": "Services",
       "projects": "Projects",
       "contact": "Contact",
-
       "webDevelopment": "Web Development",
       "aiSolutions": "AI Solutions",
       "mobileApps": "Mobile Apps",
       "cloudSolutions": "Cloud Solutions",
-
       "blog": "Blog",
       "documentation": "Documentation",
       "faqs": "FAQs",
       "support": "Support"
     },
-
     "legal": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     },
-
     "copyright": "InfiniGrow. All rights reserved.",
-
     "social": {
       "github": "GitHub",
       "x": "X",
       "linkedin": "LinkedIn"
     }
+  },
+  "servicePage": {
+    "exploreServices": "Explore Services",
+    "whatWeBuild": "What We Build",
+    "digitalProducts": "Digital products designed around your business.",
+    "apiDigitalProducts": "Digital products connected around your business.",
+    "capabilitiesDescription": "Every project has different requirements. We build custom solutions around your users, business goals, technical requirements, and long-term growth.",
+    "technologyStack": "Technology Stack",
+    "technologiesTitle": "Technologies we work with.",
+    "technologiesDescription": "We choose technologies based on your project's requirements, scalability, performance, and long-term maintainability.",
+    "whyInfiniGrow": "Why InfiniGrow",
+    "whyTitle": "Built for performance, usability, and growth.",
+    "process": "Our Process",
+    "processTitle": "From idea to launch.",
+    "processDescription": "A clear development process keeps projects organized, transparent, and focused on your business goals.",
+    "ctaButton": "Talk to Our Team"
+  },
+  "AiDevelopmentPage": {
+    "hero": {
+      "badge": "AI Development",
+      "title": "Intelligent software powered by practical AI.",
+      "description": "We design and develop AI-powered applications that automate workflows, improve customer experiences, analyze information, and help businesses work smarter.",
+      "primaryButton": "Start Your AI Project",
+      "imageAlt": "AI Development",
+      "features": {
+        "aiSolutions": {
+          "title": "AI-Powered Solutions",
+          "description": "Intelligent features integrated into your applications and business workflows."
+        },
+        "automation": {
+          "title": "AI Automation",
+          "description": "Automate repetitive tasks and processes using modern AI technologies."
+        },
+        "experiences": {
+          "title": "Smarter Experiences",
+          "description": "AI-powered search, assistants, recommendations, and personalized experiences."
+        }
+      }
+    },
+    "capabilities": [
+      "AI-powered web applications",
+      "AI-powered mobile applications",
+      "AI chatbots",
+      "AI assistants",
+      "AI search systems",
+      "Recommendation systems",
+      "Document processing",
+      "AI workflow automation",
+      "Generative AI applications",
+      "Custom AI integrations"
+    ],
+    "middleSection": {
+      "badge": "AI Development Capabilities",
+      "title": "AI solutions built around real business problems.",
+      "description": "We focus on practical AI applications that improve workflows, make information easier to access, automate repetitive work, and create better digital experiences.",
+      "items": {
+        "assistants": {
+          "title": "AI Assistants & Chatbots",
+          "description": "Build intelligent assistants that can answer questions, guide users, retrieve information, and support business workflows."
+        },
+        "search": {
+          "title": "AI Search & Knowledge Systems",
+          "description": "Create intelligent search experiences that help users find relevant information across documents, databases, and business content."
+        },
+        "data": {
+          "title": "AI Data & Document Processing",
+          "description": "Extract, organize, summarize, classify, and analyze information from documents and other business data."
+        },
+        "automation": {
+          "title": "AI Automation",
+          "description": "Integrate AI into business workflows to reduce repetitive tasks and improve operational efficiency."
+        }
+      }
+    },
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "OpenAI API",
+      "LLM APIs",
+      "LangChain",
+      "RAG",
+      "Vector Databases",
+      "PostgreSQL",
+      "MongoDB",
+      "Node.js",
+      "TypeScript",
+      "Docker"
+    ],
+    "benefits": {
+      "automation": {
+        "title": "Automate Workflows",
+        "description": "Use AI to automate repetitive processes and help teams spend more time on valuable work."
+      },
+      "experiences": {
+        "title": "Intelligent Experiences",
+        "description": "Add AI-powered search, assistants, recommendations, and personalization to digital products."
+      },
+      "responsible": {
+        "title": "Responsible Development",
+        "description": "Security-conscious AI development with attention to data access, privacy, permissions, and reliable application behavior."
+      },
+      "evolve": {
+        "title": "Built to Evolve",
+        "description": "Flexible AI architectures designed to support new models, features, integrations, and business requirements."
+      }
+    },
+    "process": {
+      "discovery": {
+        "number": "01",
+        "title": "AI Discovery",
+        "description": "We understand your business problem, users, available data, workflows, and where AI can provide practical value."
+      },
+      "planning": {
+        "number": "02",
+        "title": "Solution Planning",
+        "description": "We define the AI approach, application architecture, data requirements, integrations, and technology stack."
+      },
+      "development": {
+        "number": "03",
+        "title": "Development",
+        "description": "Our team builds the AI-powered application and integrates models, APIs, databases, and business workflows."
+      },
+      "testing": {
+        "number": "04",
+        "title": "Testing",
+        "description": "We evaluate functionality, performance, reliability, security, response quality, and real-world usage scenarios."
+      },
+      "deployment": {
+        "number": "05",
+        "title": "Deployment",
+        "description": "We deploy the AI application to the appropriate production environment and configure the required services."
+      },
+      "improvement": {
+        "number": "06",
+        "title": "Improvement",
+        "description": "We monitor the application and continuously improve performance, workflows, integrations, and AI capabilities."
+      }
+    },
+    "cta": {
+      "eyebrow": "Start Your AI Project",
+      "title": "Have an AI idea in mind?",
+      "description": "Let's turn your idea into a practical AI-powered product that creates real value for your users and business."
+    }
+  },
+  "cloudDevOps": {
+    "hero": {
+      "badge": "Cloud & DevOps",
+      "title": "Cloud infrastructure built for reliability and scale.",
+      "description": "We design, deploy, and manage modern cloud infrastructure and DevOps workflows that help businesses release software faster, improve reliability, and scale with confidence.",
+      "primaryButton": "Start Your Cloud Project",
+      "imageAlt": "Cloud & DevOps",
+      "features": {
+        "cloudInfrastructure": {
+          "title": "Cloud Infrastructure",
+          "description": "Reliable and scalable infrastructure designed around your application requirements."
+        },
+        "cicdAutomation": {
+          "title": "CI/CD Automation",
+          "description": "Automated development, testing, deployment, and release workflows."
+        },
+        "secureReliable": {
+          "title": "Secure & Reliable",
+          "description": "Infrastructure designed with security, monitoring, backups, and reliability in mind."
+        }
+      }
+    },
+    "capabilities": [
+      "Cloud infrastructure",
+      "Cloud migration",
+      "CI/CD pipelines",
+      "Infrastructure automation",
+      "Containerization",
+      "Kubernetes deployment",
+      "Server management",
+      "Application deployment",
+      "Monitoring & logging",
+      "Backup & disaster recovery"
+    ],
+    "middleSection": {
+      "badge": "Cloud & DevOps Capabilities",
+      "title": "Infrastructure designed for modern software teams.",
+      "description": "We combine cloud platforms, automation, containers, CI/CD, monitoring, and infrastructure-as-code to create reliable development and production environments.",
+      "items": {
+        "cloudInfrastructure": {
+          "title": "Cloud Infrastructure",
+          "description": "Design and deploy scalable cloud environments for applications, APIs, databases, storage, and other services."
+        },
+        "cicdAutomation": {
+          "title": "CI/CD & Automation",
+          "description": "Automate testing, builds, deployments, releases, and development workflows to deliver software faster."
+        },
+        "containersOrchestration": {
+          "title": "Containers & Orchestration",
+          "description": "Containerize applications and manage scalable workloads using Docker and Kubernetes."
+        },
+        "monitoringOptimization": {
+          "title": "Monitoring & Optimization",
+          "description": "Monitor applications and infrastructure, identify issues, optimize resources, and improve system reliability."
+        }
+      }
+    },
+    "technologies": [
+      "AWS",
+      "Microsoft Azure",
+      "Google Cloud",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "GitLab CI/CD",
+      "Terraform",
+      "Linux",
+      "Nginx",
+      "Prometheus",
+      "Grafana"
+    ],
+    "benefits": {
+      "fasterDeployments": {
+        "title": "Faster Deployments",
+        "description": "Automated development and deployment workflows help teams release reliable software faster."
+      },
+      "scalableInfrastructure": {
+        "title": "Scalable Infrastructure",
+        "description": "Cloud architecture designed to handle increasing users, traffic, workloads, and business requirements."
+      },
+      "securityReliability": {
+        "title": "Security & Reliability",
+        "description": "Security-conscious infrastructure with monitoring, access controls, backups, and reliable deployment practices."
+      },
+      "productionReady": {
+        "title": "Production Ready",
+        "description": "Infrastructure and deployment environments prepared for real-world applications and continuous growth."
+      }
+    },
+    "process": {
+      "assessment": {
+        "title": "Assessment",
+        "description": "We understand your existing infrastructure, applications, workloads, business requirements, and technical goals."
+      },
+      "architecture": {
+        "title": "Architecture",
+        "description": "We design the cloud infrastructure, deployment strategy, security model, networking, and scalability approach."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "We configure cloud resources, containers, infrastructure automation, CI/CD pipelines, and deployment environments."
+      },
+      "testing": {
+        "title": "Testing",
+        "description": "We test deployments, infrastructure reliability, application performance, security, backups, and recovery processes."
+      },
+      "deployment": {
+        "title": "Deployment",
+        "description": "We deploy your applications into production and establish reliable release and monitoring workflows."
+      },
+      "monitoringSupport": {
+        "title": "Monitoring & Support",
+        "description": "We monitor infrastructure and applications while providing optimization, maintenance, troubleshooting, and ongoing improvements."
+      }
+    },
+    "cta": {
+      "eyebrow": "Start Your Cloud Project",
+      "title": "Ready to modernize your infrastructure?",
+      "description": "Let's build a secure, automated, and scalable cloud environment for your applications."
+    }
+  },
+  "services": {
+    "webDevelopment": {
+      "hero": {
+        "badge": "Web Development",
+        "title": "We build websites and web applications that grow with your business.",
+        "description": "From high-converting business websites to complex web platforms, InfiniGrow creates fast, scalable, secure, and user-focused digital experiences.",
+        "primaryButton": "Start Your Project",
+        "imageAlt": "Modern web development",
+        "features": {
+          "modernTechnology": {
+            "title": "Modern Technology",
+            "description": "Built with current web technologies."
+          },
+          "builtToScale": {
+            "title": "Built to Scale",
+            "description": "Architecture designed for future growth."
+          },
+          "globalExperience": {
+            "title": "Global Experience",
+            "description": "Responsive experiences for every device."
+          }
+        }
+      },
+      "capabilities": {
+        "items": [
+          "Business websites",
+          "Corporate websites",
+          "SaaS platforms",
+          "E-commerce websites",
+          "Web applications",
+          "Admin dashboards",
+          "Customer portals",
+          "Booking platforms",
+          "API-integrated websites",
+          "Custom web platforms"
+        ]
+      },
+      "middleSection": {
+        "badge": "Development Capabilities",
+        "title": "More than just building a website.",
+        "description": "We combine frontend engineering, backend development, APIs, databases, integrations, and performance optimization to create complete digital products.",
+        "items": {
+          "frontend": {
+            "title": "Frontend Development",
+            "description": "Modern interfaces with React, Next.js, TypeScript, Tailwind CSS, and responsive design principles."
+          },
+          "backend": {
+            "title": "Backend Development",
+            "description": "Reliable backend systems, databases, authentication, business logic, and REST API integrations."
+          },
+          "cms": {
+            "title": "CMS & WordPress",
+            "description": "Professional WordPress websites, custom themes, integrations, content management, and business websites."
+          },
+          "ai": {
+            "title": "AI-Powered Web Experiences",
+            "description": "AI integrations, intelligent search, automation, assistants, recommendation systems, and AI-powered business workflows."
+          }
+        }
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "Python",
+        "Django",
+        "REST API",
+        "PostgreSQL",
+        "MongoDB",
+        "WordPress",
+        "Tailwind CSS"
+      ],
+      "benefits": {
+        "items": {
+          "performance": {
+            "title": "High Performance",
+            "description": "Fast-loading websites and applications designed for a smooth user experience."
+          },
+          "responsive": {
+            "title": "Responsive Design",
+            "description": "Interfaces that work naturally across mobile, tablet, laptop, and desktop devices."
+          },
+          "seo": {
+            "title": "SEO Friendly",
+            "description": "Clean technical foundations that help search engines understand and index your website."
+          },
+          "security": {
+            "title": "Secure Architecture",
+            "description": "Security-conscious development practices for applications, APIs, authentication, and data."
+          }
+        }
+      },
+      "process": {
+        "items": {
+          "discovery": {
+            "number": "01",
+            "title": "Discovery",
+            "description": "We understand your business, users, goals, technical requirements, and project scope."
+          },
+          "planning": {
+            "number": "02",
+            "title": "Planning & Design",
+            "description": "We create the structure, user experience, visual direction, and technical architecture."
+          },
+          "development": {
+            "number": "03",
+            "title": "Development",
+            "description": "Our developers build the website or web application using modern and scalable technologies."
+          },
+          "testing": {
+            "number": "04",
+            "title": "Testing",
+            "description": "We test functionality, responsiveness, performance, security, and browser compatibility."
+          },
+          "launch": {
+            "number": "05",
+            "title": "Launch",
+            "description": "After final approval, we deploy your project and make it ready for real users."
+          },
+          "support": {
+            "number": "06",
+            "title": "Support",
+            "description": "We continue to help with improvements, maintenance, updates, and future development."
+          }
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your Project",
+        "title": "Have a web project in mind?",
+        "description": "Let's turn your idea into a fast, reliable, and scalable digital product."
+      }
+    },
+    "mobileDevelopment": {
+      "hero": {
+        "badge": "Mobile App Development",
+        "title": "Mobile apps built for real-world users.",
+        "description": "We design and develop modern mobile applications for iOS and Android using native and cross-platform technologies. From your first idea to app store deployment, we build products designed for performance, usability, and growth.",
+        "primaryButton": "Start Your App Project",
+        "imageAlt": "Mobile development",
+        "features": {
+          "iosAndroid": {
+            "title": "iOS & Android",
+            "description": "Applications for both major mobile platforms."
+          },
+          "modernFrameworks": {
+            "title": "Modern Frameworks",
+            "description": "Swift, Kotlin, Flutter, and React Native."
+          },
+          "greatExperiences": {
+            "title": "Great Experiences",
+            "description": "Simple, intuitive, and user-focused interfaces."
+          }
+        }
+      },
+      "capabilities": [
+        "iOS applications",
+        "Android applications",
+        "Cross-platform applications",
+        "Business mobile apps",
+        "E-commerce mobile apps",
+        "Booking applications",
+        "Customer applications",
+        "On-demand applications",
+        "Mobile dashboards",
+        "API-connected applications"
+      ],
+      "middleSection": {
+        "badge": "Development Approaches",
+        "title": "Native or cross-platform. We choose what fits your product.",
+        "description": "Different applications require different approaches. We select the right technology based on performance, budget, platform requirements, development speed, and long-term maintenance.",
+        "items": {
+          "native": {
+            "title": "Native Development",
+            "description": "Build platform-specific applications with technologies designed specifically for iOS and Android."
+          },
+          "crossPlatform": {
+            "title": "Cross-Platform Development",
+            "description": "Build applications for multiple platforms while sharing a significant portion of the development code."
+          }
+        }
+      },
+      "technologies": [
+        "Swift",
+        "SwiftUI",
+        "Kotlin",
+        "Jetpack Compose",
+        "Flutter",
+        "Dart",
+        "React Native",
+        "TypeScript",
+        "Firebase",
+        "REST API",
+        "Node.js",
+        "Python"
+      ],
+      "benefits": {
+        "fastResponsive": {
+          "title": "Fast & Responsive",
+          "description": "Mobile experiences optimized for smooth interactions, fast loading, and reliable performance."
+        },
+        "nativeCrossPlatform": {
+          "title": "Native & Cross-Platform",
+          "description": "Choose native development or a cross-platform approach depending on your business and technical needs."
+        },
+        "secureApplications": {
+          "title": "Secure Applications",
+          "description": "Security-conscious development for authentication, APIs, user data, payments, and application services."
+        },
+        "builtToScale": {
+          "title": "Built to Scale",
+          "description": "Architecture designed to support growing users, new features, integrations, and business requirements."
+        }
+      },
+      "process": {
+        "discovery": {
+          "number": "01",
+          "title": "Discovery",
+          "description": "We understand your users, business requirements, platform requirements, and project goals."
+        },
+        "uxPlanning": {
+          "number": "02",
+          "title": "UX & Planning",
+          "description": "We plan the user experience, application structure, navigation, features, and technical architecture."
+        },
+        "development": {
+          "number": "03",
+          "title": "Development",
+          "description": "Our team develops your application using native or cross-platform technologies based on your requirements."
+        },
+        "testing": {
+          "number": "04",
+          "title": "Testing",
+          "description": "We test the application across devices, screen sizes, operating systems, performance, and functionality."
+        },
+        "deployment": {
+          "number": "05",
+          "title": "Deployment",
+          "description": "We prepare and deploy your application for the required app stores and production environments."
+        },
+        "maintenance": {
+          "number": "06",
+          "title": "Maintenance",
+          "description": "We provide ongoing improvements, updates, bug fixes, monitoring, and new feature development."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your Mobile Project",
+        "title": "Ready to build your mobile app?",
+        "description": "Tell us about your idea and let's create a mobile experience your users will love."
+      }
+    },
+    "aiDevelopment": {
+      "hero": {
+        "badge": "AI Development",
+        "titleBefore": "Intelligent software powered by",
+        "titleHighlight": "practical AI.",
+        "description": "We design and develop AI-powered applications that automate workflows, improve customer experiences, analyze information, and help businesses work smarter.",
+        "primaryButton": "Start Your AI Project",
+        "imageAlt": "AI Development",
+        "features": {
+          "aiSolutions": {
+            "title": "AI-Powered Solutions",
+            "description": "Intelligent features integrated into your applications and business workflows."
+          },
+          "automation": {
+            "title": "AI Automation",
+            "description": "Automate repetitive tasks and processes using modern AI technologies."
+          },
+          "experiences": {
+            "title": "Smarter Experiences",
+            "description": "AI-powered search, assistants, recommendations, and personalized experiences."
+          }
+        }
+      },
+      "capabilities": [
+        "AI-powered web applications",
+        "AI-powered mobile applications",
+        "AI chatbots",
+        "AI assistants",
+        "AI search systems",
+        "Recommendation systems",
+        "Document processing",
+        "AI workflow automation",
+        "Generative AI applications",
+        "Custom AI integrations"
+      ],
+      "middleSection": {
+        "badge": "AI Development Capabilities",
+        "titleBefore": "AI solutions built around",
+        "titleAfter": "real business problems.",
+        "description": "We focus on practical AI applications that improve workflows, make information easier to access, automate repetitive work, and create better digital experiences.",
+        "items": {
+          "assistants": {
+            "title": "AI Assistants & Chatbots",
+            "description": "Build intelligent assistants that can answer questions, guide users, retrieve information, and support business workflows."
+          },
+          "search": {
+            "title": "AI Search & Knowledge Systems",
+            "description": "Create intelligent search experiences that help users find relevant information across documents, databases, and business content."
+          },
+          "documents": {
+            "title": "AI Data & Document Processing",
+            "description": "Extract, organize, summarize, classify, and analyze information from documents and other business data."
+          },
+          "automation": {
+            "title": "AI Automation",
+            "description": "Integrate AI into business workflows to reduce repetitive tasks and improve operational efficiency."
+          }
+        }
+      },
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "OpenAI API",
+        "LLM APIs",
+        "LangChain",
+        "RAG",
+        "Vector Databases",
+        "PostgreSQL",
+        "MongoDB",
+        "Node.js",
+        "TypeScript",
+        "Docker"
+      ],
+      "benefits": {
+        "automation": {
+          "title": "Automate Workflows",
+          "description": "Use AI to automate repetitive processes and help teams spend more time on valuable work."
+        },
+        "experiences": {
+          "title": "Intelligent Experiences",
+          "description": "Add AI-powered search, assistants, recommendations, and personalization to digital products."
+        },
+        "responsible": {
+          "title": "Responsible Development",
+          "description": "Security-conscious AI development with attention to data access, privacy, permissions, and reliable application behavior."
+        },
+        "evolve": {
+          "title": "Built to Evolve",
+          "description": "Flexible AI architectures designed to support new models, features, integrations, and business requirements."
+        }
+      },
+      "process": {
+        "discovery": {
+          "number": "01",
+          "title": "AI Discovery",
+          "description": "We understand your business problem, users, available data, workflows, and where AI can provide practical value."
+        },
+        "planning": {
+          "number": "02",
+          "title": "Solution Planning",
+          "description": "We define the AI approach, application architecture, data requirements, integrations, and technology stack."
+        },
+        "development": {
+          "number": "03",
+          "title": "Development",
+          "description": "Our team builds the AI-powered application and integrates models, APIs, databases, and business workflows."
+        },
+        "testing": {
+          "number": "04",
+          "title": "Testing",
+          "description": "We evaluate functionality, performance, reliability, security, response quality, and real-world usage scenarios."
+        },
+        "deployment": {
+          "number": "05",
+          "title": "Deployment",
+          "description": "We deploy the AI application to the appropriate production environment and configure the required services."
+        },
+        "improvement": {
+          "number": "06",
+          "title": "Improvement",
+          "description": "We monitor the application and continuously improve performance, workflows, integrations, and AI capabilities."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your AI Project",
+        "title": "Have an AI idea in mind?",
+        "description": "Let's turn your idea into a practical AI-powered product that creates real value for your users and business."
+      }
+    },
+    "softwareDevelopment": {
+      "hero": {
+        "badge": "Software Development",
+        "titleBefore": "Custom software built for",
+        "titleHighlight": "the way your business works.",
+        "description": "We design and develop custom software solutions that automate processes, connect systems, improve productivity, and help businesses scale with confidence.",
+        "primaryButton": "Start Your Software Project",
+        "imageAlt": "Software development",
+        "features": {
+          "custom": {
+            "title": "Custom Solutions",
+            "description": "Software designed around your business requirements and workflows."
+          },
+          "scalable": {
+            "title": "Scalable Architecture",
+            "description": "Systems designed to support new users, features, integrations, and growth."
+          },
+          "growth": {
+            "title": "Built for Growth",
+            "description": "Reliable software focused on long-term performance and maintainability."
+          }
+        }
+      },
+      "capabilities": [
+        "Custom business software",
+        "Enterprise applications",
+        "SaaS applications",
+        "Business management systems",
+        "ERP software",
+        "CRM systems",
+        "Workflow automation",
+        "Internal business tools",
+        "Customer portals",
+        "Custom dashboards"
+      ],
+      "middleSection": {
+        "badge": "Software Capabilities",
+        "titleBefore": "Software designed around",
+        "titleAfter": "your business requirements.",
+        "description": "From internal business systems to customer-facing platforms, we combine modern frontend, backend, database, API, and cloud technologies to create complete software solutions.",
+        "items": {
+          "business": {
+            "title": "Business Applications",
+            "description": "Custom applications that help teams manage operations, customers, employees, products, and business workflows."
+          },
+          "backend": {
+            "title": "Backend & Database Systems",
+            "description": "Reliable backend architecture, databases, authentication, APIs, business logic, and data management."
+          },
+          "integration": {
+            "title": "Cloud & API Integration",
+            "description": "Connect your software with third-party services, payment systems, communication platforms, and cloud infrastructure."
+          },
+          "automation": {
+            "title": "Automation & AI",
+            "description": "Automate repetitive processes and integrate intelligent features to improve productivity and decision-making."
+          }
+        }
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Python",
+        "FastAPI",
+        "Django",
+        "Java",
+        "PostgreSQL",
+        "MongoDB",
+        "REST API",
+        "Docker"
+      ],
+      "benefits": {
+        "efficient": {
+          "title": "Efficient Systems",
+          "description": "Software designed to reduce repetitive work, improve workflows, and increase operational efficiency."
+        },
+        "modular": {
+          "title": "Modular Architecture",
+          "description": "Well-structured systems that make it easier to add features, integrations, and new business capabilities."
+        },
+        "secure": {
+          "title": "Secure Development",
+          "description": "Security-conscious development for authentication, authorization, APIs, databases, and business data."
+        },
+        "scale": {
+          "title": "Ready to Scale",
+          "description": "Architecture designed to support increasing users, data, transactions, and business requirements."
+        }
+      },
+      "process": {
+        "discovery": {
+          "number": "01",
+          "title": "Discovery",
+          "description": "We understand your business processes, users, challenges, requirements, and software objectives."
+        },
+        "planning": {
+          "number": "02",
+          "title": "Planning",
+          "description": "We define the software architecture, features, database structure, integrations, and development roadmap."
+        },
+        "development": {
+          "number": "03",
+          "title": "Development",
+          "description": "Our developers build the software using modern technologies and an architecture designed for long-term growth."
+        },
+        "testing": {
+          "number": "04",
+          "title": "Testing",
+          "description": "We test functionality, performance, security, integrations, user workflows, and different usage scenarios."
+        },
+        "deployment": {
+          "number": "05",
+          "title": "Deployment",
+          "description": "We deploy your software to the appropriate production environment and prepare it for real users."
+        },
+        "maintenance": {
+          "number": "06",
+          "title": "Maintenance",
+          "description": "We provide ongoing maintenance, improvements, monitoring, bug fixes, security updates, and new features."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your Software Project",
+        "title": "Have a software idea in mind?",
+        "description": "Let's build a reliable software solution that improves your business and grows with your requirements."
+      }
+    },
+    "apiDevelopment": {
+      "hero": {
+        "badge": "API Development",
+        "titleBefore": "Powerful APIs built for",
+        "titleHighlight": "connected applications.",
+        "description": "We design and develop secure, scalable, and well-structured APIs that connect web applications, mobile apps, software systems, databases, and third-party services.",
+        "primaryButton": "Start Your API Project",
+        "features": {
+          "modern": {
+            "title": "Modern APIs",
+            "description": "Well-structured APIs designed for reliable communication between applications and services."
+          },
+          "secure": {
+            "title": "Secure by Design",
+            "description": "Authentication, authorization, validation, and security-conscious API architecture."
+          },
+          "scale": {
+            "title": "Built to Scale",
+            "description": "API architecture designed to support growing users, requests, integrations, and data."
+          }
+        }
+      },
+      "capabilities": [
+        "REST API development",
+        "GraphQL API development",
+        "Web APIs",
+        "Mobile app APIs",
+        "Third-party API integration",
+        "Payment API integration",
+        "Authentication APIs",
+        "Database APIs",
+        "Business automation APIs",
+        "API documentation"
+      ],
+      "middleSection": {
+        "badge": "API Development Capabilities",
+        "titleBefore": "APIs that connect your",
+        "titleAfter": "digital ecosystem.",
+        "description": "We build APIs that allow your applications and services to communicate reliably while keeping security, performance, scalability, and maintainability in mind.",
+        "items": {
+          "rest": {
+            "title": "REST API Development",
+            "description": "Reliable REST APIs for web applications, mobile applications, business systems, dashboards, and third-party integrations."
+          },
+          "database": {
+            "title": "Data & Database APIs",
+            "description": "Secure APIs that connect applications with databases and provide controlled access to business data."
+          },
+          "thirdParty": {
+            "title": "Third-Party Integrations",
+            "description": "Connect your applications with payment gateways, communication platforms, maps, analytics, cloud services, and other external systems."
+          },
+          "automation": {
+            "title": "API Automation",
+            "description": "Use APIs to automate business workflows, synchronize systems, exchange data, and connect different services."
+          }
+        }
+      },
+      "benefits": {
+        "performance": {
+          "title": "High Performance",
+          "description": "Efficient API architecture designed for fast response times and reliable application communication."
+        },
+        "security": {
+          "title": "Secure APIs",
+          "description": "Authentication, authorization, validation, rate limiting, and security-conscious development practices."
+        },
+        "scalable": {
+          "title": "Scalable Architecture",
+          "description": "API systems designed to support increasing traffic, users, data, and integrations."
+        },
+        "integration": {
+          "title": "Integration Ready",
+          "description": "Well-structured APIs that make it easier to connect web, mobile, software, and third-party services."
+        }
+      },
+      "process": {
+        "requirements": {
+          "number": "01",
+          "title": "Requirements",
+          "description": "We understand your applications, users, data, integrations, business workflows, and API requirements."
+        },
+        "architecture": {
+          "number": "02",
+          "title": "API Architecture",
+          "description": "We design endpoints, data models, authentication, permissions, error handling, and overall API architecture."
+        },
+        "development": {
+          "number": "03",
+          "title": "Development",
+          "description": "Our developers build secure and maintainable APIs using technologies suited to your project requirements."
+        },
+        "testing": {
+          "number": "04",
+          "title": "Testing",
+          "description": "We test endpoints, authentication, validation, performance, errors, integrations, and different usage scenarios."
+        },
+        "deployment": {
+          "number": "05",
+          "title": "Deployment",
+          "description": "We deploy your API to the appropriate production infrastructure and configure the required environment."
+        },
+        "support": {
+          "number": "06",
+          "title": "Monitoring & Support",
+          "description": "We provide monitoring, maintenance, performance improvements, security updates, and ongoing API support."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your API Project",
+        "title": "Need APIs that connect everything?",
+        "description": "Let's build secure, scalable APIs that power your web, mobile, and software applications."
+      }
+    },
+    "cloudDevOps": {
+      "hero": {
+        "badge": "Cloud & DevOps",
+        "titleBefore": "Cloud infrastructure built for",
+        "titleHighlight": "reliability and scale.",
+        "description": "We design, deploy, and manage modern cloud infrastructure and DevOps workflows that help businesses release software faster, improve reliability, and scale with confidence.",
+        "primaryButton": "Start Your Cloud Project",
+        "imageAlt": "Cloud and DevOps",
+        "features": {
+          "infrastructure": {
+            "title": "Cloud Infrastructure",
+            "description": "Reliable and scalable infrastructure designed around your application requirements."
+          },
+          "cicd": {
+            "title": "CI/CD Automation",
+            "description": "Automated development, testing, deployment, and release workflows."
+          },
+          "security": {
+            "title": "Secure & Reliable",
+            "description": "Infrastructure designed with security, monitoring, backups, and reliability in mind."
+          }
+        }
+      },
+      "capabilities": [
+        "Cloud infrastructure",
+        "Cloud migration",
+        "CI/CD pipelines",
+        "Infrastructure automation",
+        "Containerization",
+        "Kubernetes deployment",
+        "Server management",
+        "Application deployment",
+        "Monitoring & logging",
+        "Backup & disaster recovery"
+      ],
+      "middleSection": {
+        "badge": "Cloud & DevOps Capabilities",
+        "titleBefore": "Infrastructure designed for",
+        "titleAfter": "modern software teams.",
+        "description": "We combine cloud platforms, automation, containers, CI/CD, monitoring, and infrastructure-as-code to create reliable development and production environments.",
+        "items": {
+          "infrastructure": {
+            "title": "Cloud Infrastructure",
+            "description": "Design and deploy scalable cloud environments for applications, APIs, databases, storage, and other services."
+          },
+          "cicd": {
+            "title": "CI/CD & Automation",
+            "description": "Automate testing, builds, deployments, releases, and development workflows to deliver software faster."
+          },
+          "containers": {
+            "title": "Containers & Orchestration",
+            "description": "Containerize applications and manage scalable workloads using Docker and Kubernetes."
+          },
+          "monitoring": {
+            "title": "Monitoring & Optimization",
+            "description": "Monitor applications and infrastructure, identify issues, optimize resources, and improve system reliability."
+          }
+        }
+      },
+      "technologies": [
+        "AWS",
+        "Microsoft Azure",
+        "Google Cloud",
+        "Docker",
+        "Kubernetes",
+        "GitHub Actions",
+        "GitLab CI/CD",
+        "Terraform",
+        "Linux",
+        "Nginx",
+        "Prometheus",
+        "Grafana"
+      ],
+      "benefits": {
+        "deployments": {
+          "title": "Faster Deployments",
+          "description": "Automated development and deployment workflows help teams release reliable software faster."
+        },
+        "scalable": {
+          "title": "Scalable Infrastructure",
+          "description": "Cloud architecture designed to handle increasing users, traffic, workloads, and business requirements."
+        },
+        "security": {
+          "title": "Security & Reliability",
+          "description": "Security-conscious infrastructure with monitoring, access controls, backups, and reliable deployment practices."
+        },
+        "production": {
+          "title": "Production Ready",
+          "description": "Infrastructure and deployment environments prepared for real-world applications and continuous growth."
+        }
+      },
+      "process": {
+        "assessment": {
+          "number": "01",
+          "title": "Assessment",
+          "description": "We understand your existing infrastructure, applications, workloads, business requirements, and technical goals."
+        },
+        "architecture": {
+          "number": "02",
+          "title": "Architecture",
+          "description": "We design the cloud infrastructure, deployment strategy, security model, networking, and scalability approach."
+        },
+        "implementation": {
+          "number": "03",
+          "title": "Implementation",
+          "description": "We configure cloud resources, containers, infrastructure automation, CI/CD pipelines, and deployment environments."
+        },
+        "testing": {
+          "number": "04",
+          "title": "Testing",
+          "description": "We test deployments, infrastructure reliability, application performance, security, backups, and recovery processes."
+        },
+        "deployment": {
+          "number": "05",
+          "title": "Deployment",
+          "description": "We deploy your applications into production and establish reliable release and monitoring workflows."
+        },
+        "support": {
+          "number": "06",
+          "title": "Monitoring & Support",
+          "description": "We monitor infrastructure and applications while providing optimization, maintenance, troubleshooting, and ongoing improvements."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start Your Cloud Project",
+        "title": "Ready to modernize your infrastructure?",
+        "description": "Let's build a secure, automated, and scalable cloud environment for your applications."
+      }
+    }
   }
-  
 }
