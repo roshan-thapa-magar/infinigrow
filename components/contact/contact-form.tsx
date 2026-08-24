@@ -3,10 +3,12 @@
 import {
   FormEvent,
   useState,
+  useRef,
 } from "react"
 
 import { Sparkles } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { motion, useInView, Variants } from "framer-motion"
 
 import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
@@ -30,8 +32,121 @@ const initialFormData: ContactFormData = {
   budget: "",
 }
 
+// Animation variants
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+}
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.05,
+    },
+  },
+}
+
+const badgeVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: -10 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+}
+
+const titleVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
+const descriptionVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      delay: 0.1,
+    },
+  },
+}
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const sidebarVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -30,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 25,
+      duration: 0.8,
+    },
+  },
+}
+
+const formVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 30,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 25,
+      duration: 0.8,
+      delay: 0.1,
+    },
+  },
+}
+
 export default function ContactForm() {
   const t = useTranslations("contact")
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   const [formData, setFormData] =
     useState<ContactFormData>(
@@ -172,85 +287,98 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+      {/* Animated background decorations */}
+      <motion.div
+        className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
 
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="relative mx-auto max-w-7xl px-4 md:px-8"
+      >
         {/* PAGE HEADER */}
-        <div className="mb-14 max-w-3xl sm:mb-16">
+        <motion.div
+          variants={headerVariants}
+          className="mb-14 max-w-3xl sm:mb-16"
+        >
+          <motion.div variants={badgeVariants}>
+            <Badge
+              variant="outline"
+              className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border-emerald-200 bg-emerald-50 px-3 py-1 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-400"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              {t("badge")}
+            </Badge>
+          </motion.div>
 
-          <Badge
-            variant="outline"
-            className="
-              mb-5
-              inline-flex
-              w-fit
-              items-center
-              gap-2
-              rounded-full
-              border-emerald-200
-              bg-emerald-50
-              px-3
-              py-1
-              text-emerald-700
-              dark:border-emerald-800
-              dark:bg-emerald-950/30
-              dark:text-emerald-400
-            "
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            {t("badge")}
-          </Badge>
-
-          <h1
-            className="
-              text-4xl
-              font-bold
-              tracking-tight
-              sm:text-5xl
-              md:text-6xl
-              lg:text-7xl
-            "
+          <motion.h1
+            variants={titleVariants}
+            className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             {t("title")}
-          </h1>
+          </motion.h1>
 
-          <p
-            className="
-              mt-6
-              max-w-2xl
-              text-base
-              leading-relaxed
-              text-muted-foreground
-              sm:text-lg
-            "
+          <motion.p
+            variants={descriptionVariants}
+            className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
             {t("description")}
-          </p>
+          </motion.p>
 
-        </div>
+          {/* Decorative line */}
+          <motion.div
+            className="mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
+        </motion.div>
 
         {/* FORM */}
-        <div
-          className="
-            grid
-            items-start
-            gap-14
-            lg:grid-cols-[0.8fr_1.2fr]
-            lg:gap-20
-            xl:gap-24
-          "
+        <motion.div
+          variants={gridVariants}
+          className="grid items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-24"
         >
-          <ContactSidebar />
+          <motion.div variants={sidebarVariants}>
+            <ContactSidebar />
+          </motion.div>
 
-          <ContactFormFields
-            formData={formData}
-            setFormData={setFormData}
-            loading={loading}
-            handleSubmit={handleSubmit}
-          />
-        </div>
-
-      </div>
+          <motion.div variants={formVariants}>
+            <ContactFormFields
+              formData={formData}
+              setFormData={setFormData}
+              loading={loading}
+              handleSubmit={handleSubmit}
+            />
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

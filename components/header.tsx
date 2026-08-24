@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
+import { motion, AnimatePresence } from "framer-motion"
 
 import {
   ArrowRight,
@@ -260,7 +261,15 @@ export function Header() {
           HEADER
       ===================================================== */}
 
-      <header
+      <motion.header
+        initial={{ y: 0 }}
+        animate={{
+          y: showHeader ? 0 : "-100%",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeOut",
+        }}
         className={`
           fixed
           inset-x-0
@@ -271,15 +280,7 @@ export function Header() {
           border-b
           bg-background/95
           backdrop-blur-xl
-          transition-transform
-          duration-300
-          ease-out
           supports-[backdrop-filter]:bg-background/75
-          ${
-            showHeader
-              ? "translate-y-0"
-              : "-translate-y-full"
-          }
         `}
       >
         <div className="mx-auto h-full max-w-7xl px-4 md:px-8">
@@ -428,89 +429,90 @@ export function Header() {
                             {t("services")}
                           </span>
 
-                          <ChevronDown
-                            className={`
-                              h-4
-                              w-4
-                              transition-transform
-                              duration-200
-                              ${
-                                mobileServicesOpen
-                                  ? "rotate-180"
-                                  : ""
-                              }
-                            `}
-                          />
+                          <motion.div
+                            animate={{
+                              rotate: mobileServicesOpen ? 180 : 0,
+                            }}
+                            transition={{
+                              duration: 0.2,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            <ChevronDown
+                              className="h-4 w-4"
+                            />
+                          </motion.div>
                         </button>
 
                         {/* MOBILE SERVICES */}
 
-                        <div
-                          className={`
-                            grid
-                            overflow-hidden
-                            transition-all
-                            duration-200
-                            ${
-                              mobileServicesOpen
-                                ? "grid-rows-[1fr] opacity-100"
-                                : "grid-rows-[0fr] opacity-0"
-                            }
-                          `}
-                        >
-                          <div className="min-h-0">
-                            <div
-                              className="
-                                ml-3
-                                mt-1
-                                border-l
-                                pl-2
-                              "
+                        <AnimatePresence>
+                          {mobileServicesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{
+                                duration: 0.2,
+                                ease: "easeInOut",
+                              }}
+                              className="overflow-hidden"
                             >
-                              {serviceItems.map(
-                                (service) => {
-                                  const active =
-                                    isActive(
-                                      service.href
-                                    )
+                              <div className="min-h-0">
+                                <div
+                                  className="
+                                    ml-3
+                                    mt-1
+                                    border-l
+                                    pl-2
+                                  "
+                                >
+                                  {serviceItems.map(
+                                    (service) => {
+                                      const active =
+                                        isActive(
+                                          service.href
+                                        )
 
-                                  return (
-                                    <Link
-                                      key={
-                                        service.key
-                                      }
-                                      href={
-                                        service.href
-                                      }
-                                      onClick={
-                                        closeMobileMenu
-                                      }
-                                      className={`
-                                        flex
-                                        items-center
-                                        rounded-md
-                                        px-4
-                                        py-2.5
-                                        text-sm
-                                        font-medium
-                                        transition-colors
-                                        ${
-                                          active
-                                            ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                                        }
-                                      `}
-                                    >
-                                      {t(
-                                        `servicesItems.${service.key}.name`
-                                      )}
-                                    </Link>
-                                  )
-                                }
-                              )}
-                            </div>
-                          </div>
-                        </div>
+                                      return (
+                                        <Link
+                                          key={
+                                            service.key
+                                          }
+                                          href={
+                                            service.href
+                                          }
+                                          onClick={
+                                            closeMobileMenu
+                                          }
+                                          className={`
+                                            flex
+                                            items-center
+                                            rounded-md
+                                            px-4
+                                            py-2.5
+                                            text-sm
+                                            font-medium
+                                            transition-colors
+                                            ${
+                                              active
+                                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                                            }
+                                          `}
+                                        >
+                                          {t(
+                                            `servicesItems.${service.key}.name`
+                                          )}
+                                        </Link>
+                                      )
+                                    }
+                                  )}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
 
                       {/* =======================================
@@ -745,21 +747,30 @@ export function Header() {
                   >
                     {t("services")}
 
-                    <ChevronDown
-                      className={`
-                        h-3.5
-                        w-3.5
-                        transition-transform
-                        duration-200
-                        ${
-                          desktopServicesOpen
-                            ? "rotate-180"
-                            : ""
-                        }
-                      `}
-                    />
+                    <motion.div
+                      animate={{
+                        rotate: desktopServicesOpen ? 180 : 0,
+                      }}
+                      transition={{
+                        duration: 0.2,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <ChevronDown
+                        className="h-3.5 w-3.5"
+                      />
+                    </motion.div>
 
-                    <span
+                    <motion.span
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{
+                        width: servicesActive ? 64 : 0,
+                        opacity: servicesActive ? 1 : 0,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
                       className={`
                         absolute
                         bottom-0
@@ -768,13 +779,6 @@ export function Header() {
                         -translate-x-1/2
                         rounded-t-full
                         bg-emerald-500
-                        transition-all
-                        duration-300
-                        ${
-                          servicesActive
-                            ? "w-16 opacity-100"
-                            : "w-0 opacity-0"
-                        }
                       `}
                     />
                   </button>
@@ -806,7 +810,16 @@ export function Header() {
                 >
                   {t("projects")}
 
-                  <span
+                  <motion.span
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{
+                      width: isActive("/projects") ? 64 : 0,
+                      opacity: isActive("/projects") ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
                     className={`
                       absolute
                       bottom-0
@@ -815,13 +828,6 @@ export function Header() {
                       -translate-x-1/2
                       rounded-t-full
                       bg-emerald-500
-                      transition-all
-                      duration-300
-                      ${
-                        isActive("/projects")
-                          ? "w-16 opacity-100"
-                          : "w-0 opacity-0"
-                      }
                     `}
                   />
                 </Link>
@@ -852,7 +858,16 @@ export function Header() {
                 >
                   {t("industries")}
 
-                  <span
+                  <motion.span
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{
+                      width: isActive("/industries") ? 64 : 0,
+                      opacity: isActive("/industries") ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
                     className={`
                       absolute
                       bottom-0
@@ -861,13 +876,6 @@ export function Header() {
                       -translate-x-1/2
                       rounded-t-full
                       bg-emerald-500
-                      transition-all
-                      duration-300
-                      ${
-                        isActive("/industries")
-                          ? "w-16 opacity-100"
-                          : "w-0 opacity-0"
-                      }
                     `}
                   />
                 </Link>
@@ -898,7 +906,16 @@ export function Header() {
                 >
                   {t("about")}
 
-                  <span
+                  <motion.span
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{
+                      width: isActive("/about") ? 64 : 0,
+                      opacity: isActive("/about") ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
                     className={`
                       absolute
                       bottom-0
@@ -907,13 +924,6 @@ export function Header() {
                       -translate-x-1/2
                       rounded-t-full
                       bg-emerald-500
-                      transition-all
-                      duration-300
-                      ${
-                        isActive("/about")
-                          ? "w-16 opacity-100"
-                          : "w-0 opacity-0"
-                      }
                     `}
                   />
                 </Link>
@@ -944,7 +954,16 @@ export function Header() {
                 >
                   {t("contact")}
 
-                  <span
+                  <motion.span
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{
+                      width: isActive("/contact") ? 64 : 0,
+                      opacity: isActive("/contact") ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
                     className={`
                       absolute
                       bottom-0
@@ -953,13 +972,6 @@ export function Header() {
                       -translate-x-1/2
                       rounded-t-full
                       bg-emerald-500
-                      transition-all
-                      duration-300
-                      ${
-                        isActive("/contact")
-                          ? "w-16 opacity-100"
-                          : "w-0 opacity-0"
-                      }
                     `}
                   />
                 </Link>
@@ -984,191 +996,213 @@ export function Header() {
             </div>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* =====================================================
           DESKTOP SERVICES MEGA MENU
       ===================================================== */}
 
-      <div
-        className={`
-          fixed
-          left-0
-          right-0
-          top-16
-          z-[9998]
-          hidden
-          w-full
-          transition-all
-          duration-200
-          md:block
-          ${
-            desktopServicesOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-2 opacity-0"
-          }
-        `}
-        onMouseEnter={
-          openServicesMenu
-        }
-        onMouseLeave={
-          closeServicesMenu
-        }
-      >
-        <div
-          className="
-            w-full
-            border-b
-            bg-background
-            shadow-xl
-          "
-        >
-          <div
-            className="
-              mx-auto
-              max-w-7xl
-              px-4
-              py-7
-              md:px-8
-            "
+      <AnimatePresence>
+        {desktopServicesOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{
+              duration: 0.2,
+              ease: "easeOut",
+            }}
+            className={`
+              fixed
+              left-0
+              right-0
+              top-16
+              z-[9998]
+              hidden
+              w-full
+              md:block
+            `}
+            onMouseEnter={
+              openServicesMenu
+            }
+            onMouseLeave={
+              closeServicesMenu
+            }
           >
             <div
               className="
-                grid
-                grid-cols-3
-                gap-x-8
-                gap-y-3
+                w-full
+                border-b
+                bg-background
+                shadow-xl
               "
             >
-              {serviceItems.map(
-                (service) => {
-                  const Icon =
-                    service.icon
+              <div
+                className="
+                  mx-auto
+                  max-w-7xl
+                  px-4
+                  py-7
+                  md:px-8
+                "
+              >
+                <div
+                  className="
+                    grid
+                    grid-cols-3
+                    gap-x-8
+                    gap-y-3
+                  "
+                >
+                  {serviceItems.map(
+                    (service, index) => {
+                      const Icon =
+                        service.icon
 
-                  const active =
-                    isActive(
-                      service.href
-                    )
-
-                  return (
-                    <Link
-                      key={
-                        service.key
-                      }
-                      href={
-                        service.href
-                      }
-                      onClick={() =>
-                        setDesktopServicesOpen(
-                          false
+                      const active =
+                        isActive(
+                          service.href
                         )
-                      }
-                      className={`
-                        group
-                        rounded-xl
-                        px-4
-                        py-5
-                        transition-all
-                        duration-200
-                        ${
-                          active
-                            ? "bg-emerald-500/5"
-                            : "hover:bg-muted/70"
-                        }
-                      `}
-                    >
-                      <div
-                        className="
-                          flex
-                          items-start
-                          gap-4
-                        "
-                      >
-                        <div
-                          className={`
-                            flex
-                            h-10
-                            w-10
-                            shrink-0
-                            items-center
-                            justify-center
-                            rounded-lg
-                            transition-all
-                            duration-200
-                            ${
-                              active
-                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                : "bg-muted text-foreground group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
-                            }
-                          `}
+
+                      return (
+                        <motion.div
+                          key={service.key}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.2,
+                            delay: index * 0.05,
+                            ease: "easeOut",
+                          }}
                         >
-                          <Icon className="h-5 w-5" />
-                        </div>
-
-                        <div className="min-w-0">
-                          <div
-                            className="
-                              flex
-                              items-center
-                              gap-2
-                            "
+                          <Link
+                            href={service.href}
+                            onClick={() =>
+                              setDesktopServicesOpen(
+                                false
+                              )
+                            }
+                            className={`
+                              group
+                              block
+                              rounded-xl
+                              px-4
+                              py-5
+                              transition-all
+                              duration-200
+                              ${
+                                active
+                                  ? "bg-emerald-500/5"
+                                  : "hover:bg-muted/70"
+                              }
+                            `}
                           >
-                            <h3
-                              className={`
-                                text-sm
-                                font-semibold
-                                tracking-tight
-                                ${
-                                  active
-                                    ? "text-emerald-600 dark:text-emerald-400"
-                                    : "text-foreground"
-                                }
-                              `}
-                            >
-                              {t(
-                                `servicesItems.${service.key}.name`
-                              )}
-                            </h3>
-
-                            <ArrowRight
+                            <div
                               className="
-                                h-4
-                                w-4
-                                shrink-0
-                                -translate-x-1
-                                text-emerald-500
-                                opacity-0
-                                transition-all
-                                duration-200
-                                group-hover:translate-x-0
-                                group-hover:opacity-100
+                                flex
+                                items-start
+                                gap-4
                               "
-                            />
-                          </div>
+                            >
+                              <motion.div
+                                whileHover={{
+                                  scale: 1.05,
+                                  rotate: [0, -5, 5, 0],
+                                }}
+                                transition={{
+                                  duration: 0.3,
+                                  ease: "easeInOut",
+                                }}
+                                className={`
+                                  flex
+                                  h-10
+                                  w-10
+                                  shrink-0
+                                  items-center
+                                  justify-center
+                                  rounded-lg
+                                  transition-all
+                                  duration-200
+                                  ${
+                                    active
+                                      ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                      : "bg-muted text-foreground group-hover:bg-emerald-500/10 group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
+                                  }
+                                `}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </motion.div>
 
-                          <p
-                            className="
-                              mt-2
-                              max-w-md
-                              text-sm
-                              leading-5
-                              text-muted-foreground
-                            "
-                          >
-                            {t(
-                              `servicesItems.${service.key}.description`
-                            )}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                }
-              )}
+                              <div className="min-w-0">
+                                <div
+                                  className="
+                                    flex
+                                    items-center
+                                    gap-2
+                                  "
+                                >
+                                  <h3
+                                    className={`
+                                      text-sm
+                                      font-semibold
+                                      tracking-tight
+                                      ${
+                                        active
+                                          ? "text-emerald-600 dark:text-emerald-400"
+                                          : "text-foreground"
+                                      }
+                                    `}
+                                  >
+                                    {t(
+                                      `servicesItems.${service.key}.name`
+                                    )}
+                                  </h3>
+
+                                  <motion.div
+                                    initial={{ x: -4, opacity: 0 }}
+                                    whileHover={{ x: 0, opacity: 1 }}
+                                    transition={{
+                                      duration: 0.2,
+                                      ease: "easeOut",
+                                    }}
+                                  >
+                                    <ArrowRight
+                                      className="
+                                        h-4
+                                        w-4
+                                        shrink-0
+                                        text-emerald-500
+                                      "
+                                    />
+                                  </motion.div>
+                                </div>
+
+                                <p
+                                  className="
+                                    mt-2
+                                    max-w-md
+                                    text-sm
+                                    leading-5
+                                    text-muted-foreground
+                                  "
+                                >
+                                  {t(
+                                    `servicesItems.${service.key}.description`
+                                  )}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </motion.div>
+                      )
+                    }
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* =====================================================
           HEADER SPACE
