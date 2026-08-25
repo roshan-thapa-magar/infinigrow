@@ -238,9 +238,9 @@ export default function Intro() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.7 }}
           >
-            {["Innovation", "Quality", "Trust"].map((text, index) => (
+            {["innovation", "quality", "trust"].map((key, index) => (
               <motion.span
-                key={text}
+                key={key}
                 className="text-xs font-medium uppercase tracking-wider text-muted-foreground/50"
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -254,7 +254,7 @@ export default function Intro() {
                   transition: { duration: 0.2 },
                 }}
               >
-                {text}
+                {t(key)}
               </motion.span>
             ))}
           </motion.div>

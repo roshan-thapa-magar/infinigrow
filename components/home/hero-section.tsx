@@ -408,7 +408,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <Image
-                src="/images/image.png"
+                src="/images/heroo.png"
                 alt={t("imageAlt")}
                 fill
                 priority

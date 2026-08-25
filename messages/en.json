@@ -413,7 +413,10 @@
   "IndustriesIntro": {
     "badge": "Industry Expertise",
     "title": "Technology that understands your business.",
-    "description": "Every industry has different workflows, customers, challenges, and requirements. We create technology solutions around those specific needs instead of taking a one-size-fits-all approach."
+    "description": "Every industry has different workflows, customers, challenges, and requirements. We create technology solutions around those specific needs instead of taking a one-size-fits-all approach.",
+    "innovation": "Innovation",
+    "quality": "quality",
+    "trust": "trust"
   },
   "Industries": {
     "section": {
