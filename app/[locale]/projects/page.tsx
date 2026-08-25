@@ -7,11 +7,11 @@ import Projects from "@/components/project/projects"
 
 export default function ProjectsPage() {
   return (
-    <main className="bg-background">
+    <>
       <ProjectHero />
       <ProjectIntro />
       <Projects />
       <ProjectCTA/>
-    </main>
+    </>
   )
 }

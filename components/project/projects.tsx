@@ -453,11 +453,11 @@ export default function Projects() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       id="projects"
-      className="scroll-mt-24 bg-muted/30 py-20 md:py-28 overflow-hidden"
+      className="scroll-mt-24 bg-muted/30 py-20 md:py-28 overflow-hidden relative"
     >
-      {/* Animated background decorations */}
+      {/* Animated background decorations - FIXED positioning */}
       <motion.div
-        className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl"
+        className="absolute -top-40 left-0 h-96 w-96 -translate-x-1/2 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -469,7 +469,7 @@ export default function Projects() {
         }}
       />
       <motion.div
-        className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl"
+        className="absolute -bottom-40 right-0 h-96 w-96 translate-x-1/2 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.4, 0.2],
