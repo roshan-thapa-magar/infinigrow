@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight, CheckCircle2, Sparkles, Zap, Rocket } from "lucide-react"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
 
 export type Service = {
   id: string
@@ -513,26 +514,51 @@ export default function ServicesSection() {
                 </motion.div>
 
                 {/* CTA */}
-                <motion.div
-                  variants={ctaVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <Button
-                    size="lg"
-                    className="group bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/30 mt-6"
-                  >
-                    {t("explore")} {t(`items.${activeService.id}.name`)}
+{/* CTA */}
+{t(`items.${activeService.id}.link`) && (
+  <motion.div
+    variants={ctaVariants}
+    initial="hidden"
+    animate="visible"
+  >
+    <Button
+      
+      size="lg"
+      className="
+        group
+        mt-6
+        bg-emerald-600
+        text-white
+        shadow-lg
+        shadow-emerald-500/20
+        transition-all
+        duration-300
+        hover:bg-emerald-700
+        hover:shadow-xl
+        hover:shadow-emerald-500/30
+      "
+    >
+      <Link
+        href={t(`items.${activeService.id}.link`)}
+        className="flex items-center"
+      >
+        {t("explore")}{" "}
+        {t(`items.${activeService.id}.name`)}
 
-                    <motion.span
-                      className="ml-2 flex"
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      <ArrowRight className="h-4 w-4" />
-                    </motion.span>
-                  </Button>
-                </motion.div>
+        <motion.span
+          className="ml-2 flex"
+          whileHover={{ x: 4 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+          }}
+        >
+          <ArrowRight className="h-4 w-4" />
+        </motion.span>
+      </Link>
+    </Button>
+  </motion.div>
+)}
               </div>
 
               {/* RIGHT IMAGE */}

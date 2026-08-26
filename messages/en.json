@@ -50,9 +50,17 @@
     "imageAlt": "Software developer and business analyst working together"
   },
   "TrustedBy": {
-    "badge": "Trusted By Innovative Businesses",
+    "badge": "Technology for Modern Businesses",
     "title": "Technology that businesses can rely on",
-    "description": "We work with ambitious teams and businesses to build reliable digital products, automate workflows, and turn ideas into scalable solutions.",
+    "description": "We help ambitious teams and businesses build reliable digital products, automate workflows, and turn ideas into scalable solutions.",
+    "services": {
+      "web": "Web Development",
+      "ai": "AI Solutions",
+      "software": "Software Development",
+      "mobile": "Mobile Development",
+      "automation": "Business Automation",
+      "scalable": "Scalable Solutions"
+    },
     "trustItems": {
       "reliable": "Reliable Solutions",
       "modern": "Modern Technology",
@@ -157,6 +165,7 @@
         "name": "Generative AI",
         "title": "Build Smarter With Generative AI",
         "description": "We build intelligent AI solutions that help businesses automate workflows, generate content, analyze information, and create better digital experiences.",
+        "link": "",
         "features": [
           "AI-powered applications",
           "Intelligent automation",
@@ -167,6 +176,7 @@
         "name": "Web Development",
         "title": "Modern Web Experiences That Convert",
         "description": "We create fast, responsive, and scalable websites that combine modern design with powerful technology to deliver exceptional user experiences.",
+        "link": "/services/web-development",
         "features": [
           "Modern responsive websites",
           "High-performance applications",
@@ -177,6 +187,7 @@
         "name": "Software Development",
         "title": "Custom Software Built Around Your Business",
         "description": "We develop reliable and scalable software solutions designed around your business processes, requirements, and long-term goals.",
+        "link": "/services/software-development",
         "features": [
           "Custom business software",
           "Scalable architecture",
@@ -187,6 +198,7 @@
         "name": "Mobile Development",
         "title": "Powerful Mobile Applications",
         "description": "We design and develop intuitive mobile applications that provide smooth experiences across modern mobile platforms.",
+        "link": "/services/mobile-development",
         "features": [
           "Cross-platform applications",
           "Modern mobile UI",
@@ -197,6 +209,7 @@
         "name": "DevOps & Cloud",
         "title": "Reliable Infrastructure That Scales",
         "description": "We help businesses build secure, scalable, and reliable cloud infrastructure with modern DevOps practices and automation.",
+        "link": "/services/cloud-devops",
         "features": [
           "Cloud infrastructure",
           "CI/CD automation",
@@ -207,6 +220,7 @@
         "name": "AI & Data",
         "title": "Turn Data Into Better Decisions",
         "description": "We transform business data into useful insights with analytics, intelligent systems, and modern data technologies.",
+         "link": "/services/ai-development",
         "features": [
           "Data analytics",
           "Machine learning solutions",
@@ -1023,7 +1037,7 @@
       "button": "Become a Fellow"
     }
   },
-  "footer": {
+"footer": {
     "description": "We build modern software, AI-powered solutions, and digital products that help businesses innovate, automate, and grow.",
     "sections": {
       "company": "Company",
@@ -1038,11 +1052,25 @@
       "webDevelopment": "Web Development",
       "aiSolutions": "AI Solutions",
       "mobileApps": "Mobile Apps",
-      "cloudSolutions": "Cloud Solutions",
+      "cloudSolutions": "Cloud & DevOps",
       "blog": "Blog",
       "documentation": "Documentation",
       "faqs": "FAQs",
       "support": "Support"
+    },
+    "href": {
+      "about": "/about",
+      "services": "/services",
+      "projects": "/projects",
+      "contact": "/contact",
+      "webDevelopment": "/services/web-development",
+      "aiSolutions": "/services/ai-development",
+      "mobileApps": "/services/mobile-development",
+      "cloudSolutions": "/services/cloud-devops",
+      "blog": "#blog",
+      "documentation": "#documentation",
+      "faqs": "#faqs",
+      "support": "#support"
     },
     "legal": {
       "privacy": "Privacy Policy",

@@ -33,11 +33,11 @@ const services = [
   },
   {
     key: "ui-ux-design",
-    slug: "ui-ux-design",
+    slug: "#",
   },
   {
     key: "technology-consulting",
-    slug: "technology-consulting",
+    slug: "#",
   },
 ]
 

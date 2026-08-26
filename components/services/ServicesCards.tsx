@@ -32,7 +32,7 @@ const services = [
   {
     id: "uiUxDesign",
     icon: Globe,
-    href: "/services/ui-ux-design",
+    href: "",
   },
   {
     id: "apiDevelopment",
@@ -47,7 +47,7 @@ const services = [
   {
     id: "cyberSecurity",
     icon: ShieldCheck,
-    href: "/services/cyber-security",
+    href: "",
   },
 ]
 
@@ -294,20 +294,24 @@ export default function ServicesCards() {
                       </motion.p>
 
                       {/* Link */}
-                      <motion.div
-                        variants={linkVariants}
-                        className="mt-6 flex items-center text-sm font-medium text-emerald-600 dark:text-emerald-400"
-                      >
-                        {t("explore")}
+                      {service.href && (
                         <motion.div
-                          className="ml-2"
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 4 }}
-                          transition={{ type: "spring", stiffness: 400 }}
+                          variants={linkVariants}
+                          className="mt-6 flex items-center text-sm font-medium text-emerald-600 dark:text-emerald-400"
                         >
-                          <ArrowRight className="h-4 w-4" />
+                          {t("explore")}
+
+                          <motion.div
+                            className="ml-2"
+                            initial={{ x: 0 }}
+                            whileHover={{ x: 4 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <ArrowRight className="h-4 w-4" />
+                          </motion.div>
                         </motion.div>
-                      </motion.div>
+                      )}
+
 
                       {/* Decorative corner accent */}
                       <motion.div

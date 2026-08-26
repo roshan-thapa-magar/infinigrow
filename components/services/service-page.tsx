@@ -286,7 +286,7 @@ export default function ServicePage({
 
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button size="lg" variant="outline" className="border-2">
-                    <Link href="#">{t("exploreServices")}</Link>
+                    <Link href="/services">{t("exploreServices")}</Link>
                   </Button>
                 </motion.div>
               </motion.div>

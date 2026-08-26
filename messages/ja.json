@@ -50,9 +50,17 @@
     "imageAlt": "ソフトウェア開発者とビジネスアナリストが協力して作業している様子"
   },
   "TrustedBy": {
-    "badge": "革新的な企業から信頼されています",
+    "badge": "現代のビジネスを支えるテクノロジー",
     "title": "企業の成長を支える信頼できるテクノロジー",
     "description": "私たちは、意欲的なチームや企業と協力し、信頼性の高いデジタル製品の開発、業務プロセスの自動化、そして拡張性に優れたソリューションの実現を支援します。",
+    "services": {
+      "web": "Web開発",
+      "ai": "AIソリューション",
+      "software": "ソフトウェア開発",
+      "mobile": "モバイル開発",
+      "automation": "業務自動化",
+      "scalable": "拡張性の高いソリューション"
+    },
     "trustItems": {
       "reliable": "信頼性の高いソリューション",
       "modern": "最新のテクノロジー",
@@ -1003,12 +1011,26 @@
       "contact": "お問い合わせ",
       "webDevelopment": "Web開発",
       "aiSolutions": "AIソリューション",
-      "mobileApps": "モバイルアプリ",
-      "cloudSolutions": "クラウドソリューション",
+      "mobileApps": "モバイルアプリ開発",
+      "cloudSolutions": "クラウド・DevOps",
       "blog": "ブログ",
       "documentation": "ドキュメント",
       "faqs": "よくある質問",
       "support": "サポート"
+    },
+    "href": {
+      "about": "/about",
+      "services": "/services",
+      "projects": "/projects",
+      "contact": "/contact",
+      "webDevelopment": "/services/web-development",
+      "aiSolutions": "/services/ai-development",
+      "mobileApps": "/services/mobile-development",
+      "cloudSolutions": "/services/cloud-devops",
+      "blog": "/blog",
+      "documentation": "/documentation",
+      "faqs": "/faqs",
+      "support": "/support"
     },
     "legal": {
       "privacy": "プライバシーポリシー",

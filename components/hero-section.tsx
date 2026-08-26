@@ -270,7 +270,7 @@ export function HeroSection({
                           href={primaryButton.href}
                           className="flex items-center gap-2"
                         >
-                          {primaryButton.icon && (
+                          {/* {primaryButton.icon && (
                             <motion.span
                               animate={{ rotate: [0, -10, 10, 0] }}
                               transition={{
@@ -281,7 +281,7 @@ export function HeroSection({
                             >
                               {primaryButton.icon}
                             </motion.span>
-                          )}
+                          )} */}
                           {primaryButton.label}
                           <motion.span
                             animate={{ x: [0, 5, 0] }}

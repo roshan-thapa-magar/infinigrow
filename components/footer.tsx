@@ -19,71 +19,71 @@ import { motion, AnimatePresence } from "framer-motion"
 export function Footer() {
     const t = useTranslations("footer")
 
-    const footerLinks = [
-        {
-            title: t("sections.company"),
-            links: [
-                {
-                    name: t("links.about"),
-                    href: "about",
-                },
-                {
-                    name: t("links.services"),
-                    href: "services",
-                },
-                {
-                    name: t("links.projects"),
-                    href: "projects",
-                },
-                {
-                    name: t("links.contact"),
-                    href: "contact",
-                },
-            ],
-        },
-        {
-            title: t("sections.services"),
-            links: [
-                {
-                    name: t("links.webDevelopment"),
-                    href: "services/web-development",
-                },
-                {
-                    name: t("links.aiSolutions"),
-                    href: "services/ai-development",
-                },
-                {
-                    name: t("links.mobileApps"),
-                    href: "services/mobile-development",
-                },
-                {
-                    name: t("links.cloudSolutions"),
-                    href: "services/cloud-devops",
-                },
-            ],
-        },
-        {
-            title: t("sections.resources"),
-            links: [
-                {
-                    name: t("links.blog"),
-                    href: "#blog",
-                },
-                {
-                    name: t("links.documentation"),
-                    href: "#documentation",
-                },
-                {
-                    name: t("links.faqs"),
-                    href: "#faq",
-                },
-                {
-                    name: t("links.support"),
-                    href: "#support",
-                },
-            ],
-        },
-    ]
+const footerLinks = [
+    {
+        title: t("sections.company"),
+        links: [
+            {
+                name: t("links.about"),
+                href: t("href.about"),
+            },
+            {
+                name: t("links.services"),
+                href: t("href.services"),
+            },
+            {
+                name: t("links.projects"),
+                href: t("href.projects"),
+            },
+            {
+                name: t("links.contact"),
+                href: t("href.contact"),
+            },
+        ],
+    },
+    {
+        title: t("sections.services"),
+        links: [
+            {
+                name: t("links.webDevelopment"),
+                href: t("href.webDevelopment"),
+            },
+            {
+                name: t("links.aiSolutions"),
+                href: t("href.aiSolutions"),
+            },
+            {
+                name: t("links.mobileApps"),
+                href: t("href.mobileApps"),
+            },
+            {
+                name: t("links.cloudSolutions"),
+                href: t("href.cloudSolutions"),
+            },
+        ],
+    },
+    {
+        title: t("sections.resources"),
+        links: [
+            {
+                name: t("links.blog"),
+                href: t("href.blog"),
+            },
+            {
+                name: t("links.documentation"),
+                href: t("href.documentation"),
+            },
+            {
+                name: t("links.faqs"),
+                href: t("href.faqs"),
+            },
+            {
+                name: t("links.support"),
+                href: t("href.support"),
+            },
+        ],
+    },
+]
 
     return (
         <motion.footer
