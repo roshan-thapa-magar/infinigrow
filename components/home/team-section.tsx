@@ -11,6 +11,7 @@ const memberIds = [
   "roshan",
   "suman",
   "samrose",
+  "tenzee",
 ] as const
 
 // Animation variants

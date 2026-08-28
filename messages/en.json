@@ -68,40 +68,6 @@
     }
   },
   "Team": {
-    "members": {
-      "khum": {
-        "name": "Khum Bahadur Thapa Magar",
-        "designation": "CEO",
-        "badge": "CEO",
-        "about": "Khum Bahadur leads the company with a focus on innovation, sustainable growth, and long-term vision."
-      },
-      "sundar": {
-        "name": "Sundar Thapa Magar",
-        "designation": "Business Analyst",
-        "badge": "Analyst",
-        "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
-      },
-      "roshan": {
-        "name": "Roshan Thapa Magar",
-        "designation": "Software Developer",
-        "badge": "Developer",
-        "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
-      },
-      "suman": {
-        "name": "Suman Paudel",
-        "designation": "AI Engineer",
-        "badge": "AI",
-        "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
-      },
-      "samrose": {
-        "name": "Mohammed Samrose",
-        "designation": "Full Stack Engineer",
-        "badge": "Developer",
-        "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
-      }
-    }
-  },
-  "Team": {
     "title": "Meet Our Team",
     "description": "The people behind our software and technology.",
     "aboutLabel": "About",
@@ -150,9 +116,19 @@
         "image": "/images/team/samrose.png",
         "href": "https://mohammedsamrose.com.np/",
         "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
+      },
+      "tenzee": {
+        "id": "tenzee",
+        "name": "Tenzee Sherpa",
+        "designation": "Backend Developer & AI Integration Engineer",
+        "badge": "Backend & AI",
+        "image": "/images/team/tenzee.png",
+        "href": "",
+        "about": "Tenzee specializes in backend development and AI integration, building reliable server-side systems and intelligent features for modern applications."
       }
     }
   },
+
   "Services": {
     "badge": "What We Do",
     "title": "We Build Digital Solutions",
@@ -229,6 +205,7 @@
       }
     }
   },
+  
   "Testimonials": {
     "badge": "Client Stories",
     "title": "What Our Clients",
