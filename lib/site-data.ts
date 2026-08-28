@@ -152,16 +152,16 @@ export const testimonials: Testimonial[] = [
       "The team understood our requirements quickly and transformed our idea into a clean, reliable, and easy-to-use digital solution. The overall experience was excellent.",
     name: "Raj Kumar",
     role: "Business Owner",
-    avatar: "https://github.com/maxleiter.png",
+    avatar: "/images/Chairperson.png",
     initials: "RK",
   },
   {
     id: "suman-magar",
     quote:
       "From design to development, everything was handled professionally. They delivered a modern product that helped us improve our workflow and serve our customers better.",
-    name: "Suman Magar",
+    name: "Bimal Pulami Magar",
     role: "Product Manager",
-    avatar: "https://github.com/evilrabbit.png",
+    avatar: "https://scontent.fpkr3-1.fna.fbcdn.net/v/t39.30808-1/719432708_1002921229322990_173949977174233709_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s480x480&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeE8obesDy_1xAlq74SYQE3pIdtTUEC7Xech21NQQLtd5565tI9ghr3lGvE56O3bo-t5IYx8t1AbJFAIIQ0LcTvp&_nc_ohc=h-kqZNPIDsMQ7kNvwGFFLk8&_nc_oc=AdoJVkaweo9uvJ7RYcl9kKU31BR39qsWkVHuaHBws2WjK10K1U9cFU4rlaAGXwTPq3FLS-zMdUxb2NoXJRq4-brm&_nc_zt=24&_nc_ht=scontent.fpkr3-1.fna&_nc_gid=Fmpw4tbKjsfewANr9eGiUQ&_nc_ss=7b2a8&oh=00_AQHsY7ZfjjzV06xH66iy0dEm04PB-2-KJ0I53mlef9fcuw&oe=6A96BEF7",
     initials: "SM",
   },
   {
@@ -170,7 +170,7 @@ export const testimonials: Testimonial[] = [
       "Their technical knowledge and communication made the entire project much easier. We received a scalable solution that matched exactly what our business needed.",
     name: "Anil Sharma",
     role: "Founder & CEO",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://scontent.fpkr3-1.fna.fbcdn.net/v/t39.30808-1/273826824_3025386367702641_5093768607636121628_n.jpg?stp=dst-jpg_tt6&cstp=mx957x960&ctp=s480x480&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFKionLq__6WFlSieWNXvMMDCEbKHXddjUMIRsodd12NZdU34blx2eIgDtG7oBcHiDxX_C4uUQokMeebF7_JFxI&_nc_ohc=5mSXoKOFKagQ7kNvwFw-Kbn&_nc_oc=AdqoJCYCiQmNi3DuSKVHWKCcBaHEWX8cSgwnS2Xt4pIS8nq29tuk6004Li5YAKFP4N6Jq_BsdHESTlxduEavi2yF&_nc_zt=24&_nc_ht=scontent.fpkr3-1.fna&_nc_gid=WXjyGNzp9F1rpqTRmBKD_A&_nc_ss=7b2a8&oh=00_AQEiE9_qzffJUn0r4qU_qQWsnmTK31xBLNFO1J2kBQsaug&oe=6A96D6E4",
     initials: "AS",
   },
 ]
