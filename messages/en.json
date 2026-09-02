@@ -85,7 +85,7 @@
         "id": "sundar",
         "name": "Sundar Thapa Magar",
         "designation": "Business Analyst",
-        "badge": "Analyst",
+        "badge": "PR Holder · JLPT N1",
         "image": "/images/team/sundar.png",
         "href": "",
         "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
@@ -94,7 +94,7 @@
         "id": "roshan",
         "name": "Roshan Thapa Magar",
         "designation": "Software Developer",
-        "badge": "Developer",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/roshan.png",
         "href": "https://roshanthapamagar.vercel.app/",
         "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
@@ -103,7 +103,7 @@
         "id": "suman",
         "name": "Suman Paudel",
         "designation": "AI Engineer",
-        "badge": "AI",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/suman.png",
         "href": "",
         "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
@@ -112,7 +112,7 @@
         "id": "samrose",
         "name": "Mohammed Samrose",
         "designation": "Full Stack Engineer",
-        "badge": "Developer",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/samrose.png",
         "href": "https://mohammedsamrose.com.np/",
         "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
@@ -121,7 +121,7 @@
         "id": "tenzee",
         "name": "Tenzee Sherpa",
         "designation": "Backend Developer & AI Integration Engineer",
-        "badge": "Backend & AI",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/tenzee.png",
         "href": "",
         "about": "Tenzee specializes in backend development and AI integration, building reliable server-side systems and intelligent features for modern applications."
@@ -2077,6 +2077,153 @@
         "title": "Ready to modernize your infrastructure?",
         "description": "Let's build a secure, automated, and scalable cloud environment for your applications."
       }
+    }
+  },
+  "ContactHero": {
+    "badge": "Get in Touch",
+    "title": "Let's Start Your Next Project",
+    "description": [
+      "Have a project in mind or want to learn more about our services?",
+      "We'd love to hear from you and discuss how we can bring your ideas to life."
+    ],
+    "imageAlt": "Contact our team",
+    "primaryButton": "Send Message",
+    "secondaryButton": "Call Us"
+  },
+  "ProjectRequest": {
+    "title": "Project Request Form",
+    "stepIndicator": {
+      "step1": "Contact Info",
+      "step2": "Project Details"
+    },
+    "step1": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+977 98XXXXXXXX",
+      "country": "Country",
+      "countryPlaceholder": "Select your country",
+      "company": "Company Name",
+      "companyPlaceholder": "Optional",
+      "hearAboutUs": "How Did You Hear About Us?",
+      "hearAboutUsPlaceholder": "Select an option",
+      "hearAboutUsOther": "Please specify how you heard about us",
+      "nextButton": "Next Step"
+    },
+    "step2": {
+      "helpType": "What can we help you with?",
+      "helpTypePlaceholder": "Select an option",
+      "helpTypeOther": "Please specify what you need",
+      "preferredContact": "Preferred Contact Method",
+      "contactMethods": {
+        "email": "Email",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp"
+      },
+      "projectDescription": "Tell us about your project",
+      "projectDescriptionPlaceholder": "What problem are you trying to solve? What would you like the software to do?",
+      "existingWebsite": "Existing Website URL",
+      "existingWebsitePlaceholder": "https://example.com",
+      "fileUpload": "Attach a Brief or Reference File",
+      "fileUploadHint": "PDF, DOCX, DOC, PNG, JPG · Max 10 MB each · Max 5 files",
+      "fileUploadClick": "Click to upload files",
+      "fileUploading": "Uploading files...",
+      "budget": "Estimated Budget",
+      "budgetPlaceholder": "Select budget range",
+      "timeline": "Expected Timeline",
+      "timelinePlaceholder": "Select timeline",
+      "agreement": "I agree to the privacy policy and consent to being contacted regarding this project.",
+      "backButton": "Back",
+      "submitButton": "Submit Request",
+      "submitting": "Submitting...",
+      "uploadingFiles": "Uploading files..."
+    },
+    "success": {
+      "title": "Request submitted successfully",
+      "description": "Thank you for reaching out. Our team will review your project details and get back to you soon.",
+      "badges": {
+        "response": "Response within 24 hours",
+        "delivered": "100+ projects delivered",
+        "consultation": "No-obligation consultation"
+      },
+      "resetButton": "Submit Another Request"
+    },
+    "errors": {
+      "fullName": "Please enter your full name.",
+      "email": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phone": "Please enter your phone number.",
+      "country": "Please select your country.",
+      "helpType": "Please select what we can help with.",
+      "otherHelpType": "Please specify what you need.",
+      "description": "Please tell us about your project.",
+      "budget": "Please select your estimated budget.",
+      "timeline": "Please select your expected timeline.",
+      "agreement": "Please agree to the privacy policy to continue.",
+      "filesMax": "You can upload a maximum of 5 files.",
+      "filesSize": "is larger than 10 MB.",
+      "filesDuplicate": "already uploaded.",
+      "uploadWait": "Please wait for all files to finish uploading.",
+      "uploadFailed": "Some files failed to upload. Please remove them and try again.",
+      "submit": "Something went wrong. Please try again."
+    },
+    "fileStatus": {
+      "uploading": "Uploading",
+      "uploaded": "Uploaded",
+      "failed": "Failed",
+      "deleting": "Deleting...",
+      "restored": "restored from draft",
+      "size": "MB"
+    },
+    "draft": {
+      "clear": "Clear draft"
+    },
+    "helpTypes": {
+      "webApplication": "Web Application",
+      "mobileApplication": "Mobile Application",
+      "saasPlatform": "SaaS Platform",
+      "ecommerce": "E-commerce",
+      "businessManagement": "Business Management System",
+      "customSoftware": "Custom Software",
+      "other": "Other"
+    },
+    "budgets": {
+      "dontKnow": "I don't know yet",
+      "under100k": "Under NPR 100,000",
+      "100kTo300k": "NPR 100,000 – 300,000",
+      "300kTo500k": "NPR 300,000 – 500,000",
+      "500kTo1M": "NPR 500,000 – 1,000,000",
+      "above1M": "Above NPR 1,000,000"
+    },
+    "timelines": {
+      "asap": "As soon as possible",
+      "within1Month": "Within 1 month",
+      "oneToThreeMonths": "1–3 months",
+      "threeToSixMonths": "3–6 months",
+      "notSure": "I'm not sure"
+    },
+    "hearAboutUsOptions": {
+      "google": "Google Search",
+      "socialMedia": "Social Media",
+      "referral": "Referral from a Friend/Colleague",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "existingClient": "Existing Client",
+      "event": "Event or Conference",
+      "other": "Other"
+    }
+  },
+  "StartProject": {
+    "eyebrow": "Start a Project",
+    "title": "Let's build something",
+    "titleHighlight": "great together.",
+    "description": "Tell us about your project. Our business analysis team will review your request and contact you to discuss your requirements.",
+    "badges": {
+      "response": "Response within 24 hours",
+      "delivered": "100+ projects delivered",
+      "consultation": "No-obligation consultation"
     }
   }
 }

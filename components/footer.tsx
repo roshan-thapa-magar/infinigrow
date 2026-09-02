@@ -377,17 +377,18 @@ function SocialLinks({
 }) {
     const socialIcons = [
         {
-            href: "#",
+            href: "https://github.com/infinigrow-team",
             label: "social.github",
+            target: "_blank",
             icon: FaGithub,
         },
         {
-            href: "#",
+            href: "https://x.com/InfiniGrowTech",
             label: "social.x",
             icon: FaXTwitter,
         },
         {
-            href: "#",
+            href: "https://www.linkedin.com/in/infinigrow-technologies-847499433/Tw",
             label: "social.linkedin",
             icon: FaLinkedinIn,
         },
@@ -426,6 +427,7 @@ function SocialLinks({
                     >
                         <Link
                             href={social.href}
+                            target="_blank"
                             aria-label={t(social.label)}
                             className="flex h-9 w-9 items-center justify-center rounded-lg border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
                         >

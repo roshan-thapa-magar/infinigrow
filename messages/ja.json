@@ -85,7 +85,7 @@
         "id": "sundar",
         "name": "スンダル・タパ・マガル",
         "designation": "ビジネスアナリスト",
-        "badge": "アナリスト",
+        "badge": "PR Holder · JLPT N1",
         "image": "/images/team/sundar.png",
         "href": "",
         "about": "スンダルは、ビジネスニーズの把握、業務プロセスの分析、そしてアイデアを明確な技術要件へ落とし込むことを専門としています。"
@@ -94,7 +94,7 @@
         "id": "roshan",
         "name": "ロシャン・タパ・マガル",
         "designation": "ソフトウェア開発者",
-        "badge": "開発者",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/roshan.png",
         "href": "https://roshanthapamagar.vercel.app/",
         "about": "ロシャンは、最新で信頼性が高く、スケーラブルなソフトウェアソリューションの開発に取り組むソフトウェア開発者です。"
@@ -103,7 +103,7 @@
         "id": "suman",
         "name": "スマン・パウデル",
         "designation": "AIエンジニア",
-        "badge": "AI",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/suman.png",
         "href": "",
         "about": "スマンは、人工知能とインテリジェントなソフトウェアソリューションを中心に、自動化やデータ活用システムの開発に取り組んでいます。"
@@ -112,7 +112,7 @@
         "id": "samrose",
         "name": "モハメド・サムローズ",
         "designation": "フルスタックエンジニア",
-        "badge": "開発者",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/samrose.png",
         "href": "https://mohammedsamrose.com.np/",
         "about": "モハメドは、パフォーマンスとユーザー体験を重視しながら、スケーラブルなアプリケーションを構築するフルスタック開発を専門としています。"
@@ -121,7 +121,7 @@
         "id": "tenzee",
         "name": "テンジー・シェルパ",
         "designation": "バックエンド開発者・AI統合エンジニア",
-        "badge": "Backend & AI",
+        "badge": "University of Wolverhampton",
         "image": "/images/team/tenzee.png",
         "href": "",
         "about": "テンジーは、バックエンド開発とAI統合を専門とし、信頼性の高いサーバーサイドシステムや最新のアプリケーション向けのインテリジェントな機能を開発しています。"
@@ -2071,6 +2071,153 @@
         "title": "インフラを最新化する準備はできていますか？",
         "description": "アプリケーションのために、安全で自動化されたスケーラブルなクラウド環境を構築しましょう。"
       }
+    }
+  },
+  "ContactHero": {
+    "badge": "お問い合わせ",
+    "title": "次なるプロジェクトを一緒に始めましょう",
+    "description": [
+      "新しいプロジェクトのアイデアや、弊社サービスの詳細についてご質問はございませんか？",
+      "お客様のアイデアを現実にするお手伝いをさせていただけることを楽しみにしております。"
+    ],
+    "imageAlt": "お問い合わせチーム",
+    "primaryButton": "メッセージを送信",
+    "secondaryButton": "お電話で問い合わせ"
+  },
+   "ProjectRequest": {
+    "title": "プロジェクト依頼フォーム",
+    "stepIndicator": {
+      "step1": "お客様情報",
+      "step2": "プロジェクト詳細"
+    },
+    "step1": {
+      "fullName": "氏名",
+      "fullNamePlaceholder": "例：山田 太郎",
+      "email": "メールアドレス",
+      "emailPlaceholder": "example@example.com",
+      "phone": "電話番号",
+      "phonePlaceholder": "+977 98XXXXXXXX",
+      "country": "国",
+      "countryPlaceholder": "国を選択してください",
+      "company": "会社名",
+      "companyPlaceholder": "任意",
+      "hearAboutUs": "弊社をどのように知りましたか？",
+      "hearAboutUsPlaceholder": "選択してください",
+      "hearAboutUsOther": "どのように知ったかご記入ください",
+      "nextButton": "次へ進む"
+    },
+    "step2": {
+      "helpType": "どのようなサポートが必要ですか？",
+      "helpTypePlaceholder": "選択してください",
+      "helpTypeOther": "必要なサービスをご記入ください",
+      "preferredContact": "ご希望の連絡方法",
+      "contactMethods": {
+        "email": "メール",
+        "phone": "電話",
+        "whatsapp": "WhatsApp"
+      },
+      "projectDescription": "プロジェクトについて教えてください",
+      "projectDescriptionPlaceholder": "どのような課題を解決したいですか？ソフトウェアにどのような機能を求めていますか？",
+      "existingWebsite": "既存のウェブサイトURL",
+      "existingWebsitePlaceholder": "https://example.com",
+      "fileUpload": "資料・参考ファイルの添付",
+      "fileUploadHint": "PDF、DOCX、DOC、PNG、JPG · 各10MB以内 · 最大5ファイル",
+      "fileUploadClick": "クリックしてファイルをアップロード",
+      "fileUploading": "アップロード中...",
+      "budget": "想定予算",
+      "budgetPlaceholder": "予算範囲を選択",
+      "timeline": "希望納期",
+      "timelinePlaceholder": "希望納期を選択",
+      "agreement": "プライバシーポリシーに同意し、本プロジェクトに関する連絡を受けることに同意します。",
+      "backButton": "戻る",
+      "submitButton": "送信する",
+      "submitting": "送信中...",
+      "uploadingFiles": "ファイルをアップロード中..."
+    },
+    "success": {
+      "title": "依頼が正常に送信されました",
+      "description": "お問い合わせいただきありがとうございます。プロジェクトの内容を確認後、担当者よりご連絡させていただきます。",
+      "badges": {
+        "response": "24時間以内に返信",
+        "delivered": "100件以上のプロジェクト実績",
+        "consultation": "無料相談"
+      },
+      "resetButton": "別の依頼を送信する"
+    },
+    "errors": {
+      "fullName": "氏名を入力してください。",
+      "email": "メールアドレスを入力してください。",
+      "emailInvalid": "有効なメールアドレスを入力してください。",
+      "phone": "電話番号を入力してください。",
+      "country": "国を選択してください。",
+      "helpType": "サポート内容を選択してください。",
+      "otherHelpType": "必要なサービスを入力してください。",
+      "description": "プロジェクトの詳細を入力してください。",
+      "budget": "想定予算を選択してください。",
+      "timeline": "希望納期を選択してください。",
+      "agreement": "プライバシーポリシーに同意してください。",
+      "filesMax": "最大5ファイルまでアップロードできます。",
+      "filesSize": "は10MBを超えています。",
+      "filesDuplicate": "は既にアップロードされています。",
+      "uploadWait": "全てのファイルのアップロードが完了するまでお待ちください。",
+      "uploadFailed": "一部のファイルのアップロードに失敗しました。削除して再度お試しください。",
+      "submit": "エラーが発生しました。再度お試しください。"
+    },
+    "fileStatus": {
+      "uploading": "アップロード中",
+      "uploaded": "アップロード完了",
+      "failed": "失敗",
+      "deleting": "削除中...",
+      "restored": "ドラフトから復元",
+      "size": "MB"
+    },
+    "draft": {
+      "clear": "下書きを削除"
+    },
+    "helpTypes": {
+      "webApplication": "Webアプリケーション",
+      "mobileApplication": "モバイルアプリケーション",
+      "saasPlatform": "SaaSプラットフォーム",
+      "ecommerce": "Eコマース",
+      "businessManagement": "業務管理システム",
+      "customSoftware": "カスタムソフトウェア",
+      "other": "その他"
+    },
+    "budgets": {
+      "dontKnow": "まだ不明",
+      "under100k": "10万円未満",
+      "100kTo300k": "10万円〜30万円",
+      "300kTo500k": "30万円〜50万円",
+      "500kTo1M": "50万円〜100万円",
+      "above1M": "100万円以上"
+    },
+    "timelines": {
+      "asap": "できるだけ早く",
+      "within1Month": "1ヶ月以内",
+      "oneToThreeMonths": "1〜3ヶ月",
+      "threeToSixMonths": "3〜6ヶ月",
+      "notSure": "未定"
+    },
+    "hearAboutUsOptions": {
+      "google": "Google検索",
+      "socialMedia": "SNS",
+      "referral": "知人・同僚からの紹介",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "existingClient": "既存クライアント",
+      "event": "イベント・カンファレンス",
+      "other": "その他"
+    }
+  },
+  "StartProject": {
+    "eyebrow": "プロジェクトを始める",
+    "title": "一緒に素晴らしいものを",
+    "titleHighlight": "作り上げましょう。",
+    "description": "プロジェクトについてお聞かせください。弊社のビジネス分析チームが内容を確認し、ご要件についてご連絡いたします。",
+    "badges": {
+      "response": "24時間以内に返信",
+      "delivered": "100件以上のプロジェクト実績",
+      "consultation": "無料相談"
     }
   }
 }
