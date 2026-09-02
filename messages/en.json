@@ -85,50 +85,49 @@
         "id": "sundar",
         "name": "Sundar Thapa Magar",
         "designation": "Business Analyst",
-        "badge": "PR Holder · JLPT N1",
+        "badge": "Analyst",
         "image": "/images/team/sundar.png",
         "href": "",
-        "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements."
+        "about": "Sundar specializes in understanding business needs, analyzing processes, and translating ideas into clear technical requirements. He is a Permanent Resident (PR) Holder in Japan and JLPT N1 certified, bringing deep cultural and business insights to bridge Nepalese and Japanese markets."
       },
       "roshan": {
         "id": "roshan",
         "name": "Roshan Thapa Magar",
-        "designation": "Software Developer",
-        "badge": "University of Wolverhampton",
+        "designation": "Full Stack Developer",
+        "badge": "Herald College · BSc (Hons) CSIT",
         "image": "/images/team/roshan.png",
         "href": "https://roshanthapamagar.vercel.app/",
-        "about": "Roshan is a passionate software developer focused on building modern, reliable, and scalable software solutions."
+        "about": "Roshan is a Full Stack Developer specializing in web and mobile application development. He builds modern, reliable, and scalable solutions across multiple platforms. He graduated with First Class Honours in BSc (Hons) Computer Science with Information Technology from Herald College Kathmandu, affiliated with the University of Wolverhampton, UK."
       },
       "suman": {
         "id": "suman",
         "name": "Suman Paudel",
         "designation": "AI Engineer",
-        "badge": "University of Wolverhampton",
+        "badge": "Herald College · BSc (Hons) CSIT",
         "image": "/images/team/suman.png",
         "href": "",
-        "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems."
+        "about": "Suman focuses on artificial intelligence and intelligent software solutions, developing automation and data-driven systems. He holds a First Class Honours degree in BSc (Hons) Computer Science with Information Technology from Herald College Kathmandu, affiliated with the University of Wolverhampton, UK."
       },
       "samrose": {
         "id": "samrose",
         "name": "Mohammed Samrose",
         "designation": "Full Stack Engineer",
-        "badge": "University of Wolverhampton",
+        "badge": "Herald College · BSc (Hons) CSIT",
         "image": "/images/team/samrose.png",
         "href": "https://mohammedsamrose.com.np/",
-        "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience."
+        "about": "Mohammed specializes in full-stack development, building scalable applications with a strong focus on performance and user experience. He earned a First Class Honours degree in BSc (Hons) Computer Science with Information Technology from Herald College Kathmandu, affiliated with the University of Wolverhampton, UK."
       },
       "tenzee": {
         "id": "tenzee",
         "name": "Tenzee Sherpa",
         "designation": "Backend Developer & AI Integration Engineer",
-        "badge": "University of Wolverhampton",
+        "badge": "Herald College · BSc (Hons) CSIT",
         "image": "/images/team/tenzee.png",
         "href": "",
-        "about": "Tenzee specializes in backend development and AI integration, building reliable server-side systems and intelligent features for modern applications."
+        "about": "Tenzee specializes in backend development and AI integration, building reliable server-side systems and intelligent features for modern applications. He graduated with First Class Honours in BSc (Hons) Computer Science with Information Technology from Herald College Kathmandu, affiliated with the University of Wolverhampton, UK."
       }
     }
   },
-
   "Services": {
     "badge": "What We Do",
     "title": "We Build Digital Solutions",
@@ -196,7 +195,7 @@
         "name": "AI & Data",
         "title": "Turn Data Into Better Decisions",
         "description": "We transform business data into useful insights with analytics, intelligent systems, and modern data technologies.",
-         "link": "/services/ai-development",
+        "link": "/services/ai-development",
         "features": [
           "Data analytics",
           "Machine learning solutions",
@@ -205,7 +204,6 @@
       }
     }
   },
-  
   "Testimonials": {
     "badge": "Client Stories",
     "title": "What Our Clients",
@@ -1014,7 +1012,7 @@
       "button": "Become a Fellow"
     }
   },
-"footer": {
+  "footer": {
     "description": "We build modern software, AI-powered solutions, and digital products that help businesses innovate, automate, and grow.",
     "sections": {
       "company": "Company",

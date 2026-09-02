@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { ArrowUpRight } from "lucide-react"
@@ -32,15 +35,26 @@ export default function TeamCard({
   priority = false,
   className = "",
 }: TeamCardProps) {
+  // Toggled state for small screens where hover isn't available.
+  // Desktop still relies on group-hover as before; this just adds
+  // an extra "forced open" state driven by click/tap.
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleCardClick = () => {
+    if (!about) return
+    setIsOpen((prev) => !prev)
+  }
+
   return (
     <article
+      onClick={handleCardClick}
       className={`group mx-auto w-full max-w-[350px] cursor-pointer ${className}`}
     >
       {/* =========================================
           BORDER WRAPPER
           ========================================= */}
       <div
-        className="
+        className={`
           relative
           bg-primary/30
           p-[1px]
@@ -50,14 +64,15 @@ export default function TeamCard({
           group-hover:bg-primary
           group-hover:shadow-2xl
           group-hover:shadow-primary/20
-        "
+          ${isOpen ? "bg-primary shadow-2xl shadow-primary/20" : ""}
+        `}
         style={cardShape}
       >
         {/* =========================================
             MAIN CARD
             ========================================= */}
         <div
-          className="
+          className={`
             relative
             overflow-hidden
             bg-card
@@ -65,14 +80,15 @@ export default function TeamCard({
             duration-500
             ease-out
             group-hover:-translate-y-1
-          "
+            ${isOpen ? "-translate-y-1" : ""}
+          `}
           style={cardShape}
         >
           {/* =========================================
               DECORATIVE GLOW
               ========================================= */}
           <div
-            className="
+            className={`
               pointer-events-none
               absolute
               -right-24
@@ -87,7 +103,8 @@ export default function TeamCard({
               duration-700
               group-hover:scale-150
               group-hover:bg-primary/20
-            "
+              ${isOpen ? "scale-150 bg-primary/20" : ""}
+            `}
           />
 
           {/* =========================================
@@ -111,7 +128,7 @@ export default function TeamCard({
               width={500}
               height={700}
               priority={priority}
-              className="
+              className={`
                 h-full
                 w-auto
                 object-contain
@@ -119,7 +136,8 @@ export default function TeamCard({
                 duration-700
                 ease-out
                 group-hover:scale-[1.07]
-              "
+                ${isOpen ? "scale-[1.07]" : ""}
+              `}
             />
 
             {/* Bottom image gradient */}
@@ -171,7 +189,7 @@ export default function TeamCard({
               ========================================= */}
           <div className="relative z-10 px-8 pb-10 text-center">
             <h3
-              className="
+              className={`
                 text-xl
                 font-bold
                 tracking-tight
@@ -179,7 +197,8 @@ export default function TeamCard({
                 transition-colors
                 duration-300
                 group-hover:text-primary
-              "
+                ${isOpen ? "text-primary" : ""}
+              `}
             >
               {name}
             </h3>
@@ -207,11 +226,11 @@ export default function TeamCard({
           </div>
 
           {/* =========================================
-              HOVER OVERLAY
+              HOVER / TAP OVERLAY
               ========================================= */}
           {about && (
             <div
-              className="
+              className={`
                 absolute
                 inset-0
                 z-30
@@ -227,7 +246,8 @@ export default function TeamCard({
                 duration-500
                 ease-out
                 group-hover:opacity-100
-              "
+                ${isOpen ? "opacity-100" : ""}
+              `}
             >
               {/* Inner overlay border */}
               <div
@@ -264,7 +284,7 @@ export default function TeamCard({
 
               {/* Overlay content */}
               <div
-                className="
+                className={`
                   relative
                   max-w-[270px]
                   translate-y-8
@@ -276,7 +296,8 @@ export default function TeamCard({
                   group-hover:translate-y-0
                   group-hover:scale-100
                   group-hover:opacity-100
-                "
+                  ${isOpen ? "translate-y-0 scale-100 opacity-100" : ""}
+                `}
               >
                 {/* About label */}
                 <div className="mb-5 flex items-center justify-center gap-2">
@@ -341,7 +362,10 @@ export default function TeamCard({
                     <Link
                       href={href}
                       target="_blank"
-                      className="
+                      // Stop click from bubbling to the card so tapping the
+                      // arrow navigates instead of just toggling the overlay.
+                      onClick={(e) => e.stopPropagation()}
+                      className={`
                       flex
                       h-10
                       w-10
@@ -356,7 +380,8 @@ export default function TeamCard({
                       duration-500
                       group-hover:rotate-45
                       group-hover:bg-primary/20
-                    "
+                      ${isOpen ? "rotate-45 bg-primary/20" : ""}
+                    `}
                     >
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
@@ -370,7 +395,7 @@ export default function TeamCard({
               HOVER CORNER GLOW
               ========================================= */}
           <div
-            className="
+            className={`
               pointer-events-none
               absolute
               bottom-0
@@ -387,7 +412,8 @@ export default function TeamCard({
               duration-700
               group-hover:w-1/2
               group-hover:opacity-100
-            "
+              ${isOpen ? "w-1/2 opacity-100" : ""}
+            `}
           />
         </div>
       </div>

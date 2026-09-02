@@ -17,6 +17,7 @@
     "country-data-list": "^1.6.3",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^13.1.1",
+    "jspdf": "^4.2.1",
     "lucide-react": "^1.31.0",
     "mongodb": "^7.6.0",
     "motion": "^13.1.1",

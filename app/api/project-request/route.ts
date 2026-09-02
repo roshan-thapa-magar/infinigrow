@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
     const result = await collection.insertOne({
       ...fields,
       files: uploadedFiles,
-      status: "completed",
+      status: "pending",
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -107,6 +107,46 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         message: error instanceof Error ? error.message : "Something went wrong. Please try again.",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+
+export async function GET(request: NextRequest) {
+  try {
+    const collection = await getCollection("projectRequests");
+
+    const requests = await collection
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+
+    const formattedRequests = requests.map((item) => ({
+      ...item,
+      _id: item._id.toString(),
+    }));
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Project requests fetched successfully",
+        count: formattedRequests.length,
+        data: formattedRequests,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("❌ Fetch project requests error:", error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          error instanceof Error
+            ? error.message
+            : "Failed to fetch project requests.",
       },
       { status: 500 }
     );

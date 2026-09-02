@@ -37,56 +37,62 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useTranslations } from "next-intl";
 
 // ------------------------------------------------------------
 // DATA
 // ------------------------------------------------------------
 
-const getHelpTypes = (t: any) => [
-  t("helpTypes.webApplication"),
-  t("helpTypes.mobileApplication"),
-  t("helpTypes.saasPlatform"),
-  t("helpTypes.ecommerce"),
-  t("helpTypes.businessManagement"),
-  t("helpTypes.customSoftware"),
-  t("helpTypes.other"),
+const helpTypes = [
+  "Web Application",
+  "Mobile Application",
+  "SaaS Platform",
+  "E-commerce",
+  "Business Management System",
+  "Custom Software",
+  "Other",
 ];
 
-const getBudgets = (t: any) => [
-  t("budgets.dontKnow"),
-  t("budgets.under100k"),
-  t("budgets.100kTo300k"),
-  t("budgets.300kTo500k"),
-  t("budgets.500kTo1M"),
-  t("budgets.above1M"),
+const budgets = [
+  "I don't know yet",
+  "Under NPR 100,000",
+  "NPR 100,000 – 300,000",
+  "NPR 300,000 – 500,000",
+  "NPR 500,000 – 1,000,000",
+  "Above NPR 1,000,000",
 ];
 
-const getTimelines = (t: any) => [
-  t("timelines.asap"),
-  t("timelines.within1Month"),
-  t("timelines.oneToThreeMonths"),
-  t("timelines.threeToSixMonths"),
-  t("timelines.notSure"),
-];
-
-const getHearAboutUsOptions = (t: any) => [
-  t("hearAboutUsOptions.google"),
-  t("hearAboutUsOptions.socialMedia"),
-  t("hearAboutUsOptions.referral"),
-  t("hearAboutUsOptions.linkedin"),
-  t("hearAboutUsOptions.facebook"),
-  t("hearAboutUsOptions.existingClient"),
-  t("hearAboutUsOptions.event"),
-  t("hearAboutUsOptions.other"),
+const timelines = [
+  "As soon as possible",
+  "Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "I'm not sure",
 ];
 
 const contactMethods = ["email", "phone", "whatsapp"] as const;
+
+const hearAboutUsOptions = [
+  "Google Search",
+  "Social Media",
+  "Referral from a Friend/Colleague",
+  "LinkedIn",
+  "Facebook",
+  "Existing Client",
+  "Event or Conference",
+  "Other",
+];
 
 // ------------------------------------------------------------
 // DRAFT STORAGE
 // ------------------------------------------------------------
 
+// The draft stores the form fields plus any files that finished
+// uploading to Cloudinary (uploadedFiles is just name/url/publicId
+// metadata, so it's plain JSON and safe to persist). A raw browser
+// File object that's still mid-upload or only just picked can't be
+// serialized/restored after a reload — the browser won't let a page
+// rehydrate a File without the user re-selecting it — so those are
+// left out on purpose.
 const DRAFT_STORAGE_KEY = "project-request-form-draft";
 
 interface DraftPayload {
@@ -126,6 +132,10 @@ interface UploadedFile {
 
 type PreviewKind = "image" | "pdf" | "other";
 
+// The `type` an upload API reports isn't always a clean MIME string
+// (it can be missing, or something generic like application/octet-stream),
+// so fall back to the file extension before giving up and treating it
+// as a non-previewable file.
 function getPreviewKind(file: UploadedFile): PreviewKind {
   const mime = file.type?.toLowerCase() || "";
   if (mime.startsWith("image/")) return "image";
@@ -140,6 +150,11 @@ function getPreviewKind(file: UploadedFile): PreviewKind {
   return "other";
 }
 
+// The in-app preview modal is only built for PDFs (it needs a blob
+// fetch to bypass Cloudinary's raw-resource Content-Disposition
+// header). Everything else — images included — just opens the
+// Cloudinary URL directly in a new tab instead of trying to render
+// inline.
 function openFileDirectly(url: string) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
@@ -173,13 +188,6 @@ type Step = 1 | 2 | "success";
 // ------------------------------------------------------------
 
 export default function ProjectRequestForm() {
-  const t = useTranslations("ProjectRequest");
-  
-  const helpTypes = getHelpTypes(t);
-  const budgets = getBudgets(t);
-  const timelines = getTimelines(t);
-  const hearAboutUsOptions = getHearAboutUsOptions(t);
-
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [files, setFiles] = useState<File[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
@@ -227,7 +235,11 @@ export default function ProjectRequestForm() {
   // ----------------------------------------------------------
 
   useEffect(() => {
+    // Don't run until the initial draft load above has completed,
+    // otherwise the empty initial state would overwrite a saved draft.
     if (!hasLoadedDraft.current) return;
+
+    // Don't keep auto-saving after a successful submission.
     if (step === "success") return;
 
     const isEmpty =
@@ -259,6 +271,10 @@ export default function ProjectRequestForm() {
       console.error("Failed to clear saved draft:", error);
     }
     setFormData({ ...initialFormData });
+    // Note: this only clears the restored *metadata* for files that were
+    // already uploaded to Cloudinary — it does not delete them from
+    // Cloudinary itself. Add a deleteFileFromCloudinary call per file here
+    // if you want "Clear saved data" to also remove them from storage.
     setUploadedFiles([]);
     setFiles([]);
     setHasDraft(false);
@@ -339,6 +355,7 @@ export default function ProjectRequestForm() {
 
     const incomingFiles = Array.from(selectedFiles);
 
+    // Check for duplicates
     const duplicateFiles = incomingFiles.filter((file) =>
       files.some((f) => f.name === file.name) ||
       uploadedFiles.some((f) => f.name === file.name)
@@ -347,7 +364,7 @@ export default function ProjectRequestForm() {
     if (duplicateFiles.length > 0) {
       setErrors((prev) => ({
         ...prev,
-        files: `${duplicateFiles.map(f => f.name).join(", ")} ${t("errors.filesDuplicate")}`,
+        files: `${duplicateFiles.map(f => f.name).join(", ")} already uploaded.`,
       }));
       event.target.value = "";
       return;
@@ -355,36 +372,42 @@ export default function ProjectRequestForm() {
 
     const totalFiles = files.length + incomingFiles.length;
 
+    // Check max files
     if (totalFiles > 5) {
       setErrors((prev) => ({
         ...prev,
-        files: t("errors.filesMax"),
+        files: "You can upload a maximum of 5 files.",
       }));
       event.target.value = "";
       return;
     }
 
+    // Check file size
     const tooLarge = incomingFiles.find((file) => file.size > 10 * 1024 * 1024);
     if (tooLarge) {
       setErrors((prev) => ({
         ...prev,
-        files: `${tooLarge.name} ${t("errors.filesSize")}`,
+        files: `${tooLarge.name} is larger than 10 MB.`,
       }));
       event.target.value = "";
       return;
     }
 
+    // Clear errors
     setErrors((prev) => ({ ...prev, files: "" }));
 
+    // Add files to list and start uploading
     setFiles((prev) => [...prev, ...incomingFiles]);
     setIsUploading(true);
 
+    // Upload each file
     for (const file of incomingFiles) {
       const fileName = file.name;
       setUploadingFiles((prev) => [...prev, fileName]);
       setUploadProgress((prev) => ({ ...prev, [fileName]: 0 }));
 
       try {
+        // Simulate progress
         let progress = 0;
         const progressInterval = setInterval(() => {
           progress += 10;
@@ -399,8 +422,10 @@ export default function ProjectRequestForm() {
         clearInterval(progressInterval);
         setUploadProgress((prev) => ({ ...prev, [fileName]: 100 }));
 
+        // Store uploaded file info
         setUploadedFiles((prev) => [...prev, uploaded]);
 
+        // Remove from uploading list after a short delay
         setTimeout(() => {
           setUploadingFiles((prev) => prev.filter((name) => name !== fileName));
           setUploadProgress((prev) => {
@@ -410,6 +435,7 @@ export default function ProjectRequestForm() {
           });
         }, 500);
       } catch (error) {
+        // Remove from uploading list
         setUploadingFiles((prev) => prev.filter((name) => name !== fileName));
         setUploadProgress((prev) => {
           const newProgress = { ...prev };
@@ -417,6 +443,7 @@ export default function ProjectRequestForm() {
           return newProgress;
         });
 
+        // Store error
         setUploadErrors((prev) => ({
           ...prev,
           [fileName]: error instanceof Error ? error.message : "Upload failed",
@@ -424,6 +451,7 @@ export default function ProjectRequestForm() {
       }
     }
 
+    // Check if all uploads are complete
     const checkUploadsComplete = setInterval(() => {
       if (uploadingFiles.length === 0) {
         setIsUploading(false);
@@ -435,37 +463,47 @@ export default function ProjectRequestForm() {
   };
 
   // ----------------------------------------------------------
-  // REMOVE FILE
+  // REMOVE FILE (WITH CLOUDINARY DELETE)
   // ----------------------------------------------------------
 
   const removeFile = async (fileName: string) => {
+    // Check if file is in deleting state
     if (deletingFiles.includes(fileName)) return;
 
+    // Find if file was uploaded to Cloudinary
     const uploadedFile = uploadedFiles.find((f) => f.name === fileName);
 
+    // If uploaded, delete from Cloudinary
     if (uploadedFile) {
       setDeletingFiles((prev) => [...prev, fileName]);
 
       try {
         const resourceType = uploadedFile.type?.startsWith("image/") ? "image" : "raw";
         await deleteFileFromCloudinary(uploadedFile.publicId, resourceType);
+        console.log(`✅ Deleted ${fileName} from Cloudinary`);
       } catch (error) {
-        console.error(`Failed to delete ${fileName} from Cloudinary:`, error);
+        console.error(`❌ Failed to delete ${fileName} from Cloudinary:`, error);
+        // Show error but still remove from UI
       } finally {
+        // Remove from deleting list
         setDeletingFiles((prev) => prev.filter((name) => name !== fileName));
       }
 
+      // Remove from uploaded files
       setUploadedFiles((prev) => prev.filter((f) => f.name !== fileName));
     }
 
+    // Remove from files list
     setFiles((prev) => prev.filter((f) => f.name !== fileName));
 
+    // Remove from upload errors if exists
     setUploadErrors((prev) => {
       const newErrors = { ...prev };
       delete newErrors[fileName];
       return newErrors;
     });
 
+    // Remove from uploading list if still there
     setUploadingFiles((prev) => prev.filter((name) => name !== fileName));
     setUploadProgress((prev) => {
       const newProgress = { ...prev };
@@ -475,7 +513,14 @@ export default function ProjectRequestForm() {
   };
 
   // ----------------------------------------------------------
-  // PREVIEW
+  // EYE ICON: OPEN PREVIEW
+  //
+  // Images and other files: open the Cloudinary URL directly in a
+  // new tab.
+  // PDFs: open Google Docs Viewer (also in a new tab, not a modal) —
+  // it fetches the file itself and renders it, no backend needed.
+  // Note: this requires a publicly reachable URL, so it won't work
+  // against localhost, only once deployed.
   // ----------------------------------------------------------
 
   const handlePreviewClick = (uploaded: UploadedFile) => {
@@ -491,60 +536,28 @@ export default function ProjectRequestForm() {
   };
 
   // ----------------------------------------------------------
-  // VALIDATION
+  // STEP 1 VALIDATION
   // ----------------------------------------------------------
 
   const validateStep1 = () => {
     const newErrors: Record<string, string> = {};
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = t("errors.fullName");
+      newErrors.fullName = "Please enter your full name.";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t("errors.email");
+      newErrors.email = "Please enter your email address.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t("errors.emailInvalid");
+      newErrors.email = "Please enter a valid email address.";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = t("errors.phone");
+      newErrors.phone = "Please enter your phone number.";
     }
 
     if (!formData.country) {
-      newErrors.country = t("errors.country");
-    }
-
-    setErrors((prev) => ({ ...prev, ...newErrors }));
-
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const validateStep2 = () => {
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.helpType) {
-      newErrors.helpType = t("errors.helpType");
-    }
-
-    if (formData.helpType === t("helpTypes.other") && !formData.otherHelpType.trim()) {
-      newErrors.otherHelpType = t("errors.otherHelpType");
-    }
-
-    if (!formData.description.trim()) {
-      newErrors.description = t("errors.description");
-    }
-
-    if (!formData.budget) {
-      newErrors.budget = t("errors.budget");
-    }
-
-    if (!formData.timeline) {
-      newErrors.timeline = t("errors.timeline");
-    }
-
-    if (!formData.agreed) {
-      newErrors.agreed = t("errors.agreement");
+      newErrors.country = "Please select your country.";
     }
 
     setErrors((prev) => ({ ...prev, ...newErrors }));
@@ -553,7 +566,43 @@ export default function ProjectRequestForm() {
   };
 
   // ----------------------------------------------------------
-  // NAVIGATION
+  // STEP 2 VALIDATION
+  // ----------------------------------------------------------
+
+  const validateStep2 = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.helpType) {
+      newErrors.helpType = "Please select what we can help with.";
+    }
+
+    if (formData.helpType === "Other" && !formData.otherHelpType.trim()) {
+      newErrors.otherHelpType = "Please specify what you need.";
+    }
+
+    if (!formData.description.trim()) {
+      newErrors.description = "Please tell us about your project.";
+    }
+
+    if (!formData.budget) {
+      newErrors.budget = "Please select your estimated budget.";
+    }
+
+    if (!formData.timeline) {
+      newErrors.timeline = "Please select your expected timeline.";
+    }
+
+    if (!formData.agreed) {
+      newErrors.agreed = "Please agree to the privacy policy to continue.";
+    }
+
+    setErrors((prev) => ({ ...prev, ...newErrors }));
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // ----------------------------------------------------------
+  // STEP 1 → STEP 2
   // ----------------------------------------------------------
 
   const goToStep2 = (event: FormEvent<HTMLFormElement>) => {
@@ -567,6 +616,10 @@ export default function ProjectRequestForm() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // ----------------------------------------------------------
+  // BACK
+  // ----------------------------------------------------------
+
   const goBackToStep1 = () => {
     setStep(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -579,18 +632,20 @@ export default function ProjectRequestForm() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Check if files are still uploading
     if (isUploading || uploadingFiles.length > 0) {
       setErrors((prev) => ({
         ...prev,
-        submit: t("errors.uploadWait"),
+        submit: "Please wait for all files to finish uploading.",
       }));
       return;
     }
 
+    // Check for upload errors
     if (Object.keys(uploadErrors).length > 0) {
       setErrors((prev) => ({
         ...prev,
-        submit: t("errors.uploadFailed"),
+        submit: "Some files failed to upload. Please remove them and try again.",
       }));
       return;
     }
@@ -605,6 +660,7 @@ export default function ProjectRequestForm() {
     try {
       const data = new FormData();
 
+      // Append all fields
       data.append("fullName", formData.fullName);
       data.append("email", formData.email);
       data.append("phone", formData.phone);
@@ -620,6 +676,8 @@ export default function ProjectRequestForm() {
       data.append("budget", formData.budget);
       data.append("timeline", formData.timeline);
       data.append("agreed", String(formData.agreed));
+
+      // Append uploaded file URLs instead of files
       data.append("uploadedFiles", JSON.stringify(uploadedFiles));
 
       const response = await fetch("/api/project-request", {
@@ -633,6 +691,7 @@ export default function ProjectRequestForm() {
         throw new Error(result.message || "Failed to submit your request.");
       }
 
+      // Submission succeeded — clear the saved draft.
       try {
         window.localStorage.removeItem(DRAFT_STORAGE_KEY);
       } catch (error) {
@@ -645,7 +704,7 @@ export default function ProjectRequestForm() {
     } catch (error) {
       console.error("Submit error:", error);
       setErrors({
-        submit: error instanceof Error ? error.message : t("errors.submit"),
+        submit: error instanceof Error ? error.message : "Something went wrong. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -674,6 +733,7 @@ export default function ProjectRequestForm() {
   const renderFileList = () => {
     if (files.length === 0 && uploadedFiles.length === 0) return null;
 
+    // Combine files and show their status
     const fileItems = files.map((file) => {
       const fileName = file.name;
       const isUploading = uploadingFiles.includes(fileName);
@@ -695,6 +755,10 @@ export default function ProjectRequestForm() {
       };
     });
 
+    // Files that exist in uploadedFiles (i.e. already on Cloudinary,
+    // whether from this session or restored from a saved draft) but
+    // have no matching local File object — nothing above would ever
+    // render these, since fileItems only walks `files`.
     const restoredItems = uploadedFiles.filter(
       (uploaded) => !files.some((f) => f.name === uploaded.name)
     );
@@ -735,15 +799,15 @@ export default function ProjectRequestForm() {
                         />
                       </div>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        {(file.size / 1024 / 1024).toFixed(2)} {t("fileStatus.size")} · {progress}%
+                        {(file.size / 1024 / 1024).toFixed(2)} MB · {progress}%
                       </p>
                     </div>
                   ) : (
                     <p className="truncate text-xs text-muted-foreground">
-                      {(file.size / 1024 / 1024).toFixed(2)} {t("fileStatus.size")}
-                      {isUploaded && ` ✓ ${t("fileStatus.uploaded")}`}
-                      {hasError && ` ❌ ${errorMessage || t("fileStatus.failed")}`}
-                      {isDeleting && ` 🗑️ ${t("fileStatus.deleting")}`}
+                      {(file.size / 1024 / 1024).toFixed(2)} MB
+                      {isUploaded && " ✓ Uploaded"}
+                      {hasError && ` ❌ ${errorMessage || "Failed"}`}
+                      {isDeleting && " 🗑️ Deleting..."}
                     </p>
                   )}
                 </div>
@@ -812,7 +876,7 @@ export default function ProjectRequestForm() {
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">{uploaded.name}</p>
                   <p className="truncate text-xs text-muted-foreground">
-                    {(uploaded.size / 1024 / 1024).toFixed(2)} {t("fileStatus.size")} · ✓ {t("fileStatus.uploaded")} ({t("fileStatus.restored")})
+                    {(uploaded.size / 1024 / 1024).toFixed(2)} MB · ✓ Uploaded (restored from draft)
                   </p>
                 </div>
               </div>
@@ -851,7 +915,7 @@ export default function ProjectRequestForm() {
   };
 
   // ----------------------------------------------------------
-  // STEP INDICATOR
+  // STEP INDICATOR (+ CLEAR SAVED DATA)
   // ----------------------------------------------------------
 
   const renderStepIndicator = () => {
@@ -861,8 +925,8 @@ export default function ProjectRequestForm() {
       <div className="flex items-center justify-between gap-2 border-b bg-gradient-to-r from-primary/5 to-transparent px-6 py-4 sm:gap-3 sm:px-10">
         <div className="flex min-w-0 items-center gap-2 sm:gap-3">
           {[
-            { number: 1, label: t("stepIndicator.step1") },
-            { number: 2, label: t("stepIndicator.step2") },
+            { number: 1, label: "Contact Info" },
+            { number: 2, label: "Project Details" },
           ].map((item, index) => (
             <div key={item.number} className="flex items-center gap-2 sm:gap-3">
               <div
@@ -888,6 +952,7 @@ export default function ProjectRequestForm() {
           ))}
         </div>
 
+        {/* Only shown when a draft is actually saved */}
         {hasDraft && (
           <Button
             type="button"
@@ -897,7 +962,7 @@ export default function ProjectRequestForm() {
             className="shrink-0 gap-1.5 text-xs text-muted-foreground hover:text-destructive"
           >
             <Trash2 className="h-3.5 w-3.5" />
-            <span className="hidden md:block">{t("draft.clear")}</span>
+            <span className="hidden md:block">Clear draft</span>
           </Button>
         )}
       </div>
@@ -917,30 +982,30 @@ export default function ProjectRequestForm() {
           </div>
 
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            {t("success.title")}
+            Request submitted successfully
           </h2>
 
           <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-            {t("success.description")}
+            Thank you for reaching out. Our team will review your project details and get back to you soon.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-2">
             <Badge variant="outline" className="gap-1">
               <Clock className="h-3 w-3" />
-              {t("success.badges.response")}
+              Response within 24 hours
             </Badge>
             <Badge variant="outline" className="gap-1">
               <Users className="h-3 w-3" />
-              {t("success.badges.delivered")}
+              100+ projects delivered
             </Badge>
             <Badge variant="outline" className="gap-1">
               <Shield className="h-3 w-3" />
-              {t("success.badges.consultation")}
+              No-obligation consultation
             </Badge>
           </div>
 
           <Button className="mt-8 w-full sm:w-auto" onClick={resetForm}>
-            {t("success.resetButton")}
+            Submit Another Request
           </Button>
         </CardContent>
       </Card>
@@ -953,6 +1018,7 @@ export default function ProjectRequestForm() {
 
   if (step === 2) {
     return (
+      <>
       <Card className="overflow-hidden border shadow-sm">
         <CardContent className="p-0">
           {renderStepIndicator()}
@@ -961,19 +1027,19 @@ export default function ProjectRequestForm() {
             <div className="px-6 py-8 sm:px-10">
               <div className="space-y-6">
                 {/* HELP TYPE */}
-                <FormField label={t("step2.helpType")} required error={errors.helpType}>
+                <FormField label="What can we help you with?" required error={errors.helpType}>
                   <div className="space-y-3">
                     <Select
                       value={formData.helpType}
                       onValueChange={(value) => {
                         updateField("helpType", value ?? "");
-                        if (value !== t("helpTypes.other")) {
+                        if (value !== "Other") {
                           updateField("otherHelpType", "");
                         }
                       }}
                     >
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t("step2.helpTypePlaceholder")} />
+                        <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
                       <SelectContent>
                         {helpTypes.map((type) => (
@@ -984,11 +1050,11 @@ export default function ProjectRequestForm() {
                       </SelectContent>
                     </Select>
 
-                    {formData.helpType === t("helpTypes.other") && (
+                    {formData.helpType === "Other" && (
                       <Input
                         value={formData.otherHelpType}
                         onChange={(event) => updateField("otherHelpType", event.target.value)}
-                        placeholder={t("step2.helpTypeOther")}
+                        placeholder="Please specify what you need"
                       />
                     )}
 
@@ -1000,7 +1066,7 @@ export default function ProjectRequestForm() {
 
                 {/* PREFERRED CONTACT */}
                 <div className="space-y-2">
-                  <Label>{t("step2.preferredContact")}</Label>
+                  <Label>Preferred Contact Method</Label>
                   <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
                     {contactMethods.map((method) => (
                       <button
@@ -1016,36 +1082,36 @@ export default function ProjectRequestForm() {
                         {method === "email" && <Mail className="h-3 w-3 shrink-0" />}
                         {method === "phone" && <Phone className="h-3 w-3 shrink-0" />}
                         {method === "whatsapp" && <MessageCircle className="h-3 w-3 shrink-0" />}
-                        <span className="truncate">{t(`step2.contactMethods.${method}`)}</span>
+                        <span className="truncate">{method}</span>
                       </button>
                     ))}
                   </div>
                 </div>
 
                 {/* DESCRIPTION */}
-                <FormField label={t("step2.projectDescription")} required error={errors.description}>
+                <FormField label="Tell us about your project" required error={errors.description}>
                   <Textarea
                     value={formData.description}
                     onChange={(event) => updateField("description", event.target.value)}
-                    placeholder={t("step2.projectDescriptionPlaceholder")}
+                    placeholder="What problem are you trying to solve? What would you like the software to do?"
                     className="min-h-[140px] resize-none"
                   />
                 </FormField>
 
                 {/* WEBSITE */}
-                <FormField label={t("step2.existingWebsite")} optional>
+                <FormField label="Existing Website URL" optional>
                   <Input
                     type="url"
                     value={formData.existingWebsite}
                     onChange={(event) => updateField("existingWebsite", event.target.value)}
-                    placeholder={t("step2.existingWebsitePlaceholder")}
+                    placeholder="https://example.com"
                   />
                 </FormField>
 
                 {/* FILE UPLOAD */}
                 <div>
                   <Label className="text-sm font-medium">
-                    {t("step2.fileUpload")}
+                    Attach a Brief or Reference File
                     <span className="ml-2 font-normal text-muted-foreground">Optional</span>
                   </Label>
 
@@ -1063,11 +1129,11 @@ export default function ProjectRequestForm() {
                     </div>
 
                     <p className="text-sm font-medium">
-                      {isUploading ? t("step2.fileUploading") : t("step2.fileUploadClick")}
+                      {isUploading ? "Uploading files..." : "Click to upload files"}
                     </p>
 
                     <p className="mt-1 text-xs text-muted-foreground">
-                      {t("step2.fileUploadHint")}
+                      PDF, DOCX, DOC, PNG, JPG · Max 10 MB each · Max 5 files
                     </p>
 
                     <input
@@ -1083,6 +1149,7 @@ export default function ProjectRequestForm() {
 
                   {errors.files && <p className="mt-2 text-xs text-destructive">{errors.files}</p>}
 
+                  {/* Upload errors */}
                   {Object.keys(uploadErrors).length > 0 && (
                     <div className="mt-3 space-y-2">
                       {Object.entries(uploadErrors).map(([fileName, error]) => (
@@ -1094,18 +1161,19 @@ export default function ProjectRequestForm() {
                     </div>
                   )}
 
+                  {/* File list - only show once */}
                   {renderFileList()}
                 </div>
 
                 {/* BUDGET + TIMELINE */}
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <FormField label={t("step2.budget")} required error={errors.budget}>
+                  <FormField label="Estimated Budget" required error={errors.budget}>
                     <Select
                       value={formData.budget}
                       onValueChange={(value) => updateField("budget", value ?? "")}
                     >
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t("step2.budgetPlaceholder")} />
+                        <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
                       <SelectContent>
                         {budgets.map((budget) => (
@@ -1117,13 +1185,13 @@ export default function ProjectRequestForm() {
                     </Select>
                   </FormField>
 
-                  <FormField label={t("step2.timeline")} required error={errors.timeline}>
+                  <FormField label="Expected Timeline" required error={errors.timeline}>
                     <Select
                       value={formData.timeline}
                       onValueChange={(value) => updateField("timeline", value ?? "")}
                     >
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t("step2.timelinePlaceholder")} />
+                        <SelectValue placeholder="Select timeline" />
                       </SelectTrigger>
                       <SelectContent>
                         {timelines.map((timeline) => (
@@ -1146,7 +1214,7 @@ export default function ProjectRequestForm() {
                   />
                   <div className="min-w-0">
                     <Label htmlFor="agreement" className="cursor-pointer text-sm font-normal leading-6">
-                      {t("step2.agreement")}
+                      I agree to the privacy policy and consent to being contacted regarding this project.
                       <span className="text-destructive"> *</span>
                     </Label>
                     {errors.agreed && <p className="mt-1 text-xs text-destructive">{errors.agreed}</p>}
@@ -1155,12 +1223,14 @@ export default function ProjectRequestForm() {
               </div>
             </div>
 
+            {/* SUBMIT ERROR */}
             {errors.submit && (
               <div className="mx-6 mb-4 rounded-lg border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive sm:mx-10">
                 {errors.submit}
               </div>
             )}
 
+            {/* FOOTER */}
             <div className="flex flex-col-reverse gap-3 border-t bg-muted/20 px-6 py-6 sm:flex-row sm:justify-between sm:px-10">
               <Button
                 type="button"
@@ -1170,7 +1240,7 @@ export default function ProjectRequestForm() {
                 disabled={isSubmitting}
               >
                 <ArrowLeft className="h-4 w-4" />
-                {t("step2.backButton")}
+                Back
               </Button>
 
               <Button
@@ -1182,17 +1252,17 @@ export default function ProjectRequestForm() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    {t("step2.submitting")}
+                    Submitting...
                   </>
                 ) : isUploading || uploadingFiles.length > 0 ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    {t("step2.uploadingFiles")}
+                    Uploading files...
                   </>
                 ) : (
                   <>
                     <CheckCircle className="h-4 w-4" />
-                    {t("step2.submitButton")}
+                    Submit Request
                     <ArrowRight className="h-4 w-4" />
                   </>
                 )}
@@ -1201,6 +1271,7 @@ export default function ProjectRequestForm() {
           </form>
         </CardContent>
       </Card>
+      </>
     );
   }
 
@@ -1216,61 +1287,67 @@ export default function ProjectRequestForm() {
         <form onSubmit={goToStep2}>
           <div className="px-6 py-8 sm:px-10">
             <div className="grid gap-6 sm:grid-cols-2">
-              <FormField label={t("step1.fullName")} required error={errors.fullName}>
+              {/* FULL NAME */}
+              <FormField label="Full Name" required error={errors.fullName}>
                 <Input
                   value={formData.fullName}
                   onChange={(event) => updateField("fullName", event.target.value)}
-                  placeholder={t("step1.fullNamePlaceholder")}
+                  placeholder="Your full name"
                 />
               </FormField>
 
-              <FormField label={t("step1.email")} required error={errors.email}>
+              {/* EMAIL */}
+              <FormField label="Email Address" required error={errors.email}>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(event) => updateField("email", event.target.value)}
-                  placeholder={t("step1.emailPlaceholder")}
+                  placeholder="you@example.com"
                 />
               </FormField>
 
-              <FormField label={t("step1.phone")} required error={errors.phone}>
+              {/* PHONE */}
+              <FormField label="Phone Number" required error={errors.phone}>
                 <Input
                   type="tel"
                   value={formData.phone}
                   onChange={(event) => updateField("phone", event.target.value)}
-                  placeholder={t("step1.phonePlaceholder")}
+                  placeholder="+977 98XXXXXXXX"
                 />
               </FormField>
 
-              <FormField label={t("step1.country")} required error={errors.country}>
+              {/* COUNTRY */}
+              <FormField label="Country" required error={errors.country}>
                 <CountryDropdown
-                  placeholder={t("step1.countryPlaceholder")}
+                  placeholder="Select your country"
                   defaultValue={formData.country}
                   onChange={(country: Country) => updateField("country", country.alpha3)}
                 />
               </FormField>
 
-              <FormField label={t("step1.company")} optional>
+              {/* COMPANY */}
+              <FormField label="Company Name" optional>
                 <Input
                   value={formData.company}
                   onChange={(event) => updateField("company", event.target.value)}
-                  placeholder={t("step1.companyPlaceholder")}
+                  placeholder="Optional"
                 />
               </FormField>
 
-              <FormField label={t("step1.hearAboutUs")} optional>
+              {/* HEAR ABOUT US */}
+              <FormField label="How Did You Hear About Us?" optional>
                 <div className="space-y-3">
                   <Select
                     value={formData.hearAboutUs}
                     onValueChange={(value) => {
                       updateField("hearAboutUs", value ?? "");
-                      if (value !== t("hearAboutUsOptions.other")) {
+                      if (value !== "Other") {
                         updateField("otherHearAboutUs", "");
                       }
                     }}
                   >
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder={t("step1.hearAboutUsPlaceholder")} />
+                      <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
                       {hearAboutUsOptions.map((option) => (
@@ -1281,11 +1358,11 @@ export default function ProjectRequestForm() {
                     </SelectContent>
                   </Select>
 
-                  {formData.hearAboutUs === t("hearAboutUsOptions.other") && (
+                  {formData.hearAboutUs === "Other" && (
                     <Input
                       value={formData.otherHearAboutUs}
                       onChange={(event) => updateField("otherHearAboutUs", event.target.value)}
-                      placeholder={t("step1.hearAboutUsOther")}
+                      placeholder="Please specify how you heard about us"
                     />
                   )}
                 </div>
@@ -1293,9 +1370,10 @@ export default function ProjectRequestForm() {
             </div>
           </div>
 
+          {/* NEXT */}
           <div className="flex justify-end border-t bg-muted/20 px-6 py-6 sm:px-10">
             <Button type="submit" size="lg" className="w-full gap-2 sm:w-auto">
-              {t("step1.nextButton")}
+              Next Step
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
