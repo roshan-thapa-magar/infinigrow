@@ -274,7 +274,7 @@ export function Header() {
           fixed
           inset-x-0
           top-0
-          z-[9999]
+          z-50
           h-16
           w-full
           border-b
