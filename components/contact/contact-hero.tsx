@@ -42,7 +42,7 @@ export default function ContactPage() {
 
       {/* Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="!max-w-3xl max-h-[100vh] overflow-y-auto p-0 z-[9999]">
+        <DialogContent className="!max-w-3xl max-h-[98vh] overflow-y-auto p-0 z-[9999]">
           <ProjectRequestForm  />
         </DialogContent>
       </Dialog>
