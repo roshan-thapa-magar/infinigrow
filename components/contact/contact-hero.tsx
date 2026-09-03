@@ -1,11 +1,22 @@
+// app/[locale]/contact/page.tsx
+"use client"
+
+import { useState } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { ArrowRight, Phone } from "lucide-react"
 import { useTranslations } from "next-intl"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import ProjectRequestForm from "@/components/project-request-form"
 
 export default function ContactPage() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   const t = useTranslations("ContactHero")
 
-  // Get the description array
   const description = t.raw("description") as string[]
 
   return (
@@ -13,13 +24,14 @@ export default function ContactPage() {
       <HeroSection
         badge={t("badge")}
         title={t("title")}
-        description={description} // Pass as array
-        image="/images/contact/image.png" 
+        description={description}
+        image="/images/contact/image.png"
         imageAlt={t("imageAlt")}
         primaryButton={{
           label: t("primaryButton"),
-          href: "/start-project",
+          href: "#",
           icon: <ArrowRight className="h-4 w-4" />,
+          onClick: () => setIsDialogOpen(true), // Open dialog on click
         }}
         secondaryButton={{
           label: t("secondaryButton"),
@@ -27,6 +39,13 @@ export default function ContactPage() {
           icon: <Phone className="h-4 w-4" />,
         }}
       />
+
+      {/* Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="!max-w-3xl max-h-[100vh] overflow-y-auto p-0 z-[9999]">
+          <ProjectRequestForm  />
+        </DialogContent>
+      </Dialog>
     </main>
   )
 }

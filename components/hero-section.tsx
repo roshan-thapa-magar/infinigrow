@@ -19,6 +19,7 @@ interface HeroSectionProps {
     label: string;
     href: string;
     icon?: ReactNode;
+    onClick?: () => void;
   };
 
   secondaryButton?: {
@@ -264,40 +265,48 @@ export function HeroSection({
                     >
                       <Button
                         size="lg"
+                        onClick={primaryButton.onClick}
                         className="bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/30"
                       >
-                        <Link
-                          href={primaryButton.href}
-                          className="flex items-center gap-2"
-                        >
-                          {/* {primaryButton.icon && (
+                        {primaryButton.onClick ? (
+                          // onClick button
+                          <span className="flex items-center gap-2">
+                            {primaryButton.label}
+
                             <motion.span
-                              animate={{ rotate: [0, -10, 10, 0] }}
+                              animate={{ x: [0, 5, 0] }}
                               transition={{
-                                duration: 2,
+                                duration: 1.5,
                                 repeat: Infinity,
-                                repeatDelay: 3,
+                                ease: "easeInOut",
                               }}
                             >
-                              {primaryButton.icon}
+                              <ArrowRight className="h-4 w-4" />
                             </motion.span>
-                          )} */}
-                          {primaryButton.label}
-                          <motion.span
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                            }}
+                          </span>
+                        ) : (
+                          // Link button
+                          <Link
+                            href={primaryButton.href || "#"}
+                            className="flex items-center gap-2"
                           >
-                            <ArrowRight className="h-4 w-4" />
-                          </motion.span>
-                        </Link>
+                            {primaryButton.label}
+
+                            <motion.span
+                              animate={{ x: [0, 5, 0] }}
+                              transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            >
+                              <ArrowRight className="h-4 w-4" />
+                            </motion.span>
+                          </Link>
+                        )}
                       </Button>
                     </motion.div>
                   )}
-
                   {secondaryButton && (
                     <motion.div
                       whileHover={{ scale: 1.05 }}

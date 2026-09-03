@@ -95,7 +95,7 @@ const footerLinks = [
             }}
             className="border-t bg-background"
         >
-            <div className="container mx-auto px-4 md:px-8">
+            <div className="container max-w-7xl mx-auto px-4 md:px-8">
 
                 {/* DESKTOP */}
                 <div className="hidden gap-10 py-12 md:grid md:grid-cols-2 lg:grid-cols-5 lg:py-16">
@@ -340,7 +340,7 @@ const footerLinks = [
                         delay: 0.5,
                         ease: "easeOut",
                     }}
-                    className="flex flex-col gap-4 border-t py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+                    className="flex flex-col gap-4 md:border-t py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
                 >
 
                     <p>
