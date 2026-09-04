@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongodb";
+import { sendEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -49,11 +50,6 @@ function extractFields(formData: FormData): RequestFields {
   };
 }
 
-// The frontend uploads files to Cloudinary *before* submitting the
-// form (via /api/upload), then sends the resulting metadata here as
-// a JSON string under "uploadedFiles" — it never sends raw File
-// objects under a "files" field, so this route must read that field
-// instead of trying to re-upload anything itself.
 function extractUploadedFiles(formData: FormData): UploadedFile[] {
   const raw = formData.get("uploadedFiles");
   if (!raw) return [];
@@ -75,14 +71,32 @@ function extractUploadedFiles(formData: FormData): UploadedFile[] {
   }
 }
 
+// Simple confirmation message (Plain text only)
+function generateConfirmationMessage(fields: RequestFields): string {
+  return `
+Dear ${fields.fullName},
+
+Thank you for submitting your request to Infinigrow. We have received your submission successfully.
+
+Our team will review your requirements and get back to you within 24 hours.
+
+If you have any questions, please feel free to reply to this email.
+
+Best regards,
+Infinigrow Team
+  `.trim();
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const fields = extractFields(formData);
     const uploadedFiles = extractUploadedFiles(formData);
 
-    const collection = await getCollection("projectRequests");
+    console.log("📝 Processing project request for:", fields.email);
 
+    // Save to MongoDB
+    const collection = await getCollection("projectRequests");
     const result = await collection.insertOne({
       ...fields,
       files: uploadedFiles,
@@ -90,6 +104,37 @@ export async function POST(request: NextRequest) {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
+
+    console.log("✅ Data saved to MongoDB");
+
+    // Send confirmation email to the requestor
+    if (fields.email) {
+      console.log(`📧 Attempting to send confirmation email to: ${fields.email}`);
+      
+      try {
+        const message = generateConfirmationMessage(fields);
+        
+        const emailResult = await sendEmail({
+          to: fields.email,
+          subject: `Thank you for your submission - Infinigrow`,
+          text: message,
+          html: message.replace(/\n/g, '<br>'),
+        });
+        
+        console.log(`✅ Confirmation email sent successfully to ${fields.email}`);
+        console.log(`📧 Email message ID: ${emailResult.messageId}`);
+      } catch (emailError) {
+        console.error("❌ Failed to send confirmation email:", emailError);
+        if (emailError instanceof Error) {
+          console.error("Error details:", {
+            message: emailError.message,
+            stack: emailError.stack,
+          });
+        }
+      }
+    } else {
+      console.warn("⚠️ No email provided, skipping email send");
+    }
 
     return NextResponse.json(
       {
@@ -112,7 +157,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
 
 export async function GET(request: NextRequest) {
   try {
